@@ -1,0 +1,7 @@
+[
+  { "role_id": "R001", "role_name": "Super Administrator", "status": "Yes"},
+  { "role_id": "R002", "role_name": "Administrator", "status": "Yes"},
+  { "role_id": "R003", "role_name": "Officer", "status": "Yes"},
+  { "role_id": "R004", "role_name": "Data Entry", "status": "Yes"},
+  { "role_id": "R005", "role_name": "Report Viewer", "status": "Yes"}
+]
