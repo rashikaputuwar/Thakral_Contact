@@ -24,6 +24,7 @@ h1 {
 
 body {
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .wrapper {
@@ -36,22 +37,22 @@ body {
     overflow: hidden;
     transition: all 0.35s ease-in-out;
     background-color: #fafbfe;
+    
 }
 
 #sidebar {
-    width: 70px;
-    min-width: 70px;
     z-index: 1000;
     transition: all .25s ease-in-out;
     background-color: rgb(125,125,235);
     display: flex;
     flex-direction: column;
-    
+    width: 260px; /* Set to your expanded width */
+    min-width: 260px;
 }
 
-#sidebar.expand {
-    width: 260px;
-    min-width: 260px;
+#sidebar.collapse{
+    width: 70px;
+    min-width: 70px;
 }
 
 .toggle-btn {
@@ -76,8 +77,13 @@ body {
     font-weight: 600;
 }
 
-#sidebar:not(.expand) .sidebar-logo,
+/* #sidebar:not(.expand) .sidebar-logo,
 #sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+} */
+
+#sidebar.collapse .sidebar-logo,
+#sidebar.collapse a.sidebar-link span {
     display: none;
 }
 
@@ -109,7 +115,17 @@ a.sidebar-link:hover {
     position: relative;
 }
 
-#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+/* #sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: rgb(125,125,235);
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+} */
+
+#sidebar.collapse .sidebar-item .sidebar-dropdown {
     position: absolute;
     top: 0;
     left: 70px;
@@ -119,7 +135,14 @@ a.sidebar-link:hover {
     display: none;
 }
 
-#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+/* #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+} */
+
+#sidebar.collapse .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
     display: block;
     max-height: 15em;
     width: 100%;
@@ -143,3 +166,21 @@ a.sidebar-link:hover {
     transform: rotate(45deg);
     transition: all .2s ease-out;
 }
+
+.main h1 {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #2c3e50;
+    font-size: 28px;
+}
+
+.content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
