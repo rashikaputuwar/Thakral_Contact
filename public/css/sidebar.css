@@ -133,6 +133,7 @@ a.sidebar-link:hover {
     padding: 0;
     min-width: 15rem;
     display: none;
+    margin-top: 0;
 }
 
 /* #sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
@@ -184,3 +185,43 @@ a.sidebar-link:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* Add tab-like indentation before dropdown items */
+.sidebar-item.dropdown-item {
+    padding-left: 20px; /* Add some padding to the left for indentation */
+    position: relative;
+}
+
+/* Adjust the main sidebar link padding for consistency */
+.sidebar-item > .sidebar-link {
+    padding-left: 20px; /* Add padding to the main items to align with nested items */
+}
+
+/* Adjust the nested dropdown item */
+.sidebar-item.dropdown-item .sidebar-link {
+    padding-left: 20px; /* Add indentation to nested items */
+    display: flex; /* Align the dot and text */
+    align-items: center; /* Center align the dot and text */
+}
+
+.sidebar-item.dropdown-item .sidebar-link::before {
+    content: '•'; /* Add a dot */
+    margin-right: 8px; /* Space between dot and text */
+    color: white; /* Color of the dot */
+    display: inline-block; /* Ensure it doesn't cause line break */
+}
+
+#sidebar.collapse .sidebar-item.dropdown-item {
+    padding-left: 0; /* Remove left padding when collapsed */
+}
+
+#sidebar.collapse .sidebar-item.dropdown-item .sidebar-link {
+    padding-left: 10px; /* Reduce padding for collapsed state */
+}
+
+#sidebar.collapse .sidebar-item:hover .has-dropdown+.sidebar-dropdown .sidebar-item:first-child {
+    margin-top: -1px; /* Adjust this value as needed */
+}
+
+#sidebar.collapse .sidebar-link[data-bs-toggle="collapse"]::after {
+    display: none;
+}

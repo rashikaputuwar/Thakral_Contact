@@ -34,26 +34,23 @@
                         <span>Employees</span>
                     </a>
                 </li>
-                {{-- <li class="sidebar-item">
-                    <a href="{{Route('client.index')}}" class="sidebar-link">
-                        <i class="lni lni-customer"></i>
-                        <span>Clients</span>
-                    </a> --}}
-                    <li class="sidebar-item">
-                        <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
-                            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="lni lni-users"></i>
-                            <span>Person/Organization</span>
-                        </a>
-                        <ul id="auth" class="sidebar-dropdown list-unstyled collapsed " data-bs-parent="#sidebar">
-                            <li class="sidebar-item">
-                                <a href="{{Route('client.index')}}" class="sidebar-link">Organization Details</a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="{{Route('contactPerson.index')}}" class="sidebar-link">Person Details</a>
-                            </li>
-                        </ul>
-                    </li>
+              
+                <li class="sidebar-item">
+                    <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#person-organization" aria-expanded="false" aria-controls="person-organization">
+                        <i class="lni lni-briefcase"></i>
+                        <span>Person/Organization</span>
+                    </a>
+                    <ul id="person-organization" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item dropdown-item">
+                            <a href="{{Route('client.index')}}" class="sidebar-link">Organization Details</a>
+                        </li>
+                        <li class="sidebar-item dropdown-item">
+                            <a href="{{Route('contactPerson.index')}}" class="sidebar-link">Contact Person Details</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link">
                         <i class="lni lni-customer"></i>
@@ -68,24 +65,24 @@
                 </li>
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                        data-bs-target="#user-management" aria-expanded="false" aria-controls="user-management">
                         <i class="lni lni-users"></i>
                         <span>User Mgmt</span>
                     </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapsed " data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
+                    <ul id="user-management" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item dropdown-item">
                             <a href="{{route('show.User')}}" class="sidebar-link">User</a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item dropdown-item">
                             <a href="{{route('roles.index')}}" class="sidebar-link">Role</a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item dropdown-item">
                             <a href="" class="sidebar-link">Menu</a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item dropdown-item">
                             <a href="{{Route('rolesmenu')}}" class="sidebar-link">Role_Menu</a>
                         </li>
-                        <li class="sidebar-item">
+                        <li class="sidebar-item dropdown-item">
                             <a href="" class="sidebar-link">User_Role</a>
                         </li>
                     </ul>

@@ -10,27 +10,38 @@
                     </div>
 
                     <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
                         <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a>
+                        </div>
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Company Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
                                 <th>Contact Number</th>
                                 <th>Email</th>
                                 <th>Address</th>
                                 <th>Associated Company</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($contactPerson as $id => $contactPerson)
+                            @foreach($contactPersons as $contactPerson)
                          <tr>
                             <td>{{ $contactPerson->id }}</td>
-                            <td>{{ $contactPerson->client_name }}</td>
+                            <td>{{ $contactPerson->first_name }}</td>
+                            <td>{{ $contactPerson->last_name }}</td>
                             <td>{{ $contactPerson->contact_number}}</td>
                             <td>{{ $contactPerson->email}}</td>
                             <td>{{ $contactPerson->address}}</td>
-                           
+                            <td>
+                                @if($contactPerson->client)
+                                    {{ $contactPerson->client->client_name }}
+                                @else
+                                    No associated company
+                                @endif
+                            </td>
                             <td>
                                 <a href="" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
