@@ -20,14 +20,11 @@ class ClientController extends Controller
 
     public function indexContactPerson()
     {
-         // Eager load the 'client' relationship
+         // Load the 'client' relationship
          $contactPersons = ContactPerson::all();
 
          // Pass the data to the view
          return view('contactPersonDetails', compact('contactPersons'));
-
-        // $contactPerson= ContactPerson::all();
-        // return view('contactPersonDetails',compact('contactPerson'));
     }
 
 

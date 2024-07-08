@@ -35,13 +35,9 @@
                             <td>{{ $contactPerson->contact_number}}</td>
                             <td>{{ $contactPerson->email}}</td>
                             <td>{{ $contactPerson->address}}</td>
-                            <td>
-                                @if($contactPerson->client)
-                                    {{ $contactPerson->client->client_name }}
-                                @else
-                                    No associated company
-                                @endif
-                            </td>
+                            <td>{{ $contactPerson->client->client_name }}</td>
+
+                            
                             <td>
                                 <a href="" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
