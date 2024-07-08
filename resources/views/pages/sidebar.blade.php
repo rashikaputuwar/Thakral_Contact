@@ -34,12 +34,26 @@
                         <span>Employees</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                {{-- <li class="sidebar-item">
+                    <a href="{{Route('client.index')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Clients</span>
-                    </a>
-                </li>
+                    </a> --}}
+                    <li class="sidebar-item">
+                        <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="lni lni-users"></i>
+                            <span>Person/Organization</span>
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapsed " data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="{{Route('client.index')}}" class="sidebar-link">Organization Details</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{{Route('contactPerson.index')}}" class="sidebar-link">Person Details</a>
+                            </li>
+                        </ul>
+                    </li>
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link">
                         <i class="lni lni-customer"></i>
@@ -69,7 +83,7 @@
                             <a href="" class="sidebar-link">Menu</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="" class="sidebar-link">Role_Menu</a>
+                            <a href="{{Route('rolesmenu')}}" class="sidebar-link">Role_Menu</a>
                         </li>
                         <li class="sidebar-item">
                             <a href="" class="sidebar-link">User_Role</a>
