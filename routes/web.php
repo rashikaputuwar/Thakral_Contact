@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleMenuController;
@@ -38,8 +40,17 @@ Route::get('/clients/create/contact', [ClientController::class, 'createContact']
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
 Route::post('/clients/store/contactPerson', [ClientController::class, 'storeContactPerson'])->name('contactPerson.store');
 
+//config.department
+Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
+Route::get('/department/create', [DepartmentController::class, 'create'])->name('department.create');
+Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
+
+
+//employee 
+Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
 
 
 //for rolemenu
 Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
+
 

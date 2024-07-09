@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                    <a href="{{Route('employee.index')}}" class="sidebar-link">
                         <i class="lni lni-smile"></i>
                         <span>Employees</span>
                     </a>
@@ -84,6 +84,21 @@
                         </li>
                         <li class="sidebar-item dropdown-item">
                             <a href="" class="sidebar-link">User_Role</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item">
+                    <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#configuration" aria-expanded="false" aria-controls="configurationn">
+                        <i class="lni lni-cog"></i>
+                        <span>Configuration</span>
+                    </a>
+                    <ul id="configuration" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item dropdown-item">
+                            <a href="" class="sidebar-link">Designation</a>
+                        </li>
+                        <li class="sidebar-item dropdown-item">
+                            <a href="{{Route('department.index')}}" class="sidebar-link">Department</a>
                         </li>
                     </ul>
                 </li>

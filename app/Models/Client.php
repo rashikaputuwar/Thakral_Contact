@@ -17,6 +17,7 @@ class Client extends Model
         'website',
         'address',
     ];
+    
     public function contactPersons()
     {
         return $this->hasMany(ContactPerson::class, 'client_id');

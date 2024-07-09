@@ -3,12 +3,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 class="text-center mb-4">Add New Client</h2>
+                <h2 class="text-center mb-4">Add New Organization</h2>
                 <form action="{{Route('client.store')}}" method="POST">
                     @csrf
                     </div>
                     <div class="row mb-3">
-                        <label for="company_name" class="col-sm-4 col-form-label text-end">Associated Company Name*</label>
+                        <label for="company_name" class="col-sm-4 col-form-label text-end">Company Name*</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="company_name" name="company_name" required>
                         </div>

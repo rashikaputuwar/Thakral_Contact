@@ -18,7 +18,8 @@ class ContactPerson extends Model
         'contact_number',
         'address',
     ];
-        public function client()
+    
+    public function client()
     {
         return $this->belongsTo(Client::class, 'client_id');
     }
