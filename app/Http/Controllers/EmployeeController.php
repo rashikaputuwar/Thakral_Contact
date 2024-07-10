@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Designation;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\DB;
+use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
@@ -11,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employeeDetails');
+        $employees = Employee::all();
+        return view('employeeDetails', compact('employees'));
     }
 
     /**
@@ -19,7 +23,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $designations = Designation::all();
+        return view('add.addEmployee', ['designations' => $designations]);
     }
 
     /**
@@ -27,7 +32,44 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the request
+        // $request->validate([
+        //     'emp_code' => 'required|string|max:255',
+        //     'first_name' => 'required|string|max:255',
+        //     'last_name' => 'required|string|max:255',
+        //     'gender' => 'required|string|in:female,male,others',
+        //     'department' => 'required|exists:departments,id',
+        //     'desgination' => 'required|exists:designations,id',
+        //     'dob' => 'required|date',
+        //     'joining_date' => 'required|date',
+        //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
+
+        // Handle the file upload and blob creation
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $photoBlob = $file->store('employee_photos', 'public'); // Store the file and get the paths
+        }
+
+        // Create the employee record
+        $employees = Employee::create([
+            'emp_code' => $request->emp_code,
+            'fname' => $request->first_name,
+            'lname' => $request->last_name,
+            'gender' => $request->gender,
+            'dept_id' => $request->department,
+            'desig_id' => $request->designation,
+            'dob' => $request->dob,
+            'join_date' => $request->joining_date,
+            'photo_blob' => $photoBlob ?? null, // Store the file path or blob data here
+        ]);
+
+        if ($employees) {
+            return redirect()->route('employee.index'); // Assuming you have a route named 'employee.index' for listing employees
+        } else {
+            return back()->withInput()->with('error', 'Failed to add employee');
+        }
+
     }
 
     /**

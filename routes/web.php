@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
@@ -43,14 +44,19 @@ Route::post('/clients/store/contactPerson', [ClientController::class, 'storeCont
 //config.department
 Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
 Route::get('/department/create', [DepartmentController::class, 'create'])->name('department.create');
-Route::post('/department', [DepartmentController::class, 'store'])->name('department.store');
+Route::post('/department/store', [DepartmentController::class, 'store'])->name('department.store');
 
 
 //employee 
 Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
-
+Route::get('/employee/create', [EmployeeController::class,'create'])->name('employee.create');
+Route::post('/employee/store', [EmployeeController::class,'store'])->name('employee.store');
 
 //for rolemenu
 Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
 
 
+//Designation
+Route::get('/designation',[DesignationController::class,'index'])->name('designation.index');
+Route::get('/designation/create',[DesignationController::class,'create'])->name('designation.create');
+Route::post('/designation/store',[DesignationController::class,'store'])->name('designation.store');

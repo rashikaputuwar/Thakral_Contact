@@ -13,16 +13,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        // Read fixed roles from JSON file
-        // $fixedRoles = json_decode(File::get(path:'database/json.roles.json'), true);
-        $jsonPath = database_path('json/roles.json');
-        $fixedRoles = json_decode(File::get($jsonPath), true);
-
         // Get dynamic roles from database
-        $dbRoles = Role::all()->toArray();
-
-        // Merge both sets of roles
-        $roles = array_merge($fixedRoles, $dbRoles);
+        $roles = Role::all();
 
         return view('user_mg.role', compact('roles'));
     }

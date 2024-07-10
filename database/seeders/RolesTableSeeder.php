@@ -14,16 +14,35 @@ class RolesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        // Path to your JSON file
-        $jsonPath = database_path('json/roles.json');
-        
-        // Read the file
-        $json = File::get($jsonPath);
-        
-        // Decode JSON data
-        $roles = json_decode($json, true);
-        
-        // Insert data into the roles table
+        $roles = [
+            [
+                'role_id' => 'R001',
+                'role_name' => 'Super Administrator',
+                'status' => 'Yes',
+            ],
+            [
+                'role_id' => 'R002',
+                'role_name' => 'Administrator',
+                'status' => 'Yes',
+            ],
+            [
+                'role_id' => 'R003',
+                'role_name' => 'Officer',
+                'status' => 'Yes',
+            ],
+            [
+                'role_id' => 'R004',
+                'role_name' => 'Data Entry',
+                'status' => 'Yes',
+            ],
+            [
+                'role_id' => 'R005',
+                'role_name' => 'Report Viewer',
+                'status' => 'Yes',
+            ],
+        ];
+
+        // Insert data into the database using DB facade
         DB::table('roles')->insert($roles);
     }
 }
