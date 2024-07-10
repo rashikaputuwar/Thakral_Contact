@@ -32,7 +32,7 @@ class DepartmentController extends Controller
     {
         $departments = DB:: table('departments')
         ->insert([
-            // 'client_id' => $request->client_id,
+            
             'dept_name' => $request->dept_name,
         ]);
 

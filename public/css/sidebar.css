@@ -225,3 +225,20 @@ a.sidebar-link:hover {
 #sidebar.collapse .sidebar-link[data-bs-toggle="collapse"]::after {
     display: none;
 }
+
+#sidebar .sidebar-link,
+#sidebar .sidebar-link:hover,
+#sidebar .sidebar-link:focus {
+    text-decoration: none !important;
+    color: black !important;
+
+}
+
+a.sidebar-link[href="{{Route('roles.index')}}"]:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+a.sidebar-link[href="{{Route('roles.index')}}"] span {
+    font-size: 0.9rem; /* or whatever font size you want */
+}
