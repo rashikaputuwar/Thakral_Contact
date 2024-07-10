@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Designation;
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\DB;
@@ -24,7 +25,8 @@ class EmployeeController extends Controller
     public function create()
     {
         $designations = Designation::all();
-        return view('add.addEmployee', ['designations' => $designations]);
+        $departments = Department ::all();
+        return view('add.addEmployee', ['designations' => $designations],['departments' => $departments]);
     }
 
     /**

@@ -61,7 +61,12 @@
                 <div class="row mb-3">
                     <label for="department" class="col-sm-4 col-form-label text-end required-asterisk">Department</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="department" name="department" required>
+                        {{-- <input type="text" class="form-control" id="department" name="department" required> --}}
+                        <select name="department">
+                            @foreach($departments as $department)
+                                <option value="{{ $department->id }}">{{ $department->dept_name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 

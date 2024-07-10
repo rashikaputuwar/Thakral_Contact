@@ -23,7 +23,7 @@
                                 <th>Gender</th>
                                 <th>Department</th>
                                 <th>Designation</th>
-                                {{-- <th>Actions</th> --}}
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,14 +36,11 @@
                             <td>{{ $employee->lname }}</td>
                             <td>{{ $employee->gender}}</td>
                             <td>{{ $employee->departments->dept_name}}</td>
-                            <td>{{ $employee->desig_id}}</td>
-                            {{-- <td>{{ $employee->client->client_name }}</td> --}}
-
-                            
-                            {{-- <td>
+                            <td>{{ $employee->designations->desig_name}}</td>
+                            <td>
                                 <a href="" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
-                            </td> --}}
+                            </td>
                         </tr>
                              @endforeach
                         </tbody>

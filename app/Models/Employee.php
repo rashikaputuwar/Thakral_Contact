@@ -24,4 +24,8 @@ class Employee extends Model
     public function departments(){
         return $this->hasOne(Department::class,'id','dept_id');
     }
+
+    public function designations(){
+        return $this->hasOne(Designation::class,'id','desig_id');
+    }
 }
