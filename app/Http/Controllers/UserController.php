@@ -60,7 +60,10 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+            $user = add_user::find($id);
+            return view('user_mg.view.userView',compact('user'));
+            
+        
     }
 
     /**
@@ -68,7 +71,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $user = add_user::find($id);
+        return view('user_mg.edit.userEdit', ['user' => $user]);
+        
     }
 
     /**

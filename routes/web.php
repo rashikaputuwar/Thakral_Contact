@@ -4,9 +4,12 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleMenuController;
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,6 +19,8 @@ Route::get('/', function () {
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
 Route::post('/addUser', [UserController::class,'store'])->name('add.User'); 
+Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
+Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
 
 
 //ROUTES FOR FORM PAGES--POST METHOD
@@ -60,3 +65,16 @@ Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu'
 Route::get('/designation',[DesignationController::class,'index'])->name('designation.index');
 Route::get('/designation/create',[DesignationController::class,'create'])->name('designation.create');
 Route::post('/designation/store',[DesignationController::class,'store'])->name('designation.store');
+
+
+//Menu
+Route::get('/menu',[MenuController::class,'index'])->name('menu.index');
+Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
+Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
+
+//visitor
+Route::get('/visitor',[VisitorController::class,'index'])->name('visitor.index');
+
+
+
+

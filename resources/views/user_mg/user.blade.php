@@ -36,8 +36,8 @@
                             <td>{{ $user->employee_id}}</td>
                             <td>{{ $user->status }}</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('edit.User',$user->id)}}" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>
                              @endforeach

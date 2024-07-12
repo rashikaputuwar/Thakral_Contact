@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                <a href="{{Route('visitor.index')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>
@@ -78,7 +78,7 @@
                             <a href="{{route('roles.index')}}" class="sidebar-link">Role</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
-                            <a href="" class="sidebar-link">Menu</a>
+                        <a href="{{Route('menu.index')}}" class="sidebar-link">Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('rolesmenu')}}" class="sidebar-link">Role_Menu</a>
