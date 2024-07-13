@@ -73,7 +73,10 @@ Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create')
 Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
 
 //visitor
-Route::get('/visitor',[VisitorController::class,'index'])->name('visitor.index');
+Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');
+Route::post('/visitor',[VisitorController::class,'handleForm'])->name('visitor.handleForm');
+Route::post('/visitor/update',[VisitorController::class,'update'])->name('visitor.update');
+Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
 
 
 

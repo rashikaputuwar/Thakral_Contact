@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                <a href="{{Route('visitor.index')}}" class="sidebar-link">
+                <a href="{{Route('visitor.showForm')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>

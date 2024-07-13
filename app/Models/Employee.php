@@ -20,6 +20,12 @@ class Employee extends Model
         'join_date',
         'photo_blob',
     ];
+
+    // Accessor for full name
+    public function getFullNameAttribute()
+    {
+        return "{$this->fname} {$this->lname}";
+    }
     public function departments(){
         return $this->hasOne(Department::class,'id','dept_id');
     }
