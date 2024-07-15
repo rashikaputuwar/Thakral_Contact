@@ -22,6 +22,7 @@ Route::post('/addUser', [UserController::class,'store'])->name('add.User');
 Route::get('/user/create', [UserController::class,'create'])->name('create.user');
 Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
 Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
+Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.user');
 
 
 //ROUTES FOR FORM PAGES--POST METHOD

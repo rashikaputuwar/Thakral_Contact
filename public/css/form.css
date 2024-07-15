@@ -3,3 +3,14 @@
     color: red;
     margin-left: 5px;
 }
+
+.small-input{
+    width: 200px;
+
+}
+.auto-resize {
+    width: auto;
+    min-width: 100px;
+    max-width: 100%;
+    box-sizing: content-box;
+}

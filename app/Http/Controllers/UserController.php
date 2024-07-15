@@ -75,8 +75,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        $user = add_user::find($id);
-        return view('user_mg.edit.userEdit', ['user' => $user]);
+        $data = add_user::find($id);
+        // dd($user->status);
+        return view('user_mg.edit.userEdit', compact('data'));
         
     }
 
@@ -85,7 +86,22 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // $user = DB::table('add_users')->where('id',$id)->get();
+    //     $user = DB::table('add_users')->find($id);
+
+    //   return view('user_mg.edit.userEdit',['data'=>$user]);
+            $user = DB::table('add_users')
+            ->where('id',$id)
+            ->update([
+                'user_name'=>$request->user_name,
+                'expiry_date'=>$request->expiry_date,
+                'status'=> $request->status,
+                ]);
+            if ($user) {
+                return redirect()->route('show.User');
+                } else {
+                    echo "<h2>Data Not Updated.</h2>";
+                    }
     }
 
     /**

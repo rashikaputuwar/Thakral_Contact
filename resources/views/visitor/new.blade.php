@@ -13,24 +13,24 @@
                             @csrf
                             <input type="hidden" name="phone" value="{{ $phone }}">
                             <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" name="name" required>
+                                <label for="name" class="required-asterisk">Name:</label>
+                                <input type="text" class="form-control auto-resize" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <label for="email" class="required-asterisk">Email:</label>
+                                <input type="email" class="form-control auto-resize" id="email" name="email">
                             </div>
                             <div class="form-group">
-                                <label for="company">Company:</label>
-                                <input type="text" class="form-control" id="company" name="company">
+                                <label for="company" class="required-asterisk">Company:</label>
+                                <input type="text" class="form-control auto-resize" id="company" name="company">
                             </div>
                             <div class="form-group">
-                                <label for="visited_at">Time Visited:</label>
-                                <input type="datetime-local" class="form-control" id="visited_at" name="visited_at" required>
+                                <label for="visited_at" class="required-asterisk" >Time Visited:</label>
+                                <input type="datetime-local" class="form-control auto-resize" id="visited_at" name="visited_at" required >
                             </div>
                             <div class="form-group">
-                                <label for="visiting">Visiting:</label>
-                                <select class="form-control" id="visiting" name="visiting" required>
+                                <label for="visiting" class="required-asterisk">Visiting:</label>
+                                <select class="form-control auto-resize" id="visiting" name="visiting" required>
                                     @foreach($employees as $employee)
                                         <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
                                     @endforeach

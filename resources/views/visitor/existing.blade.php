@@ -13,23 +13,23 @@
                             @csrf
                             <input type="hidden" name="phone" value="{{ $visitor->phone }}">
                             <div class="form-group">
-                                <label for="name">Name:</label>
+                                <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ $visitor->name }}" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email:</label>
+                                <label for="email">Email</label>
                                 <input type="text" class="form-control" id="email" name="email" value="{{ $visitor->email }}" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="company">Company:</label>
+                                <label for="company">Company</label>
                                 <input type="text" class="form-control" id="company" name="company" value="{{ $visitor->company }}" disabled>
                             </div>
                             <div class="form-group">
-                                <label for="visited_at">Time Visited:</label>
+                                <label for="visited_at" class="required-asterisk">Time Visited</label>
                                 <input type="datetime-local" class="form-control" id="visited_at" name="visited_at" required>
                             </div>
                             <div class="form-group">
-                                <label for="visiting">Visiting:</label>
+                                <label for="visiting"  class="required-asterisk">Visiting</label>
                                 <select class="form-control" id="visiting" name="visiting" required>
                                     @foreach($employees as $employee)
                                         <option value="{{ $employee->id }}">{{ $employee->full_name }}</option>

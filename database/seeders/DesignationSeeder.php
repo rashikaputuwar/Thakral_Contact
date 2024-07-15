@@ -68,6 +68,7 @@ class DesignationSeeder extends Seeder
             ]
 
         ];
+        
         DB::table("designations")->insert($designation);
 
     }

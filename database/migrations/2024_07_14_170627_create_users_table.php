@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('user_name');
             // $table->string('user_id')->unique();
             $table->string('password');
-           
             $table->unsignedBigInteger('employee_id')->nullable()->unique();
             $table->date('expiry_date');
-            $table->enum('status', ['active', 'inactive', 'locked'])->default('active');
+            $table->enum('status', ['Active', 'Inactive', 'Locked'])->default('Active');
 
 
             // $table->timestamps();
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('add_users');
     }
 };

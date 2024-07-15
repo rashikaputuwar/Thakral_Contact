@@ -8,31 +8,35 @@
                     @csrf
                     </div>
                     <div class="row mb-3">
-                        <label for="company_name" class="col-sm-4 col-form-label text-end">Company Name*</label>
+                        <label for="company_name" class="col-sm-4 col-form-label text-end required-asterisk">Company Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="company_name" name="company_name" required>
                         </div>
                     </div>
+
                     <div class="row mb-3">
-                        <label for="email" class="col-sm-4 col-form-label text-end">Email*</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="email" name="email" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="contact" class="col-sm-4 col-form-label text-end">Contact Number*</label>
+                        <label for="contact" class="col-sm-4 col-form-label text-end required-asterisk">Contact Number</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="contact" name="contact" required>
                         </div>
                     </div>
+
                     <div class="row mb-3">
-                        <label for="address" class="col-sm-4 col-form-label text-end">Address*</label>
+                        <label for="email" class="col-sm-4 col-form-label text-end required-asterisk">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="email" name="email" required>
+                        </div>
+                    </div>
+                   
+                    <div class="row mb-3">
+                        <label for="address" class="col-sm-4 col-form-label text-end">Address</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="address" name="address" required>
                         </div>
                     </div>
+                    
                     <div class="row mb-3">
-                        <label for="website" class="col-sm-4 col-form-label text-end">website*</label>
+                        <label for="website" class="col-sm-4 col-form-label text-end">website</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="website" name="website" required>
                         </div>

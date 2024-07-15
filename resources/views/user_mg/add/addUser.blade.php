@@ -14,7 +14,7 @@
                     </div> --}}
     
                     <div class="row mb-3">
-                        <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee </label>
+                        <label for="employee_id" class="col-sm-4 col-form-label text-end required-asterisk">Select Employee</label>
                         <div class="col-sm-8">
                         <select class="form-control" id="employee_id" name="employee_id" required>
                             @foreach($employees as $employee)
@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <label for="user_name" class="col-sm-4 col-form-label text-end">User Name*</label>
+                        <label for="user_name" class="col-sm-4 col-form-label text-end required-asterisk">User Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="user_name" name="username" required>
                         </div>
@@ -33,14 +33,14 @@
     
 
                     <div class="row mb-3">
-                        <label for="password" class="col-sm-4 col-form-label text-end">Password*</label>
+                        <label for="password" class="col-sm-4 col-form-label text-end required-asterisk">Password</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" id="password" name="userpassword" required>
                         </div>
                     </div>
     
                     <div class="row mb-3">
-                        <label for="password_confirmation" class="col-sm-4 col-form-label text-end">Repeat password*</label>
+                        <label for="password_confirmation" class="col-sm-4 col-form-label text-end required-asterisk">Repeat password</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                         </div>
@@ -68,14 +68,14 @@
                     
     
                     <div class="row mb-3">
-                        <label for="expiry_date" class="col-sm-4 col-form-label text-end">Expiry Date*</label>
+                        <label for="expiry_date" class="col-sm-4 col-form-label text-end required-asterisk">Expiry Date</label>
                         <div class="col-sm-8">
                             <input type="date" class="form-control" id="expiry_date" name="expiry_date" required>
                         </div>
                     </div>
     
                     <div class="row mb-3">
-                        <label for="status" class="col-sm-4 col-form-label text-end">Status*</label>
+                        <label for="status" class="col-sm-4 col-form-label text-end required-asterisk">Status</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="status" name="status" required>
                                 <option value="active">Active</option>

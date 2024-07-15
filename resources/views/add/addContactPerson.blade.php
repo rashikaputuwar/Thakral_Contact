@@ -9,37 +9,37 @@
 
         </div>
         <div class="row mb-3">
-            <label for="client id" class="col-sm-4 col-form-label text-end">Client_Id*</label>
+            <label for="client id" class="col-sm-4 col-form-label text-end required-asterisk">Client_Id</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="client id" name="client_id" required>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="first name" class="col-sm-4 col-form-label text-end">First Name*</label>
+            <label for="first name" class="col-sm-4 col-form-label text-end required-asterisk">First Name</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="first name" name="first_name" required>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="last name" class="col-sm-4 col-form-label text-end">Last Name*</label>
+            <label for="last name" class="col-sm-4 col-form-label text-end required-asterisk">Last Name</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="last name" name="last_name" required>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="email" class="col-sm-4 col-form-label text-end">Email*</label>
+            <label for="email" class="col-sm-4 col-form-label text-end required-asterisk">Email</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="email" name="email" required>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="contact" class="col-sm-4 col-form-label text-end">Contact Number*</label>
+            <label for="contact" class="col-sm-4 col-form-label text-end required-asterisk">Contact Number</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="contact" name="contact" required>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="address" class="col-sm-4 col-form-label text-end">Address*</label>
+            <label for="address" class="col-sm-4 col-form-label text-end required-asterisk">Address</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="address" name="address" required>
             </div>
