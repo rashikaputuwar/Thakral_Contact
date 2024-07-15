@@ -4,35 +4,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="text-center mb-4">Update User</h2>
-                <form action="{{ route('user.update', $user->id) }}" method="POST">
+                <form action="" method="POST">
                     @csrf 
-                   @method('PUT')
-                    <div class="row mb-3">
-                        <label for="user_id" class="col-sm-4 col-form-label text-end">User Id*</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="user_id" name="userid" value="{{ old('userid', $user->user_id ?? '') }}" required>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="email" class="col-sm-4 col-form-label text-end">Email*</label>
-                        <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                    </div>
-    
-                    <div class="row mb-3">
-                        <label for="password" class="col-sm-4 col-form-label text-end">Password*</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password" name="userpassword" required>
-                        </div>
-                    </div> 
-    
-                     <div class="row mb-3">
-                        <label for="password_confirmation" class="col-sm-4 col-form-label text-end">Repeat password*</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-                        </div>
-                    </div>
+                   {{-- @method('PUT') --}}
     
                     <div class="row mb-3">
                         <label for="user_name" class="col-sm-4 col-form-label text-end">User Name*</label>

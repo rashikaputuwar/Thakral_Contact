@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('designations', function (Blueprint $table) {
             $table->id();
             $table->string('desig_name')->unique();
+            
             $table->timestamps();
         });
     }

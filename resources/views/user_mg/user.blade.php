@@ -18,10 +18,10 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>User ID</th>
+                                {{-- <th>User ID</th> --}}
                                 <th>User Name</th>
-                                <th>PW Expiry Date</th>
                                 <th>Employee Id</th>
+                                <th>PW Expiry Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -32,8 +32,8 @@
                             <td>{{ $user->id }}</td>
                             {{-- <td>{{ $user->user_id}}</td> --}}
                             <td>{{ $user->user_name }}</td>
+                            <td>{{ $user->employee->fname}} {{ $user->employee->lname}}</td>
                             <td>{{ $user->expiry_date }}</td>
-                            <td>{{ $user->employee->emp_name}}</td>
                             <td>{{ $user->status }}</td>
                             <td>
                                 <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>

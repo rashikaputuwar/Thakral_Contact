@@ -14,6 +14,25 @@
                     </div> --}}
     
                     <div class="row mb-3">
+                        <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee </label>
+                        <div class="col-sm-8">
+                        <select class="form-control" id="employee_id" name="employee_id" required>
+                            @foreach($employees as $employee)
+                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="user_name" class="col-sm-4 col-form-label text-end">User Name*</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="user_name" name="username" required>
+                        </div>
+                    </div>
+    
+
+                    <div class="row mb-3">
                         <label for="password" class="col-sm-4 col-form-label text-end">Password*</label>
                         <div class="col-sm-8">
                             <input type="password" class="form-control" id="password" name="userpassword" required>
@@ -27,13 +46,7 @@
                         </div>
                     </div>
     
-                    <div class="row mb-3">
-                        <label for="user_name" class="col-sm-4 col-form-label text-end">User Name*</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="user_name" name="username" required>
-                        </div>
-                    </div>
-    
+                    
                     {{-- <div class="row mb-3">
                         <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee Id</label>
                         <div class="col-sm-8">
@@ -52,16 +65,7 @@
                             </select>
                         </div>
                     </div> --}}
-                    <div class="row mb-3">
-                        <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee </label>
-                        <div class="col-sm-8">
-                        <select class="form-control" id="employee_id" name="employee_id" required>
-                            @foreach($employees as $employee)
-                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
-                            @endforeach
-                        </select>
-                        </div>
-                    </div>
+                    
     
                     <div class="row mb-3">
                         <label for="expiry_date" class="col-sm-4 col-form-label text-end">Expiry Date*</label>

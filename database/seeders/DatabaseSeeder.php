@@ -16,6 +16,14 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolesTableSeeder::class
         ]);
+
+        $this->call([
+           DesignationSeeder::class
+        ]);
+
+        $this->call([
+           DepartmentSeeder::class
+        ]);
         // User::factory(10)->create();
 
         // User::factory()->create([

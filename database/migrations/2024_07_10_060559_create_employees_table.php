@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            // $table->string('emp_code')->unique();
+            $table->string('emp_code')->unique();
             $table->string('fname');
             $table->string('lname');
-            $table->enum('gender', ['female', 'male','others'])->default('male');
+            $table->enum('gender', ['Female', 'Male','others'])->default('Male');
             $table->unsignedBigInteger('dept_id');
             $table->unsignedBigInteger('desig_id');
             $table->date('dob');
