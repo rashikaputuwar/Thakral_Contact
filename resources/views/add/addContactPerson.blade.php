@@ -9,9 +9,15 @@
 
         </div>
         <div class="row mb-3">
-            <label for="client id" class="col-sm-4 col-form-label text-end required-asterisk">Client_Id</label>
+            <label for="client id" class="col-sm-4 col-form-label text-end required-asterisk">Select Company</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="client id" name="client_id" required>
+                {{-- <input type="text" class="form-control" id="client id" name="client_id" required> --}}
+                <select class="form-control" id="client_id" name="client_id" required>
+                    @foreach($clients as $client)
+                        <option value="{{ $client->id }}">{{ $client->client_name }} </option>
+                    @endforeach
+                </select>
+            
             </div>
         </div>
         <div class="row mb-3">

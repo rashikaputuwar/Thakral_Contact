@@ -29,7 +29,7 @@
                             <td>{{ $designation->id }}</td>
                             <td>{{ $designation->desig_name }}</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('designation.show',$designation->id)}}" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>

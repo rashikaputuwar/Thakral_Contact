@@ -14,7 +14,7 @@ class DesignationController extends Controller
     public function index()
     {
         $designations = Designation::all(); 
-        return view("designation", compact("designations"));
+        return view("config.designation", compact("designations"));
     }
 
     /**
@@ -49,7 +49,8 @@ class DesignationController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $designation = Designation::find($id);
+        return view('viewPages.viewDesignation',compact('designation'));
     }
 
     /**

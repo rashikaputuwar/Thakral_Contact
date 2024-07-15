@@ -13,16 +13,16 @@
                             @csrf
                             <input type="hidden" name="phone" value="{{ $visitor->phone }}">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" id="name" name="name" value="{{ $visitor->name }}" disabled>
+                                <label for="name">Name:</label>
+                                {{ $visitor->name }}
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" value="{{ $visitor->email }}" disabled>
+                                <label for="email">Email:</label>
+                                {{ $visitor->email }}
                             </div>
                             <div class="form-group">
-                                <label for="company">Company</label>
-                                <input type="text" class="form-control" id="company" name="company" value="{{ $visitor->company }}" disabled>
+                                <label for="company">Company:</label>
+                                {{ $visitor->company }}
                             </div>
                             <div class="form-group">
                                 <label for="visited_at" class="required-asterisk">Time Visited</label>

@@ -37,7 +37,9 @@ class ClientController extends Controller
     }
     public function createContact()
     {
-        return view('add.addContactPerson');
+        $clients = Client::all();
+        // dd($clients);
+        return view('add.addContactPerson',compact('clients'));
     }
 
     /**

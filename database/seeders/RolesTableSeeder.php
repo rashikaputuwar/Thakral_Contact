@@ -27,7 +27,7 @@ class RolesTableSeeder extends Seeder
             ],
             [
                 'role_id' => 'R003',
-                'role_name' => 'Officer',
+                'role_name' => 'Head Of Department - HOD',
                 'status' => 'Yes',
             ],
             [
@@ -37,7 +37,12 @@ class RolesTableSeeder extends Seeder
             ],
             [
                 'role_id' => 'R005',
-                'role_name' => 'Report Viewer',
+                'role_name' => 'Employee',
+                'status' => 'Yes',
+            ],
+            [
+                'role_id' => 'R006',
+                'role_name' => 'Acting Head Of Department',
                 'status' => 'Yes',
             ],
         ];

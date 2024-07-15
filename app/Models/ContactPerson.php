@@ -23,4 +23,6 @@ class ContactPerson extends Model
     {
         return $this->belongsTo(Client::class, 'client_id');
     }
+
+    
 }

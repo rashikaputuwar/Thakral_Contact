@@ -27,7 +27,7 @@
                             <td>{{ $department->id }}</td>
                             <td>{{ $department->dept_name }}</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('department.show',$department->id)}}" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>

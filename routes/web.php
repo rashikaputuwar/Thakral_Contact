@@ -52,6 +52,7 @@ Route::post('/clients/store/contactPerson', [ClientController::class, 'storeCont
 Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
 Route::get('/department/create', [DepartmentController::class, 'create'])->name('department.create');
 Route::post('/department/store', [DepartmentController::class, 'store'])->name('department.store');
+Route::get('/department/show/{id}',[DepartmentController::class,'show'])->name('department.show');
 
 
 //employee 
@@ -67,6 +68,7 @@ Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu'
 Route::get('/designation',[DesignationController::class,'index'])->name('designation.index');
 Route::get('/designation/create',[DesignationController::class,'create'])->name('designation.create');
 Route::post('/designation/store',[DesignationController::class,'store'])->name('designation.store');
+Route::get('/Designation/show/{id}',[DesignationController::class,'show'])->name('designation.show');
 
 
 //Menu
