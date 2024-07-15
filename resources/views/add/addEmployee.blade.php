@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h2 class="text-center mb-4">Add Department</h2>
+            <h2 class="text-center mb-4">Add Employee</h2>
             <form action="{{ route('employee.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
                 </div>

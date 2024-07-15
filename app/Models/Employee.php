@@ -10,7 +10,7 @@ class Employee extends Model
     use HasFactory;
     protected $table = "employees";
     protected $fillable = [
-        'emp_code',
+        
         'fname',
         'lname',
         'gender',
@@ -32,5 +32,10 @@ class Employee extends Model
 
     public function designations(){
         return $this->hasOne(Designation::class,'id','desig_id');
+    }
+
+    public function users()
+    {
+        return $this->hasMany(add_user::class, 'employee_id');
     }
 }

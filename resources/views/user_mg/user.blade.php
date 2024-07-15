@@ -12,7 +12,7 @@
                     
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="/newuser" class="btn btn-success btn-sm btn-add-user">Add Users</a>
+                        <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user">Add Users</a>
                      </div>
                         <table class="table table-bordered">
                             <thead>
@@ -30,10 +30,10 @@
                             @foreach($users as $id => $user)
                          <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->user_id}}</td>
+                            {{-- <td>{{ $user->user_id}}</td> --}}
                             <td>{{ $user->user_name }}</td>
                             <td>{{ $user->expiry_date }}</td>
-                            <td>{{ $user->employee_id}}</td>
+                            <td>{{ $user->employee->emp_name}}</td>
                             <td>{{ $user->status }}</td>
                             <td>
                                 <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>

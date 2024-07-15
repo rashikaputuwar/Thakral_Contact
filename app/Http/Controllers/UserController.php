@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\add_user;
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = add_user::all(['id', 'user_id', 'user_name','expiry_date','employee_id','status']);
+        $users = add_user::all(['id', 'user_name','expiry_date','employee_id','status']);
         // return view('role',compact('roles'));
         return view('user_mg.user', ['users' => $users]);
     }
@@ -24,6 +25,9 @@ class UserController extends Controller
      */
     public function create()
     {
+        $employees= Employee::all();
+        // dd($employees);
+        return view('user_mg.add.addUser', ['employees'=> $employees]);
         // return view('user_mg.add.addUsers');
     }
 
@@ -36,10 +40,10 @@ class UserController extends Controller
 
         $user = DB::table('add_users')
             ->insert([
-                'user_id' => $request->userid,
+                // 'user_id' => $request->userid,
                 'password' => $hashedPassword,
                 'user_name' => $request->username,
-                'employee_id' => $request->usereid,
+                'employee_id' => $request->employee_id,
                 'expiry_date' => $request->expiry_date,
                 'status' => $request->status ?? 'active',
 

@@ -19,15 +19,16 @@ Route::get('/', function () {
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
 Route::post('/addUser', [UserController::class,'store'])->name('add.User'); 
+Route::get('/user/create', [UserController::class,'create'])->name('create.user');
 Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
 Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
 
 
 //ROUTES FOR FORM PAGES--POST METHOD
 // Route::view('newuser','user_mg.add.addUser');
-Route::get('newuser', function () {
-    return view('user_mg.add.addUser');
-})->name('newuser');
+// Route::get('newuser', function () {
+//     return view('user_mg.add.addUser');
+// })->name('newuser');
 
 
 // routes/web.php

@@ -6,12 +6,12 @@
                 <h2 class="text-center mb-4">Add New User</h2>
                 <form action="{{Route('add.User')}}" method="POST">
                     @csrf
-                    <div class="row mb-3">
+                    {{-- <div class="row mb-3">
                         <label for="user_id" class="col-sm-4 col-form-label text-end">User Id*</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="user_id" name="userid" required>
                         </div>
-                    </div>
+                    </div> --}}
     
                     <div class="row mb-3">
                         <label for="password" class="col-sm-4 col-form-label text-end">Password*</label>
@@ -34,11 +34,32 @@
                         </div>
                     </div>
     
-                    <div class="row mb-3">
+                    {{-- <div class="row mb-3">
                         <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee Id</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="employee_id" name="employeeid" required>
                           
+                        </div>
+                    </div> --}}
+
+                    {{-- <div class="row mb-3">
+                        <label for="employee_id" class="col-sm-4 col-form-label text-end required-asterisk">Employee Id</label>
+                        <div class="col-sm-8">
+                            <select name="employee">
+                                @foreach($employees as $employee)
+                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
+                            @endforeach
+                            </select>
+                        </div>
+                    </div> --}}
+                    <div class="row mb-3">
+                        <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee </label>
+                        <div class="col-sm-8">
+                        <select class="form-control" id="employee_id" name="employee_id" required>
+                            @foreach($employees as $employee)
+                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
     
