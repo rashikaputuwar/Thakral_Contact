@@ -17,8 +17,9 @@
                         <label for="employee_id" class="col-sm-4 col-form-label text-end required-asterisk">Select Employee</label>
                         <div class="col-sm-8">
                         <select class="form-control" id="employee_id" name="employee_id" required>
+                            <option value="">---Select Employee---</option>
                             @foreach($employees as $employee)
-                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
+                                <option value="{{ $employee->id }}" data-email="{{ $employee->email }}">{{ $employee->full_name }}</option>
                             @endforeach
                         </select>
                         </div>
@@ -45,26 +46,6 @@
                             <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                         </div>
                     </div>
-    
-                    
-                    {{-- <div class="row mb-3">
-                        <label for="employee_id" class="col-sm-4 col-form-label text-end">Employee Id</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="employee_id" name="employeeid" required>
-                          
-                        </div>
-                    </div> --}}
-
-                    {{-- <div class="row mb-3">
-                        <label for="employee_id" class="col-sm-4 col-form-label text-end required-asterisk">Employee Id</label>
-                        <div class="col-sm-8">
-                            <select name="employee">
-                                @foreach($employees as $employee)
-                                <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
-                            @endforeach
-                            </select>
-                        </div>
-                    </div> --}}
                     
     
                     <div class="row mb-3">
@@ -96,6 +77,10 @@
         </div>
     </div>  
   
+@endsection
+
+@section('scripts')  
+<script src="{{ asset('js/scripts.js') }}"></script>
 @endsection
 
 {{-- adding title name --}}

@@ -58,6 +58,7 @@ class EmployeeController extends Controller
             'emp_code' => $request->emp_code,
             'fname' => $request->first_name,
             'lname' => $request->last_name,
+            'email'=> $request->email,
             'gender' => $request->gender,
             'dept_id' => $request->department,
             'desig_id' => $request->designation,

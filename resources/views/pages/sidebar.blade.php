@@ -128,6 +128,10 @@
     crossorigin="anonymous"></script>
 <script src="{{ asset('js/sidebar.js') }}"></script>
 
+<section>
+    @yield('scripts')
+</section>
+
 </body>
 
 </html>

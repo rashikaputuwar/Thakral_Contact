@@ -50,7 +50,10 @@
             </div>
         </div>
     </div>
+      
 @endsection
+
+
 
 {{-- adding title name --}}
 @section('title')

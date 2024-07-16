@@ -13,6 +13,7 @@ class Employee extends Model
         'emp_code',
         'fname',
         'lname',
+        'email',
         'gender',
         'desig_id',
         'dept_id',

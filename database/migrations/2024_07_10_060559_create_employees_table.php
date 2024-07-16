@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('emp_code')->unique();
             $table->string('fname');
             $table->string('lname');
+            $table->string('email');
             $table->enum('gender', ['Female', 'Male','others'])->default('Male');
             $table->unsignedBigInteger('dept_id');
             $table->unsignedBigInteger('desig_id');

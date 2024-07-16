@@ -29,6 +29,13 @@
                 </div>
 
                 <div class="row mb-3">
+                    <label for="email" class="col-sm-4 col-form-label text-end required-asterisk">Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control auto-resize" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
                     <label for="gender" class="col-sm-4 col-form-label text-end required-asterisk">Gender</label>
                     <div class="col-sm-8">
                         <select class="form-control auto-resize" id="gender" name="gender" required>
@@ -97,6 +104,8 @@
 </div>
 
 @endsection
+
+
 
 {{-- adding title name --}}
 @section('title')
