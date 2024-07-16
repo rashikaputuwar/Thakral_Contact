@@ -39,7 +39,7 @@
                             <td>{{ $employee->designations->desig_name}}</td>
                             <td>
                                 <a href="{{Route('employee.show',$employee->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('employee.edit',$employee->id)}}" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>
                              @endforeach

@@ -16,12 +16,17 @@ return new class extends Migration
             $table->string('emp_code')->unique();
             $table->string('fname');
             $table->string('lname');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->string('personal_contact')->unique();
+            $table->string('office_contact')->unique();
+            $table->string('extention_contact')->unique();
             $table->enum('gender', ['Female', 'Male','others'])->default('Male');
             $table->unsignedBigInteger('dept_id');
             $table->unsignedBigInteger('desig_id');
             $table->date('dob');
             $table->date('join_date');
+            $table->string('temp_address');
+            $table->string('perm_address');
             $table->binary('photo_blob')->nullable();
             $table->timestamps();
 

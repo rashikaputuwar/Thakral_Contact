@@ -36,6 +36,27 @@
                 </div>
 
                 <div class="row mb-3">
+                    <label for="contact" class="col-sm-4 col-form-label text-end required-asterisk">Personal Contact Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="personal_contact" name="personal_contact" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="office_contact" class="col-sm-4 col-form-label text-end required-asterisk">Office Contact Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="office_contact" name="office_contact" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="extention_contact" class="col-sm-4 col-form-label text-end required-asterisk">Employee Extention
+                        Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="extention_contact" name="extention_contact" required>
+                    </div>
+                </div> 
+                <div class="row mb-3">
                     <label for="gender" class="col-sm-4 col-form-label text-end required-asterisk">Gender</label>
                     <div class="col-sm-8">
                         <select class="form-control auto-resize" id="gender" name="gender" required>
@@ -46,6 +67,20 @@
                     </div>
                 </div>
 
+                <div class="row mb-3">
+                    <label for="temp_address" class="col-sm-4 col-form-label text-end required-asterisk">Temporary Address</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="temp_address" name="temp_address" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="perm_address" class="col-sm-4 col-form-label text-end required-asterisk">Permanent Address</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="perm_address" name="perm_address" required>
+                    </div>
+                </div>
+        
                 <div class="row mb-3">
                     <label for="dob" class="col-sm-4 col-form-label text-end required-asterisk">Date of Birth</label>
                     <div class="col-sm-8">

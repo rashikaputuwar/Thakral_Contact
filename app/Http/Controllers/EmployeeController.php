@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Designation;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Models\Employee;
 
 class EmployeeController extends Controller
@@ -89,7 +89,9 @@ class EmployeeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $employee = Employee::find($id);
+        // dd($user->status);
+        return view('update.updateEmployee', compact('employee'));
     }
 
     /**
@@ -97,7 +99,26 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $employees = DB::table('employees')
+        ->where('id',$id)
+        ->update([
+            'emp_code'=>$request->emp_code,
+            'fname'=>$request->first_name,
+            'lname'=>$request->last_name,
+            'email'=>$request->email,
+            'gender'=>$request->gender,
+            'dept_id'=>$request->department,
+            'desig_id'=>$request->designation,
+            'dob'=>$request->dob,
+            'join_date'=>$request->joining_date,
+            
+            ]);
+        if ($employees) {
+            return redirect()->route('employee.show',$id);
+            } 
+        else{
+            echo "<h2>Data Not Updated.</h2>";
+        }
     }
 
     /**
