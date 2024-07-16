@@ -13,6 +13,7 @@
             <div class="col-sm-8">
                 {{-- <input type="text" class="form-control" id="client id" name="client_id" required> --}}
                 <select class="form-control" id="client_id" name="client_id" required>
+                    <option value="">---Select Company---</option>
                     @foreach($clients as $client)
                         <option value="{{ $client->id }}">{{ $client->client_name }} </option>
                     @endforeach

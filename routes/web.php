@@ -43,6 +43,8 @@ Route::get('/client',[ClientController::class,'index'])->name('client.index');
 Route::get('/contact',[ClientController::class,'indexContactPerson'])->name('contactPerson.index');
 Route::get('/clients/create', [ClientController::class, 'createClient'])->name('client.createClient');
 Route::get('/clients/create/contact', [ClientController::class, 'createContact'])->name('client.createContact');
+Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerson'])->name('contactPerson.show');
+Route::get('/client/view/{id}',[ClientController::class,'show'])->name('client.show');
 
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
@@ -59,6 +61,7 @@ Route::get('/department/show/{id}',[DepartmentController::class,'show'])->name('
 Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
 Route::get('/employee/create', [EmployeeController::class,'create'])->name('employee.create');
 Route::post('/employee/store', [EmployeeController::class,'store'])->name('employee.store');
+Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('employee.show');
 
 //for rolemenu
 Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');

@@ -89,7 +89,14 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $client = Client::find($id);
+        return view('viewPages.viewClient',compact('client'));
+    }
+
+    public function showContactPerson(string $id)
+    {
+        $contactPerson = ContactPerson::find($id);
+        return view('viewPages.viewContactPerson', compact('contactPerson'));
     }
 
     /**

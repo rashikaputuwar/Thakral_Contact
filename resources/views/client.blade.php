@@ -36,7 +36,7 @@
                             <td>{{ $client->address}}</td>
                             <td>{{ $client->website}}</td>
                             <td>
-                                <a href="" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('client.show',$client->id)}}" class="btn btn-primary btn-sm">View</a>
                                 <a href="" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>
