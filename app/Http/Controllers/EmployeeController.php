@@ -35,17 +35,20 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         // Validate the request
-        // $request->validate([
-        //     'emp_code' => 'required|string|max:255',
-        //     'first_name' => 'required|string|max:255',
-        //     'last_name' => 'required|string|max:255',
-        //     'gender' => 'required|string|in:female,male,others',
-        //     'department' => 'required|exists:departments,id',
-        //     'desgination' => 'required|exists:designations,id',
-        //     'dob' => 'required|date',
-        //     'joining_date' => 'required|date',
-        //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        // ]);
+        $request->validate([
+            'emp_code' => 'required|string|max:255', 
+            'first_name' => 'required|string|max:255',
+            'personal_contact' => 'required|numeric|digits:10',
+            'office_contact' => 'required|numeric|digits:10',
+            'email' => 'nullable|email|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|in:Female,Male,Others',
+            'department' => 'required|exists:departments,id',
+            'designation' => 'required|exists:designations,id',
+            'dob' => 'required|date',
+            'joining_date' => 'required|date',
+            // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
         // Handle the file upload and blob creation
         if ($request->hasFile('photo')) {
@@ -62,7 +65,7 @@ class EmployeeController extends Controller
             'gender' => $request->gender,
             'personal_contact'=> $request->personal_contact,
             'office_contact'=> $request->office_contact,
-            'extention_contact'=> $request->extention_contact,
+            // 'extention_contact'=> $request->extention_contact,
             'dept_id' => $request->department,
             'desig_id' => $request->designation,
             'dob' => $request->dob,
@@ -104,6 +107,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
         $employees = DB::table('employees')
         ->where('id',$id)
         ->update([
@@ -112,6 +116,10 @@ class EmployeeController extends Controller
             'lname'=>$request->last_name,
             'email'=>$request->email,
             'gender'=>$request->gender,
+            'personal_contact'=>$request->personal_contact,
+            'office_contact'=>$request->office_contact,
+            'temp_address'=>$request->temp_address,
+            'perm_address'=>$request->perm_address,
             'dept_id'=>$request->department,
             'desig_id'=>$request->designation,
             'dob'=>$request->dob,

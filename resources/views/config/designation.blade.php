@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> Desigantion Details</h2>
+                        <h2 class="display-6 text-center"> Designation Details</h2>
                     </div>
 
                     <div class="card-body">

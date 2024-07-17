@@ -14,9 +14,10 @@
                             <th>Gender</th>
                             <th>Email</th>
                             <th>DOB(A.D)</th>
-                            <th>Personal Contact no</th>
-                            <th>Office contact number</th>
-                            <th>Employee Extention Number</th>
+                            {{-- <th>Personal Contact no</th> --}}
+                            <th>Personal Num</th>
+                            {{-- <th>Office contact number</th> --}}
+                            <th>Office Num</th>
                             <th>Employee start date</th>
                             <th>Temporary Address</th>
                             <th>Permanent Address</th>
@@ -35,7 +36,7 @@
                             <td>{{ $employee->dob}}</td>
                             <td>{{ $employee->personal_contact}}</td>
                             <td>{{ $employee->office_contact}}</td>
-                            <td>{{ $employee->extention_contact}}</td>
+                           
                             <td>{{ $employee->join_date}}</td>
                             <td>{{ $employee->temp_address}}</td>
                             <td>{{ $employee->perm_address}}</td>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('personal_contact')->unique();
             $table->string('office_contact')->unique();
-            $table->string('extention_contact')->unique();
+            // $table->string('extention_contact')->unique();
             $table->enum('gender', ['Female', 'Male','others'])->default('Male');
             $table->unsignedBigInteger('dept_id');
             $table->unsignedBigInteger('desig_id');

@@ -17,7 +17,7 @@ class Employee extends Model
         'gender',
         'personal_contact',
         'office_contact',
-        'extention_contact',
+   
         'desig_id',
         'dept_id',
         'dob',
@@ -43,5 +43,9 @@ class Employee extends Model
     public function users()
     {
         return $this->hasMany(add_user::class, 'employee_id');
+    }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class,'userroles','employee_id','role_id');
     }
 }

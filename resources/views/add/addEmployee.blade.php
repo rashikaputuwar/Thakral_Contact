@@ -1,6 +1,15 @@
 @extends('pages.sidebar')
 @section('content')
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center mb-4">Add Employee</h2>
@@ -38,28 +47,29 @@
                 <div class="row mb-3">
                     <label for="contact" class="col-sm-4 col-form-label text-end required-asterisk">Personal Contact Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="personal_contact" name="personal_contact" required>
+                        <input type="text" class="form-control auto-resize" id="personal_contact" name="personal_contact" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="office_contact" class="col-sm-4 col-form-label text-end required-asterisk">Office Contact Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="office_contact" name="office_contact" required>
+                        <input type="text" class="form-control auto-resize" id="office_contact" name="office_contact" required>
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                     <label for="extention_contact" class="col-sm-4 col-form-label text-end required-asterisk">Employee Extention
                         Number</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="extention_contact" name="extention_contact" required>
                     </div>
-                </div> 
+                </div>  --}}
                 <div class="row mb-3">
                     <label for="gender" class="col-sm-4 col-form-label text-end required-asterisk">Gender</label>
                     <div class="col-sm-8">
                         <select class="form-control auto-resize" id="gender" name="gender" required>
+                            <option value="">--Select Gender--</option>
                             <option value="Female">Female</option>
                             <option value="Male">Male</option>
                             <option value="Others">Others</option>
@@ -70,14 +80,14 @@
                 <div class="row mb-3">
                     <label for="temp_address" class="col-sm-4 col-form-label text-end required-asterisk">Temporary Address</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="temp_address" name="temp_address" required>
+                        <input type="text" class="form-control auto-resize" id="temp_address" name="temp_address" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="perm_address" class="col-sm-4 col-form-label text-end required-asterisk">Permanent Address</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="perm_address" name="perm_address" required>
+                        <input type="text" class="form-control auto-resize" id="perm_address" name="perm_address" required>
                     </div>
                 </div>
         
@@ -93,6 +103,7 @@
                     <div class="col-sm-8">
                         {{-- <input type="text" class="form-control" id="designation" name="designation" required> --}}
                         <select name="designation">
+                            <option value="">--Select Designation--</option>
                             @foreach($designations as $designation)
                                 <option value="{{ $designation->id }}">{{ $designation->desig_name }}</option>
                             @endforeach
@@ -105,6 +116,7 @@
                     <div class="col-sm-8">
                         {{-- <input type="text" class="form-control" id="department" name="department" required> --}}
                         <select name="department">
+                            <option value="">--Select Department--</option>
                             @foreach($departments as $department)
                                 <option value="{{ $department->id }}">{{ $department->dept_name }}</option>
                             @endforeach

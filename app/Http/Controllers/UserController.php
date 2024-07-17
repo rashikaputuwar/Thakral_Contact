@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\add_user;
@@ -25,10 +26,18 @@ class UserController extends Controller
      */
     public function create()
     {
-        $employees= Employee::all();
+        // $employees= Employee::all();
+        //to display only emp who dont have roles assigned
+        $empWithOutRoles = Employee::whereDoesntHave('roles')
+        ->get();
+        $roles = Role::where('status', 'yes')->get();
         // dd($employees);
-        return view('user_mg.add.addUser', ['employees'=> $employees]);
-        // return view('user_mg.add.addUsers');
+        // return view('user_mg.add.addUser', compact('employees','roles'));
+
+        
+
+    //    dd($empWithOutRoles);
+        return view('user_mg.add.addUser', compact('empWithOutRoles','roles'));
     }
 
     /**
@@ -36,10 +45,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $hashedPassword = Hash::make($request->userpassword);
+        $request->validate([
+            'employee_id' => 'required|exists:employees,id',
+            'username' => 'required|string|max:255',
+            'userpassword' => 'required|string|min:8|confirmed',
+            'userpassword_confirmation' => 'required|string|min:8',
+            'expiry_date' => 'required|date',
+            'status' => 'required|string|in:active,inactive,locked',
+            'roles' => 'required|array',
+            'roles.*' => 'exists:roles,id',
+        ]);
+
+        DB::beginTransaction();
+
+        try{
+
+            $hashedPassword = Hash::make($request->userpassword);
 
         $user = DB::table('add_users')
-            ->insert([
+            ->insertGetId([
                 // 'user_id' => $request->userid,
                 'password' => $hashedPassword,
                 'user_name' => $request->username,
@@ -48,14 +72,32 @@ class UserController extends Controller
                 'status' => $request->status ?? 'active',
 
             ]);
-        if ($user) {
-            // return redirect('user_mg.user');
-            return redirect()->route('show.User');
-            // return view('user_mg.user');
-            //   echo"<h2>Data Added Successfully.</h2>";
-        } else {
-            echo "<h2>Data Not Added.</h2>";
+
+            foreach ($request->roles as $roleId) {
+                DB::table('userroles')->insert([
+                    'employee_id' => $request->employee_id,
+                    'role_id' => $roleId,
+                ]);
+            }
+
+            DB::commit();
+            return redirect()->route('show.User')->with('success', 'User created successfully with assigned roles!');
+        }catch(\Exception $e){
+            DB::rollback();
+            return redirect()->back()->with('error', 'Error while creating user!');
         }
+
+        
+    
+           
+        // if ($user) {
+        //     // return redirect('user_mg.user');
+        //     return redirect()->route('show.User');
+        //     // return view('user_mg.user');
+        //     //   echo"<h2>Data Added Successfully.</h2>";
+        // } else {
+        //     echo "<h2>Data Not Added.</h2>";
+        // }
     }
     
 
