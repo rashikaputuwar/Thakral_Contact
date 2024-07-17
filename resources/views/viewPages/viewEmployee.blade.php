@@ -12,14 +12,14 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Gender</th>
+                            <th>Email</th>
+                            <th>DOB(A.D)</th>
                             <th>Personal Contact no</th>
                             <th>Office contact number</th>
-                            <th>Email</th>
+                            <th>Employee Extention Number</th>
                             <th>Employee start date</th>
                             <th>Temporary Address</th>
                             <th>Permanent Address</th>
-                            <th>DOB(A.D)</th>
-                            <th>Employee Extention Number</th>
                             <th>Department</th>
                             <th>Designation</th>
                         </tr>
@@ -31,14 +31,14 @@
                             <td>{{ $employee->fname }}</td>
                             <td>{{ $employee->lname }}</td>
                             <td>{{ $employee->gender}}</td>
-                            <td>{{ $employee->personalcontact}}</td>
-                            <td>{{ $employee->officecontact}}</td>
                             <td>{{ $employee->email}}</td>
-                            <td>{{ $employee->startdate}}</td>
+                            <td>{{ $employee->dob}}</td>
+                            <td>{{ $employee->personal_contact}}</td>
+                            <td>{{ $employee->office_contact}}</td>
+                            <td>{{ $employee->extention_contact}}</td>
+                            <td>{{ $employee->join_date}}</td>
                             <td>{{ $employee->temp_address}}</td>
                             <td>{{ $employee->perm_address}}</td>
-                            <td>{{ $employee->dob}}</td>
-                            <td>{{ $employee->extention_num}}</td>
                             <td>{{ $employee->departments->dept_name}}</td>
                             <td>{{ $employee->designations->desig_name}}</td>
                         </tr>
