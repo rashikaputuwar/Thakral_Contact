@@ -15,10 +15,15 @@ class Employee extends Model
         'lname',
         'email',
         'gender',
+        'personal_contact',
+        'office_contact',
+        'extention_contact',
         'desig_id',
         'dept_id',
         'dob',
         'join_date',
+        'temp_address',
+        'perm_address',
         'photo_blob',
     ];
 

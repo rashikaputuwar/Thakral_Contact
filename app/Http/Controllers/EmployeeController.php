@@ -60,9 +60,14 @@ class EmployeeController extends Controller
             'lname' => $request->last_name,
             'email'=> $request->email,
             'gender' => $request->gender,
+            'personal_contact'=> $request->personal_contact,
+            'office_contact'=> $request->office_contact,
+            'extention_contact'=> $request->extention_contact,
             'dept_id' => $request->department,
             'desig_id' => $request->designation,
             'dob' => $request->dob,
+            'temp_address' => $request->temp_address,
+            'perm_address' => $request->perm_address,
             'join_date' => $request->joining_date,
             'photo_blob' => $photoBlob ?? null, // Store the file path or blob data here
         ]);

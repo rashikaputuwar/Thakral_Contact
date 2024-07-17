@@ -32,7 +32,6 @@
                         </div>
                     </div>
     
-
                     <div class="row mb-3">
                         <label for="password" class="col-sm-4 col-form-label text-end required-asterisk">Password</label>
                         <div class="col-sm-8">
