@@ -5,6 +5,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleMenuController;
@@ -88,5 +89,6 @@ Route::post('/visitor/update',[VisitorController::class,'update'])->name('visito
 Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
 
 
-
-
+//for permission aka button
+Route::get('/button',[PermissionController::class,'index'])->name('button.index');
+Route::get('/button/create',[PermissionController::class,'create'])->name('button.create');

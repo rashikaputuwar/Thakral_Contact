@@ -102,6 +102,10 @@
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('department.index')}}" class="sidebar-link">Department</a>
                         </li>
+                        <li class="sidebar-item dropdown-item">
+                            <a href="{{Route('button.index')}}"
+                             class="sidebar-link">Permission</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

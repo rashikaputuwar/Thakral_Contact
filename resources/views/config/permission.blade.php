@@ -5,29 +5,29 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> Menu Information</h2>
+                        <h2 class="display-6 text-center"> Permission Information</h2>
                     </div>
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm btn-add-user">Add Menu</a>
+                        <a href="{{Route('button.create')}}" class="btn btn-success btn-sm btn-add-user">Add Button</a>
                      </div>
 
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Menu</th>
+                                <th>Button Name</th>
                                 <th>Status</th>
-                                <th>Action</th>            
-                                <th>Button</th>            
+                                {{-- <th>Action</th>            
+                                <th>Button</th>             --}}
                             </tr>
                         </thead>
 
-                        <tbody>
+                        {{-- <tbody>
                             @foreach ($menus as $item)
                             <tr>
-                                <td>{{$item["menu_id"]}}</td>
+                                <td>{{$item["_id"]}}</td>
                                 <td>{{$item["menu_name"]}}</td>
                                 <td>{{$item["status"]}}</td>
                                 <td>
@@ -37,7 +37,7 @@
                                 <td></td>
                             </tr>
                            @endforeach
-                        </tbody>
+                        </tbody> --}}
 
                         </table>
                     </div>
