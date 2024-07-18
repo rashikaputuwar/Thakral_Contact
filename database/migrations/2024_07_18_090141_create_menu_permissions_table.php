@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('menu_permissions', function (Blueprint $table) {
             $table->id();
-            // $table->string('menu_id')->unique();
-            $table->string('menu_name');
-            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->unsignedBigInteger('menu_id');
+            $table->unsignedBigInteger('button_id');  
             $table->timestamps();
+
+            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            $table->foreign('button_id')->references('id')->on('permissions')->onDelete('cascade');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('menu_permissions');
     }
 };
