@@ -12,4 +12,8 @@ class Menu extends Model
 
     protected $fillable = ['menu_id', 'menu_name'];
 
+    public function permissions(){
+        return $this->belongsToMany(Permission::class, 'permission_id', 'menu_id');
+    }
+
 }

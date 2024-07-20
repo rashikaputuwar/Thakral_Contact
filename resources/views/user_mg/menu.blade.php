@@ -20,19 +20,19 @@
                                 <th>Menu</th>
                                 <th>Status</th>
                                 <th>Action</th>            
-                                <th>Button</th>            
+                                {{-- <th>Button</th>             --}}
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($menus as $item)
+                            @foreach ($menus as $menu)
                             <tr>
-                                <td>{{$item["menu_id"]}}</td>
-                                <td>{{$item["menu_name"]}}</td>
-                                <td>{{$item["status"]}}</td>
+                                <td>{{$menu["id"]}}</td>
+                                <td>{{$menu["menu_name"]}}</td>
+                                <td>{{$menu["status"]}}</td>
                                 <td>
                                     <a><button class="btn btn-primary">View</button></a>
-                                    <a> <button class="btn btn-warning text-white">Update</button></a>
+                                    <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
                                 <td></td>
                             </tr>

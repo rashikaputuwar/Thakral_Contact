@@ -92,3 +92,4 @@ Route::post('/visitor/create',[VisitorController::class,'create'])->name('visito
 //for permission aka button
 Route::get('/button',[PermissionController::class,'index'])->name('button.index');
 Route::get('/button/create',[PermissionController::class,'create'])->name('button.create');
+Route::post('/button/store',[PermissionController::class,'store'])->name('button.store');

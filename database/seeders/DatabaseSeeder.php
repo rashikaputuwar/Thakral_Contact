@@ -24,6 +24,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
            DepartmentSeeder::class
         ]);
+
+        $this->call([
+            PermissionSeeder::class
+        ]);
+
+        
         // User::factory(10)->create();
 
         // User::factory()->create([

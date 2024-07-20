@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+
+use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -21,7 +24,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('user_mg.add.addMenu');
+        $permissions = Permission::all();
+        return view('user_mg.add.addMenu',compact('permissions'));
+        // return view('user_mg.add.addMenu');
     }
 
     /**
@@ -41,6 +46,12 @@ class MenuController extends Controller
             'status' => $request->status
         ]);
 
+        foreach($request->permissions as $permissionId){
+            DB::table('permissions')->insert([
+                'menu_id'=>$request->id,
+                'permission_id'=>$permissionId,
+            ]);
+        }
         return redirect()->route('menu.index')->with('success', 'Role added successfully');
     }
 

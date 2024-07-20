@@ -4,7 +4,7 @@
        <div class="row justify-content-center">
          <div class="col-md-8">
            <h2 class="text-center text-complementary">Add Permission</h2>
-           <form action="#" method="post">
+           <form action="{{Route('button.store')}}" method="post">
              @csrf
               {{-- <div class="row mb-3">
                        <label for="permissionid" class="col-sm-4 col-form-label text-end">Menu Id</label>

@@ -19,25 +19,23 @@
                                 <th>Id</th>
                                 <th>Button Name</th>
                                 <th>Status</th>
-                                {{-- <th>Action</th>            
-                                <th>Button</th>             --}}
                             </tr>
                         </thead>
 
-                        {{-- <tbody>
-                            @foreach ($menus as $item)
+                        <tbody>
+                            @foreach ($permissions as $permission)
                             <tr>
-                                <td>{{$item["_id"]}}</td>
-                                <td>{{$item["menu_name"]}}</td>
-                                <td>{{$item["status"]}}</td>
-                                <td>
+                                <td>{{$permission["id"]}}</td>
+                                <td>{{$permission["button_name"]}}</td>
+                                <td>{{$permission["status"]}}</td>
+                                {{-- <td>
                                     <a><button class="btn btn-primary">View</button></a>
                                     <a> <button class="btn btn-warning text-white">Update</button></a>
-                                </td>
-                                <td></td>
+                                </td> --}}
+                                {{-- <td></td> --}}
                             </tr>
                            @endforeach
-                        </tbody> --}}
+                        </tbody>
 
                         </table>
                     </div>
