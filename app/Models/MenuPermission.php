@@ -9,5 +9,6 @@ class MenuPermission extends Model
 {
     use HasFactory;
     protected $table = 'menu_permissions';
+    protected $fillable = ['menu_id', 'button_id'];
     
 }

@@ -27,14 +27,14 @@
                         <tbody>
                             @foreach ($menus as $menu)
                             <tr>
-                                <td>{{$menu["id"]}}</td>
-                                <td>{{$menu["menu_name"]}}</td>
-                                <td>{{$menu["status"]}}</td>
+                                <td>{{ $menu->id }}</td>
+                                <td>{{ $menu->menu_name }}</td>
+                                <td>{{ $menu->status }}</td>
                                 <td>
                                     <a><button class="btn btn-primary">View</button></a>
                                     <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
-                                <td></td>
+                                {{-- <td></td> --}}
                             </tr>
                            @endforeach
                         </tbody>

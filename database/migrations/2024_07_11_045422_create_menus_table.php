@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            // $table->string('menu_id')->unique();
+            $table->string('menu_id')->unique();
             $table->string('menu_name');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();

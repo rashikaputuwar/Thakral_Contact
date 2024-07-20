@@ -6,12 +6,12 @@
            <h2 class="text-center text-complementary">Add Menu</h2>
            <form action="{{Route('menu.store')}}" method="post">
              @csrf
-              {{-- <div class="row mb-3">
+              <div class="row mb-3">
                        <label for="menuid" class="col-sm-4 col-form-label text-end">Menu Id</label>
                        <div class="col-sm-8">
                            <input type="text" class="form-control" id="menuid" name="menuid" required>
                        </div>
-               </div> --}}
+               </div>
 
                <div class="row mb-3">
                        <label for="menuname" class="col-sm-4 col-form-label text-end">Name</label>
@@ -34,10 +34,9 @@
 
                 
                <div class="row mb-3">
-                <label for="menuname" class="col-sm-4 col-form-label text-end">Button</label>
+                <label for="permissions" class="col-sm-4 col-form-label text-end">Permissions</label>
                 <div class="col-sm-8">
-                    {{-- <input type="text" class="form-control" id="menuname" name="menuname" required>
-                </div> --}}
+                  
                 @foreach ($permissions as $permission)
                 <div class="form-check">
                   <input type="checkbox" class="form-check-input" id="permission{{$permission->id}}" name="permissions[]" value="{{$permission->id}}">

@@ -15,6 +15,6 @@ class Permission extends Model
     ]);
 
     public function menus(){
-        return $this->belongsToMany(Menu::class,'menus','permission_id','menu_id');
+        return $this->belongsToMany(Menu::class,'menu_permissions', 'button_id', 'menu_id');
     }
 }

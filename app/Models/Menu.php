@@ -10,10 +10,10 @@ class Menu extends Model
     use HasFactory;
     protected $table = 'menus';
 
-    protected $fillable = ['menu_id', 'menu_name'];
+    protected $fillable = ['menu_id', 'menu_name','status'];
 
     public function permissions(){
-        return $this->belongsToMany(Permission::class, 'permission_id', 'menu_id');
+        return $this->belongsToMany(Permission::class, 'menu_permissions','menu_id', 'button_id');
     }
 
 }

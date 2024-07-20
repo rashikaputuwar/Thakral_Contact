@@ -12,13 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu_permissions', function (Blueprint $table) {
+            // $table->id();
             $table->id();
-            $table->unsignedBigInteger('menu_id');
-            $table->unsignedBigInteger('button_id');  
+            $table->foreignId('menu_id')->constrained('menus')->onDelete('cascade');
+            $table->foreignId('button_id')->constrained('permissions')->onDelete('cascade');
             $table->timestamps();
 
-            $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
-            $table->foreign('button_id')->references('id')->on('permissions')->onDelete('cascade');
+            // $table->unsignedBigInteger('menu_id');
+            // $table->unsignedBigInteger('button_id');  
+            // $table->timestamps();
+
+            // $table->foreign('menu_id')->references('id')->on('menus')->onDelete('cascade');
+            // $table->foreign('button_id')->references('id')->on('permissions')->onDelete('cascade');
         });
     }
 
