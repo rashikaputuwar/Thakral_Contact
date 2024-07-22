@@ -5,9 +5,12 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center">Role Menu Permissions</h2>
+                        <h2 class="display-6 text-center">Role Menu </h2>
                     </div>
                     <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <a href="{{Route('roleMenu.create')}}" class="btn btn-success btn-sm btn-add-user">Add</a>
+                         </div>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

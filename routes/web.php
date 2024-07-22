@@ -66,8 +66,6 @@ Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('emp
 Route::get('/employee/edit/{id}', [EmployeeController::class,'edit'])->name('employee.edit');
 Route::put('/employee/update/{id}', [EmployeeController::class,'update'])->name('employee.update');
 
-//for rolemenu
-Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
 
 
 //Designation
@@ -93,3 +91,8 @@ Route::post('/visitor/create',[VisitorController::class,'create'])->name('visito
 Route::get('/button',[PermissionController::class,'index'])->name('button.index');
 Route::get('/button/create',[PermissionController::class,'create'])->name('button.create');
 Route::post('/button/store',[PermissionController::class,'store'])->name('button.store');
+
+
+//ROleMenuCOntroller
+Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
+Route::get('/roleMenu',[RoleMenuController::class,'create'])->name('roleMenu.create');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Menu;
+use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -22,7 +24,10 @@ class RoleMenuController extends Controller
      */
     public function create()
     {
-       
+        $roles = Role::all();
+        $permissions = Permission::all();
+        $menus = Menu::all();
+       return view('user_mg.add.addRoleMenu',compact('roles','permissions','menus'));
     }
 
     /**
