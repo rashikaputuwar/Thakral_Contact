@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\RoleMenuPermission;
 use Illuminate\Http\Request;
 
 class RoleMenuController extends Controller
@@ -24,6 +25,7 @@ class RoleMenuController extends Controller
      */
     public function create()
     {
+       
         $roles = Role::all();
         $permissions = Permission::all();
         $menus = Menu::all();
@@ -35,7 +37,33 @@ class RoleMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request ->validate([ 
+            'role_id' => 'required|integer',
+            'menus' => 'required|array',
+            'permissions' => 'required|array',
+            
+            ]);
+
+        $role_id = $request->input('role_id');
+        $selectedMenus = $request->input('menus');
+        $selectedPermissions = $request->input('permissions');
+
+        foreach($selectedMenus as $menuId){
+            if(isset($selectedPermissions[$menuId])){
+                foreach($selectedPermissions[$menuId] as $permissionId){
+
+                    RoleMenuPermission::create([
+                        'role_id' => $role_id,
+                        'menu_id' => $menuId,
+                        'permission_id' => $permissionId,
+                    ]);
+                }
+            }
+        }
+        return redirect()->back()->with('success', 'Permissions assigned successfully!');
+        // dd($request->all());
+       
     }
 
     /**

@@ -96,3 +96,4 @@ Route::post('/button/store',[PermissionController::class,'store'])->name('button
 //ROleMenuCOntroller
 Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
 Route::get('/roleMenu',[RoleMenuController::class,'create'])->name('roleMenu.create');
+Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');

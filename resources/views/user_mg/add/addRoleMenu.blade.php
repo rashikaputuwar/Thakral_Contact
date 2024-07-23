@@ -4,7 +4,7 @@
        <div class="row justify-content-center">
          <div class="col-lg-10 col-xl-8">
            <h2 class="text-center text-complementary">Add Menu</h2>
-           <form action="" method="post">
+           <form action="{{Route('rolesMenu.store')}}" method="post">
              @csrf
               <div class="form-group mb-4">
                        <label for="roleid" class="form-label">Role</label>
@@ -33,7 +33,6 @@
                 
                  <!-- Menus and Permissions  -->
                  <div class="form-group mb-4">
-                   
                     <div class="menus">
                         @foreach ($menus as $menu)
                         <div class="menu-item mb-3">
