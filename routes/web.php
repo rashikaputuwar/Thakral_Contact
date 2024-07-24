@@ -79,6 +79,7 @@ Route::get('/Designation/show/{id}',[DesignationController::class,'show'])->name
 Route::get('/menu',[MenuController::class,'index'])->name('menu.index');
 Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
 Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
+Route::get('/menu/view/{id}',[MenuController::class,'show'])->name('menu.show');
 
 //visitor
 Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');
@@ -94,6 +95,7 @@ Route::post('/button/store',[PermissionController::class,'store'])->name('button
 
 
 //ROleMenuCOntroller
-Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
-Route::get('/roleMenu',[RoleMenuController::class,'create'])->name('roleMenu.create');
+Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesMenu.index');
+Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu.create');
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
+Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);

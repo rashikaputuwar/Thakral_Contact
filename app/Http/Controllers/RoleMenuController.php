@@ -15,10 +15,27 @@ class RoleMenuController extends Controller
      */
     public function index()
     {
-        $roles = Role::with(['menus.permissions', 'permissions'])->get();
+        // $roles = Role::with(['menus.permissions'])->get();
+        $roles = Role::with(['menus' => function ($query) {
+            $query->with('permissions');
+        }])->get();
         return view('user_mg.roleMenu', compact('roles'));
         // return view('user_mg.roleMenu');
     }
+
+//     public function index(Request $request)
+// {
+//     $roles = Role::with('menus.permissions')->get();
+//     $selectedRole = null;
+//     $menus = [];
+
+//     if ($request->has('role_id')) {
+//         $selectedRole = Role::with('menus.permissions')->find($request->role_id);
+//         $menus = $selectedRole ? $selectedRole->menus : [];
+//     }
+
+//     return view('user_mg.roleMenu', compact('roles', 'selectedRole', 'menus'));
+// }
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +45,7 @@ class RoleMenuController extends Controller
        
         $roles = Role::all();
         $permissions = Permission::all();
-        $menus = Menu::all();
+        $menus = Menu::with('permissions')->get();
        return view('user_mg.add.addRoleMenu',compact('roles','permissions','menus'));
     }
 
@@ -45,9 +62,11 @@ class RoleMenuController extends Controller
             
             ]);
 
+            
         $role_id = $request->input('role_id');
         $selectedMenus = $request->input('menus');
         $selectedPermissions = $request->input('permissions');
+
 
         foreach($selectedMenus as $menuId){
             if(isset($selectedPermissions[$menuId])){
@@ -61,11 +80,13 @@ class RoleMenuController extends Controller
                 }
             }
         }
-        return redirect()->back()->with('success', 'Permissions assigned successfully!');
+        return redirect()->route('rolesMenu.index')->with('success', 'Permissions assigned successfully!');
         // dd($request->all());
        
     }
-
+    
+     
+    
     /**
      * Display the specified resource.
      */
