@@ -14,8 +14,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $client = Client::all();
-        return view('client',compact('client'));
+        $clients = Client::all();
+        return view('client',compact('clients'));
     }
 
     public function indexContactPerson()
@@ -102,17 +102,34 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editClient(string $id)
     {
-        //
+        $client = Client::find($id);
+        // dd($user->status);
+        return view('update.updateClient', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updateClient(Request $request, string $id)
     {
-        //
+        $client = DB::table('client_tables')
+        ->where('id',$id)
+        ->update([
+            'client_name'=>$request->client_name,
+            'contact_number'=>$request->contact_number,
+            'email'=>$request->email,
+            'address'=>$request->address,
+            'website'=>$request->website,
+            
+            ]);
+        if ($client) {
+            return redirect()->route('client.show',$id);
+            } 
+        else{
+            echo "<h2>Data Not Updated.</h2>";
+        }
     }
 
     /**

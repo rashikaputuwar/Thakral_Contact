@@ -41,12 +41,14 @@ Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
-Route::get('/contact',[ClientController::class,'indexContactPerson'])->name('contactPerson.index');
 Route::get('/clients/create', [ClientController::class, 'createClient'])->name('client.createClient');
 Route::get('/clients/create/contact', [ClientController::class, 'createContact'])->name('client.createContact');
-Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerson'])->name('contactPerson.show');
 Route::get('/client/view/{id}',[ClientController::class,'show'])->name('client.show');
+Route::get('/client/edit/{id}', [ClientController::class,'editClient'])->name('client.edit');
+Route::put('/client/update/{id}', [ClientController::class,'updateClient'])->name('client.update');
 
+Route::get('/contact',[ClientController::class,'indexContactPerson'])->name('contactPerson.index');
+Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerson'])->name('contactPerson.show');
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
 Route::post('/clients/store/contactPerson', [ClientController::class, 'storeContactPerson'])->name('contactPerson.store');

@@ -27,7 +27,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($client as $id => $client)
+                            @foreach($clients as $id => $client)
                          <tr>
                             <td>{{ $client->id }}</td>
                             <td>{{ $client->client_name }}</td>
@@ -37,7 +37,7 @@
                             <td>{{ $client->website}}</td>
                             <td>
                                 <a href="{{Route('client.show',$client->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('client.edit',$client->id)}}" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>
                              @endforeach
