@@ -15,16 +15,16 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
-        return view('client',compact('clients'));
+        return view('client', compact('clients'));
     }
 
     public function indexContactPerson()
     {
-         // Load the 'client' relationship
-         $contactPersons = ContactPerson::all();
+        // Load the 'client' relationship
+        $contactPersons = ContactPerson::all();
 
-         // Pass the data to the view
-         return view('contactPersonDetails', compact('contactPersons'));
+        // Pass the data to the view
+        return view('contactPersonDetails', compact('contactPersons'));
     }
 
 
@@ -39,7 +39,7 @@ class ClientController extends Controller
     {
         $clients = Client::all();
         // dd($clients);
-        return view('add.addContactPerson',compact('clients'));
+        return view('add.addContactPerson', compact('clients'));
     }
 
     /**
@@ -47,7 +47,7 @@ class ClientController extends Controller
      */
     public function storeClient(Request $request)
     {
-        
+
 
         $client = DB::table('client_tables')
             ->insert([
@@ -66,7 +66,7 @@ class ClientController extends Controller
 
     public function storeContactPerson(Request $request)
     {
-        
+
 
         $contactPerson = DB::table('contact_persons')
             ->insert([
@@ -76,7 +76,7 @@ class ClientController extends Controller
                 'email' => $request->email,
                 'contact_number' => $request->contact,
                 'address' => $request->address,
-                
+
             ]);
         if ($contactPerson) {
             return redirect()->route('contactPerson.index');
@@ -90,7 +90,7 @@ class ClientController extends Controller
     public function show(string $id)
     {
         $client = Client::find($id);
-        return view('viewPages.viewClient',compact('client'));
+        return view('viewPages.viewClient', compact('client'));
     }
 
     public function showContactPerson(string $id)
@@ -109,29 +109,53 @@ class ClientController extends Controller
         return view('update.updateClient', compact('client'));
     }
 
+    public function editContactPerson(string $id)
+    {
+        $contactPerson = DB::table('contact_persons')->where('id', $id)->first();
+        $clients = Client::all(); // Ensure you have the list of clients if it's needed in the view
+        return view('update.updateContactPerson', compact('contactPerson', 'clients'));
+    }
+
     /**
      * Update the specified resource in storage.
      */
     public function updateClient(Request $request, string $id)
     {
         $client = DB::table('client_tables')
-        ->where('id',$id)
-        ->update([
-            'client_name'=>$request->client_name,
-            'contact_number'=>$request->contact_number,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'website'=>$request->website,
-            
+            ->where('id', $id)
+            ->update([
+                'client_name' => $request->client_name,
+                'contact_number' => $request->contact_number,
+                'email' => $request->email,
+                'address' => $request->address,
+                'website' => $request->website,
+
             ]);
         if ($client) {
-            return redirect()->route('client.show',$id);
-            } 
-        else{
+            return redirect()->route('client.show', $id);
+        } else {
             echo "<h2>Data Not Updated.</h2>";
         }
     }
 
+    public function updateContactPerson(Request $request, string $id)
+    {
+        $contactPerson = DB::table('contact_persons')
+            ->where('id', $id)
+            ->update([
+                    'first_name' => $request->first_name,
+                    'last_name' => $request->last_name,
+                    'email' => $request->email,
+                    'contact_number' => $request->contact_number,
+                    'address' => $request->address,
+
+                ]);
+        if ($contactPerson) {
+            return redirect()->route('contactPerson.show', $id);
+        } else {
+            echo "<h2>Data Not Updated.</h2>";
+        }
+    }
     /**
      * Remove the specified resource from storage.
      */

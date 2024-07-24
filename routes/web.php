@@ -49,6 +49,9 @@ Route::put('/client/update/{id}', [ClientController::class,'updateClient'])->nam
 
 Route::get('/contact',[ClientController::class,'indexContactPerson'])->name('contactPerson.index');
 Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerson'])->name('contactPerson.show');
+Route::get('/contactPerson/edit/{id}', [ClientController::class,'editContactPerson'])->name('contactPerson.edit');
+Route::put('/contactPerson/update/{id}', [ClientController::class,'updateContactPerson'])->name('contactPerson.update');
+
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
 Route::post('/clients/store/contactPerson', [ClientController::class, 'storeContactPerson'])->name('contactPerson.store');
