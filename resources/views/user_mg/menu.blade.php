@@ -32,7 +32,7 @@
                                 <td>{{ $menu->status }}</td>
                                 <td>
                                     <a><button class="btn btn-primary">View</button></a>
-                                    <a> <button class="btn btn-warning text-white">Update</button></a>
+                                    <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
                                 {{-- <td></td> --}}
                             </tr>
@@ -49,5 +49,5 @@
 
 {{-- adding title name --}}
 @section('title')
-- Role  
+- Menu  
 @endsection

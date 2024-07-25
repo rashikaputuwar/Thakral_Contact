@@ -52,5 +52,5 @@
 
 {{-- adding title name --}}
 @section('title')
-User   
+-User   
 @endsection
