@@ -16,6 +16,7 @@
                                     <th>Role</th>
                                     <th>Menu</th>
                                     <th>Permissions</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +43,10 @@
                                             @else
                                                 No permissions available
                                             @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{Route('showUser',$role->id)}}" class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>
                                 @endforeach
