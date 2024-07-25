@@ -20,7 +20,7 @@
   }
   
   thead {
-    background-color: #4e54c8;
+    
     color: #ffffff;
   }
   
@@ -31,8 +31,9 @@
   }
   
   th {
-    font-weight: bold;
+    font-weight:bold;
     text-transform: uppercase;
+    background-color:red;
     letter-spacing: 0.03em;
   }
   

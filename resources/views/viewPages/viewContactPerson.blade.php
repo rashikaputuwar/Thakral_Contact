@@ -1,32 +1,34 @@
 @extends('pages.sidebar')
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     <div class="row justify-content-center">
 
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <h2 class="text-center mb-4">Contact Person Details View</h2>
                 <table class="table table-bordered">
-                    <thead>
-                        <tr>
+                    <tr>
                             <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Contact Number</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Associated Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td>{{ $contactPerson->id }}</td>
-                            <td>{{ $contactPerson->first_name }}</td>
+                            <th>First Name</th>
+                            <td>{{ $contactPerson->first_name }}</td>                           
+                    </tr>
+                    <tr>
+                            <th>Last Name</th>
                             <td>{{ $contactPerson->last_name }}</td>
+                            <th >Contact Number</th>
                             <td>{{ $contactPerson->contact_number}}</td>
+                    </tr>
+                    <tr>
+                            <th>Email</th>
                             <td>{{ $contactPerson->email}}</td>
+                            <th>Address</th>
                             <td>{{ $contactPerson->address}}</td>
-                            <td>{{ $contactPerson->client->client_name }}</td>
-                        </tr>
-                    </tbody>
+                    </tr>
+                    <tr>
+                        <th>Associated Company</th>
+                        <td>{{ $contactPerson->client->client_name }}</td>
+                    </tr>
                 </table>
             </div>
     </div>

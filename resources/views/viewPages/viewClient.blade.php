@@ -2,29 +2,27 @@
 @section('content')
     <div class="row justify-content-center">
 
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <h2 class="text-center mb-4">Organization View</h2>
                 <table class="table table-bordered">
-                    <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Organization Name</th>
-                            <th>Contact Number</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Website</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td>{{ $client->id}}</td>
+                            <th>Organization Name</th>
                             <td>{{ $client->client_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact Number</th>
                             <td>{{ $client->contact_number}}</td>
+                            <th>Email</th>
                             <td>{{ $client->email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th> 
                             <td>{{ $client->address}}</td>
+                            <th>Website</th>
                             <td>{{ $client->website}}</td>
                         </tr>
-                    </tbody>
                 </table>
             </div>
     </div>

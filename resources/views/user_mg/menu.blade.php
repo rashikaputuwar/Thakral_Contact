@@ -31,7 +31,7 @@
                                 <td>{{$item["status"]}}</td>
                                 <td>
                                     <a><button class="btn btn-primary">View</button></a>
-                                    <a> <button class="btn btn-warning text-white">Update</button></a>
+                                    <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
                             </tr>
                            @endforeach
