@@ -20,10 +20,10 @@ class Menu extends Model
         return $this->belongsToMany(Role::class, 'role_menu_permissions', 'menu_id', 'role_id')->withPivot('permission_id');
     }
 
-    public function rolePermissions(){
-        // 
-        return $this->belongsToMany(RoleMenuPermission::class, 'role_menu_permissions', 'menu_id', 'permission_id')
-        ->withPivot('role_id')
-        ;
-    }
+    // public function rolePermissions(){
+    //     // 
+    //     return $this->belongsToMany(RoleMenuPermission::class, 'role_menu_permissions', 'menu_id', 'permission_id')
+    //     ->withPivot('role_id')
+    //     ;
+    // }
 }

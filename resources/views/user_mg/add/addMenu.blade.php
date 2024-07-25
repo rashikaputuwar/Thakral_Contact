@@ -7,21 +7,21 @@
            <form action="{{Route('menu.store')}}" method="post">
              @csrf
               <div class="row mb-3">
-                       <label for="menuid" class="col-sm-4 col-form-label text-end">Menu Id</label>
+                       <label for="menuid" class="col-sm-4 col-form-label text-end required-asterisk">Menu Id</label>
                        <div class="col-sm-8">
                            <input type="text" class="form-control" id="menuid" name="menuid" required>
                        </div>
                </div>
 
                <div class="row mb-3">
-                       <label for="menuname" class="col-sm-4 col-form-label text-end">Name</label>
+                       <label for="menuname" class="col-sm-4 col-form-label text-end required-asterisk">Name</label>
                        <div class="col-sm-8">
                            <input type="text" class="form-control" id="menuname" name="menuname" required>
                        </div>
                  </div>
 
                  <div class="row mb-3">
-                    <label for="status" class="col-sm-4 col-form-label text-end">Status*</label>
+                    <label for="status" class="col-sm-4 col-form-label text-end required-asterisk">Status</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="status" name="status" required>
                           <option value="">---Select Status---</option>
@@ -34,7 +34,7 @@
 
                 
                <div class="row mb-3">
-                <label for="permissions" class="col-sm-4 col-form-label text-end">Permissions</label>
+                <label for="permissions" class="col-sm-4 col-form-label text-end ">Permissions</label>
                 <div class="col-sm-8">
                   
                 @foreach ($permissions as $permission)
