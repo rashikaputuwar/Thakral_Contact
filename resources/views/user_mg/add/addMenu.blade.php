@@ -33,7 +33,7 @@
                 </div>
 
                 
-               <div class="row mb-3">
+               {{-- <div class="row mb-3">
                 <label for="permissions" class="col-sm-4 col-form-label text-end ">Permissions</label>
                 <div class="col-sm-8">
                   
@@ -43,9 +43,9 @@
                   <label for="permission{{$permission->id}}" class="form-check-label">{{$permission->button_name}}</label>
                 </div>
                     
-                @endforeach
-          </div>
-          </div>
+                @endforeach --}}
+          {{-- </div>
+          </div> --}}
                <div class="row">
                      <div class="col-sm-8 offset-sm-4">
                            <button type="submit" class="btn btn-primary">Submit</button>

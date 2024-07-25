@@ -30,6 +30,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         
+        $this->call([
+           MenuSeeder::class
+        ]);
         // User::factory(10)->create();
 
         // User::factory()->create([

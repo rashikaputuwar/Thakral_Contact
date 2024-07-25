@@ -15,7 +15,7 @@
                        
                      </div>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>ID</th>
                                 <th>Company Name</th>

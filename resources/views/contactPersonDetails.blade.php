@@ -14,7 +14,7 @@
                         <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a>
                         </div>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>ID</th>
                                 <th>First Name</th>

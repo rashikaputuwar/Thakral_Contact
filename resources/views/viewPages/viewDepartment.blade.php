@@ -5,7 +5,7 @@
             <div class="col-md-8">
                 <h2 class="text-center mb-4">Department View</h2>
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th>Id</th>
                             <th>Department Name</th>

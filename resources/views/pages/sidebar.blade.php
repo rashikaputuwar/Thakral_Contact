@@ -25,7 +25,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                    <a href="{{Route('welcomePage')}}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Contact</span>
                     </a>
