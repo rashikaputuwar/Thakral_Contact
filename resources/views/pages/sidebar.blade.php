@@ -82,7 +82,7 @@
                         <a href="{{Route('menu.index')}}" class="sidebar-link">Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
-                            <a href="{{Route('rolesmenu')}}" class="sidebar-link">Role_Menu</a>
+                            <a href="{{Route('rolesMenu.index')}}" class="sidebar-link">Role_Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
                             <a href="" class="sidebar-link">User_Role</a>

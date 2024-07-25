@@ -31,7 +31,7 @@
                                 <td>{{ $menu->menu_name }}</td>
                                 <td>{{ $menu->status }}</td>
                                 <td>
-                                    <a><button class="btn btn-primary">View</button></a>
+                                    <a href="{{Route('menu.show',$menu->id)}}"><button class="btn btn-primary">View</button></a>
                                     <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
                                 {{-- <td></td> --}}

@@ -55,7 +55,6 @@ class MenuController extends Controller
             MenuPermission::create([
                 'menu_id' => $menu->id,
                 'button_id' => $permissionId,
-           
             ]);
         }
 
@@ -74,7 +73,8 @@ class MenuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $menus = Menu::with('permissions')->findOrFail($id);
+        return view('user_mg.view.viewMenu',compact('menus'));
     }
 
     /**
