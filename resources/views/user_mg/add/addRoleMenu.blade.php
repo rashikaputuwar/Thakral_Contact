@@ -11,7 +11,7 @@
                        {{-- <div class="col-sm-8"> --}}
                         <select class="form-control" id="role_id" name="role_id" required>
                             <option value="">---Select Role---</option>
-                            @foreach($roles as $role)
+                            @foreach($rolesWithOutPermissions as $role)
                                 <option value="{{ $role->id }}">{{ $role->role_name }}</option>
                             @endforeach
                         </select>

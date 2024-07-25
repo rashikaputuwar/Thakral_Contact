@@ -43,10 +43,16 @@ class RoleMenuController extends Controller
     public function create()
     {
        
-        $roles = Role::all();
+        $rolesWithOutPermissions = Role::whereDoesntHave('permissions')
+        ->get();
+        // $pemission = Permission::where('status', 'yes')->get();
+        // return view('user_mg.add.addMenu',compact('menuWithOutPermissions','permission'));
+        // // 
+        // $roles = Role::all();
         $permissions = Permission::all();
         $menus = Menu::with('permissions')->get();
-       return view('user_mg.add.addRoleMenu',compact('roles','permissions','menus'));
+    //    return view('user_mg.add.addRoleMenu',compact('roles','permissions','menus'));
+       return view('user_mg.add.addRoleMenu',compact('rolesWithOutPermissions','permissions','menus'));
     }
 
     /**
