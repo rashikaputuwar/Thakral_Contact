@@ -3,21 +3,18 @@
     <div class="row justify-content-center">
         
             <div class="col-md-10">
-                <h2 class="text-center mb-4">User View</h2>
+                <h2 class="text-center mb-4">Roles Information View</h2>
                 <table class="table table-bordered">
-                   
-                        <tr>
+                   <tr>
                             <th>Id</th> 
-                            <td>{{ $role->role_id }}</td>
+                            <td>{{$roles->role_id }}</td>
                           
                             <th>Role</th>
-                            <td>{{ $role->role_name }}</td>
+                            <td>{{$roles->role_name }}</td>
                         </tr>
                         <tr>
                             <th>Status</th> 
-                            <td>{{ $user->status}}</td> 
-                           <th>hye</th>
-                            <td>user_id</td>
+                            <td>{{$roles->status}}</td> 
                         </tr>
                 </table>
             </div>

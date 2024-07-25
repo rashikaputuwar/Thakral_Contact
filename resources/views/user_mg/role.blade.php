@@ -31,7 +31,7 @@
                                     <td>{{ $role['role_name'] }}</td>
                                     <td>{{ $role['status'] }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{Route('showRoles',$role->id)}}" class="btn btn-primary btn-sm">View</a>
                                         <a href="" class="btn btn-primary btn-sm">Update</a>
                                     </td>
                                 </tr>

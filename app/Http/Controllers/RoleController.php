@@ -54,6 +54,8 @@ class RoleController extends Controller
     public function show(string $id)
     {
         //
+        $roles = Role::find($id);
+        return view('user_mg.view.roleView',compact('roles'));
     }
 
     /**
