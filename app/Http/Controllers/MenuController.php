@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+
+use App\Models\MenuPermission;
+use App\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -21,7 +25,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('user_mg.add.addMenu');
+        $permissions = Permission::all();
+        return view('user_mg.add.addMenu',compact('permissions'));
+        // return view('user_mg.add.addMenu');
     }
 
     /**
@@ -32,24 +38,43 @@ class MenuController extends Controller
         $request->validate([
             'menuid' => 'required|unique:menus,menu_id',
             'menuname' => 'required',
-            'status' => 'required'
+            'status' => 'required',
+            'permissions' => 'required|array'
         ]);
 
-        Menu::create([
+        try{
+            DB::beginTransaction();
+      
+        $menu = Menu::create([
             'menu_id' => $request->menuid,
             'menu_name' => $request->menuname,
-            'status' => $request->status
+            'status' => $request->status,
         ]);
 
+        foreach($request->permissions as $permissionId){
+            MenuPermission::create([
+                'menu_id' => $menu->id,
+                'button_id' => $permissionId,
+            ]);
+        }
+
+        DB::commit();
         return redirect()->route('menu.index')->with('success', 'Role added successfully');
+    }catch (\Exception $e){
+        DB::rollBack();
+        return redirect()->back()->with('error');
     }
+    
+    }
+
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $menus = Menu::with('permissions')->findOrFail($id);
+        return view('user_mg.view.viewMenu',compact('menus'));
     }
 
     /**

@@ -5,35 +5,33 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> Menu Information</h2>
+                        <h2 class="display-6 text-center"> Permission Information</h2>
                     </div>
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm btn-add-user">Add Menu</a>
+                        <a href="{{Route('button.create')}}" class="btn btn-success btn-sm btn-add-user">Add Button</a>
                      </div>
 
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Menu</th>
+                                <th>Button Name</th>
                                 <th>Status</th>
-                                <th>Action</th>            
-                                {{-- <th>Button</th>             --}}
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($menus as $menu)
+                            @foreach ($permissions as $permission)
                             <tr>
-                                <td>{{ $menu->id }}</td>
-                                <td>{{ $menu->menu_name }}</td>
-                                <td>{{ $menu->status }}</td>
-                                <td>
+                                <td>{{$permission["id"]}}</td>
+                                <td>{{$permission["button_name"]}}</td>
+                                <td>{{$permission["status"]}}</td>
+                                {{-- <td>
                                     <a><button class="btn btn-primary">View</button></a>
                                     <a> <button class="btn btn-warning text-white">Update</button></a>
-                                </td>
+                                </td> --}}
                                 {{-- <td></td> --}}
                             </tr>
                            @endforeach

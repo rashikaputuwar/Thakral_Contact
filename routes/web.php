@@ -5,6 +5,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleMenuController;
@@ -65,8 +66,6 @@ Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('emp
 Route::get('/employee/edit/{id}', [EmployeeController::class,'edit'])->name('employee.edit');
 Route::put('/employee/update/{id}', [EmployeeController::class,'update'])->name('employee.update');
 
-//for rolemenu
-Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesmenu');
 
 
 //Designation
@@ -80,6 +79,7 @@ Route::get('/Designation/show/{id}',[DesignationController::class,'show'])->name
 Route::get('/menu',[MenuController::class,'index'])->name('menu.index');
 Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
 Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
+Route::get('/menu/view/{id}',[MenuController::class,'show'])->name('menu.show');
 
 //visitor
 Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');
@@ -88,5 +88,14 @@ Route::post('/visitor/update',[VisitorController::class,'update'])->name('visito
 Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
 
 
+//for permission aka button
+Route::get('/button',[PermissionController::class,'index'])->name('button.index');
+Route::get('/button/create',[PermissionController::class,'create'])->name('button.create');
+Route::post('/button/store',[PermissionController::class,'store'])->name('button.store');
 
 
+//ROleMenuCOntroller
+Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesMenu.index');
+Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu.create');
+Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
+Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
