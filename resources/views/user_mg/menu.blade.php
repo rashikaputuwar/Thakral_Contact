@@ -14,24 +14,24 @@
                      </div>
 
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>Id</th>
                                 <th>Menu</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
                                 <th>Action</th>            
                                 {{-- <th>Button</th>             --}}
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach ($menus as $menu)
+                            @foreach ($menus as $id => $menu)
                             <tr>
                                 <td>{{ $menu->id }}</td>
                                 <td>{{ $menu->menu_name }}</td>
-                                <td>{{ $menu->status }}</td>
+                                {{-- <td>{{ $menu->status }}</td> --}}
                                 <td>
-                                    <a><button class="btn btn-primary">View</button></a>
+                                    <a href="{{Route('menu.show',$menu->id)}}"><button class="btn btn-primary">View</button></a>
                                     <a> <button class="btn btn-primary">Update</button></a>
                                 </td>
                                 {{-- <td></td> --}}
@@ -49,5 +49,5 @@
 
 {{-- adding title name --}}
 @section('title')
-- Menu  
+- Role  
 @endsection
