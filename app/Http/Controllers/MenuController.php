@@ -25,9 +25,9 @@ class MenuController extends Controller
      */
     public function create()
     {
-        // $permissions = Permission::all();
-        // return view('user_mg.add.addMenu',compact('permissions'));
-        return view('user_mg.add.addMenu');
+        $permissions = Permission::all();
+        return view('user_mg.add.addMenu',compact('permissions'));
+        // return view('user_mg.add.addMenu');
     }
 
     /**
@@ -36,33 +36,33 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'menuid' => 'required|unique:menus,menu_id',
+            // 'menuid' => 'required|unique:menus,menu_id',
             'menuname' => 'required',
             'status' => 'required',
-            // 'permissions' => 'required|array'
+            'permissions' => 'required|array'
         ]);
 
         try{
             DB::beginTransaction();
       
-            Menu::create([
-                'menu_id' => $request->menuid,
-                'menu_name' => $request->menuname,
-                'status' => $request->status,
+            // Menu::create([
+            //     'menu_id' => $request->menuid,
+            //     'menu_name' => $request->menuname,
+            //     'status' => $request->status,
+            // ]);
+
+        $menu = Menu::create([
+            // 'menu_id' => $request->menuid,
+            'menu_name' => $request->menuname,
+            'status' => $request->status,
+        ]);
+
+        foreach($request->permissions as $permissionId){
+            MenuPermission::create([
+                'menu_id' => $menu->id,
+                'button_id' => $permissionId,
             ]);
-
-        // $menu = Menu::create([
-        //     'menu_id' => $request->menuid,
-        //     'menu_name' => $request->menuname,
-        //     'status' => $request->status,
-        // ]);
-
-        // foreach($request->permissions as $permissionId){
-        //     MenuPermission::create([
-        //         'menu_id' => $menu->id,
-        //         'button_id' => $permissionId,
-        //     ]);
-        // }
+        }
 
         DB::commit();
         return redirect()->route('menu.index')->with('success', 'Role added successfully');

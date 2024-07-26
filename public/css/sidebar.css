@@ -112,7 +112,7 @@ a.sidebar-link {
 
 .table th, .table td {
     white-space: nowrap; /* Prevent text from wrapping */
-    text-align: center;
+    /* text-align: center; */
     vertical-align: middle;
 }
 

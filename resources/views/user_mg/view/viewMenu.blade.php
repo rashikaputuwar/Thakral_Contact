@@ -6,9 +6,9 @@
                 <h2 class="text-center mb-4">Menu Button</h2>
                 <table class="table table-bordered">
 
-                        <tr>
+                        <tr style="background-color: lightgray;">
                             <th style="background-color: lightgray;">Id</th> 
-                            <td>{{ $menus->id }}</td>
+                            <td >{{ $menus->id }}</td>
 
                             <th>Menu Name</th>
                             <td>{{ $menus->menu_name }}</td>
