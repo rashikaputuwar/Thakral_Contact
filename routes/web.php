@@ -100,3 +100,4 @@ Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesMenu.
 Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu.create');
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
+Route::get('/role/{id}',[RoleMenuController::class,'show'])->name('showRoleMenu');
