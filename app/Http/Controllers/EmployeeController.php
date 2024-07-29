@@ -39,6 +39,7 @@ class EmployeeController extends Controller
             'emp_code' => 'required|string|max:255', 
             'first_name' => 'required|string|max:255',
             'personal_contact' => 'required|numeric|digits:10',
+            'office_contact' => 'nullable|string|max:255',
            'email' => [
                 'nullable',
                 'email',
