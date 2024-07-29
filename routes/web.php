@@ -40,6 +40,7 @@ Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.crea
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
 Route::get('/roles/edit/{id}', [RoleController::class,'edit'])->name('roles.edit');
 Route::put('/roles/update/{id}', [RoleController::class,'update'])->name('roles.update');
+Route::get('/showRoles/{id}',[RoleController::class, 'show'])->name('showRoles');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
@@ -87,6 +88,8 @@ Route::get('/menu',[MenuController::class,'index'])->name('menu.index');
 Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
 Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
 Route::get('/menu/view/{id}',[MenuController::class,'show'])->name('menu.show');
+Route::get('/menu/edit/{id}', [MenuController::class,'edit'])->name('menu.edit');
+Route::put('/menu/update/{id}', [MenuController::class,'update'])->name('menu.update');
 
 //visitor
 Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');

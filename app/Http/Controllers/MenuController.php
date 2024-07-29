@@ -88,7 +88,7 @@ class MenuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**
@@ -96,7 +96,19 @@ class MenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $menu = DB::table('menus')
+        ->where('id', $id)
+        ->update([
+            'menuname' => $request->menuname,
+            'status' => $request->status,
+            'permissions' => ''
+
+        ]);
+    if ($menu) {
+        return redirect()->route('menu.show', $id);
+    } else {
+        echo "<h2>Data Not Updated.</h2>";
+    }
     }
 
     /**
