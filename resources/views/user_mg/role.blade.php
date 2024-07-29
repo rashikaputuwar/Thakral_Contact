@@ -24,23 +24,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($roles as $index => $role)
-                                <tr>
-                                    <td>{{ $index + 1 }}</td>
-                                    <td>{{ $role['role_id'] }}</td>
-                                    <td>{{ $role['role_name'] }}</td>
-                                    <td>{{ $role['status'] }}</td>
-                                    <td>
-                                        <a href="{{Route('showRoles',$role->id)}}" class="btn btn-primary btn-sm">View</a>
-                                        <a href="" class="btn btn-primary btn-sm">Update</a>
-                                    </td>
-                                </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="5">No Data</td>
-                                </tr>
-                                @endforelse
-{{--                         
+                           
                         @forelse($roles  as $id => $role)
                         <tr>
                             <td>{{$role->id}}</td>
