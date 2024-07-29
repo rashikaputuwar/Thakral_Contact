@@ -33,6 +33,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
            MenuSeeder::class
         ]);
+
+        $this->call([
+           RoleMenuPermissionSeeder::class
+        ]);
         // User::factory(10)->create();
 
         // User::factory()->create([
