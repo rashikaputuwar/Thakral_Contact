@@ -45,7 +45,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{Route('showUser',$role->id)}}" class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{Route('roleMenu.show',$role->id)}}" class="btn btn-primary btn-sm">View</a>
                                             <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>

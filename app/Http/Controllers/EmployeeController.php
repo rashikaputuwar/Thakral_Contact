@@ -54,7 +54,8 @@ class EmployeeController extends Controller
             'gender' => 'required|string|in:Female,Male,Others',
             'department' => 'required|exists:departments,id',
             'designation' => 'required|exists:designations,id',
-            'dob' => 'required|date',
+            // 'dob' => 'required|date',
+            'dob' => ['required', 'date', 'before:'.now()->subYears(19)->toDateString()],
             'joining_date' => 'required|date',
             // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

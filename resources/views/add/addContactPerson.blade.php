@@ -1,6 +1,15 @@
 @extends('pages.sidebar')
 @section('content')
 <div class="container">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center mb-4">Add Contact Person</h2>
@@ -46,9 +55,9 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="address" class="col-sm-4 col-form-label text-end required-asterisk">Address</label>
+            <label for="address" class="col-sm-4 col-form-label text-end ">Address</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="address" name="address" required>
+                <input type="text" class="form-control" id="address" name="address" >
             </div>
         </div>
 

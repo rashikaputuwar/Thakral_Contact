@@ -60,7 +60,8 @@ class RoleController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $roles = Role::find($id);
+        return view('user_mg.view.viewRoles',compact('roles'));
     }
 
     /**

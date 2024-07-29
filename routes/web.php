@@ -38,6 +38,7 @@ Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.us
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+Route::get('roles/view/{id}',[RoleController::class,'show'])->name('roles.show');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
@@ -50,6 +51,14 @@ Route::get('/client/view/{id}',[ClientController::class,'show'])->name('client.s
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
 Route::post('/clients/store/contactPerson', [ClientController::class, 'storeContactPerson'])->name('contactPerson.store');
+
+//client update
+Route::get('/client/edit/{id}', [ClientController::class,'edit'])->name('client.edit');
+Route::put('/client/update/{id}', [ClientController::class,'update'])->name('client.update');
+
+//contact person update
+Route::get('/contactPerson/edit/{id}', [ClientController::class,'editContactPerson'])->name('contactPerson.edit');
+Route::put('/contactPerson/update/{id}', [ClientController::class,'updateContactPerson'])->name('contactPerson.update');
 
 //config.department
 Route::get('/department', [DepartmentController::class, 'index'])->name('department.index');
@@ -99,3 +108,4 @@ Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesMenu.
 Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu.create');
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
+Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('roleMenu.show');
