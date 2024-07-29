@@ -18,23 +18,23 @@
                     <th>Role</th> 
                     <td>{{ $role->role_name }}</td>
                     @foreach ($role->menus as $menu)
-                    <tr>
+                    
                         <th>Menu</th>
                         <td>{{ $menu->menu_name }}</td>
-                    </tr>
-                @endforeach
                 </tr>
                 <tr>
                     <th>Permission</th>
-                    <td colspan="3">
+                        <td colspan="3">
                         <ul>
-                            @foreach ($role->permissions as $permission)
-                                <li>{{ $permission->button_name }}</li>
-                            @endforeach
+                        @if ($role->permissions->isNotEmpty())
+                            {{ $role->permissions->first()->button_name }}
+                        @endif
                         </ul>
                     </td>
                 </tr>
+                        
                 
+                    @endforeach
             </table>
                         </div>
                     </div>
