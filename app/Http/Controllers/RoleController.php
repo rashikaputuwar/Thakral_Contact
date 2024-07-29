@@ -68,7 +68,9 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $role = Role::find($id);
+        // dd($user->status);
+        return view('update.updateRole', compact('role'));
     }
 
     /**
@@ -76,7 +78,20 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $role = DB::table('roles')
+            ->where('id', $id)
+            ->update([
+                'role_id' => $request->role_id,
+                'role_name' => $request->role_name,
+                'status' => $request->status
+
+            ]);
+        if ($role) {
+            return redirect()->route('roles.index', $id);
+        } else {
+            echo "<h2>Data Not Updated.</h2>";
+            
+        }
     }
 
     /**

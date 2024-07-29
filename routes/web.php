@@ -38,6 +38,8 @@ Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.us
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+Route::get('/roles/edit/{id}', [RoleController::class,'edit'])->name('roles.edit');
+Route::put('/roles/update/{id}', [RoleController::class,'update'])->name('roles.update');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
