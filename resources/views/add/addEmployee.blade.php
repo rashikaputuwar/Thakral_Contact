@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="office_contact" class="col-sm-4 col-form-label text-end required-asterisk">Office Contact Number</label>
+                    <label for="office_contact" class="col-sm-4 col-form-label text-end">Office Contact Number</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control auto-resize" id="office_contact" name="office_contact" required>
                     </div>

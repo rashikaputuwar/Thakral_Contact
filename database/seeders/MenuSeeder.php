@@ -21,7 +21,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 
-                'menu_name' => 'Emplyees',
+                'menu_name' => 'Employees',
                
             ],
             [

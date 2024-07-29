@@ -14,7 +14,7 @@
                         <a href="{{Route('employee.create')}}" class="btn btn-success btn-sm btn-add-user">Add Employee</a>
                         </div>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>ID</th>
                                 <th>Employee Code</th>

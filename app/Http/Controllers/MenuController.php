@@ -36,7 +36,7 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'menuid' => 'required|unique:menus,menu_id',
+            // 'menuid' => 'required|unique:menus,menu_id',
             'menuname' => 'required',
             'status' => 'required',
             'permissions' => 'required|array'
@@ -45,8 +45,14 @@ class MenuController extends Controller
         try{
             DB::beginTransaction();
       
+            // Menu::create([
+            //     'menu_id' => $request->menuid,
+            //     'menu_name' => $request->menuname,
+            //     'status' => $request->status,
+            // ]);
+
         $menu = Menu::create([
-            'menu_id' => $request->menuid,
+            // 'menu_id' => $request->menuid,
             'menu_name' => $request->menuname,
             'status' => $request->status,
         ]);
@@ -60,7 +66,7 @@ class MenuController extends Controller
 
         DB::commit();
         return redirect()->route('menu.index')->with('success', 'Role added successfully');
-    }catch (\Exception $e){
+    }catch(\Exception $e){
         DB::rollBack();
         return redirect()->back()->with('error');
     }
