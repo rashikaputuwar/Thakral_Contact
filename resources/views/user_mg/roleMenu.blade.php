@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user">Add</a>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th>Role</th>
                                     <th>Menu</th>

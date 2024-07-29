@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcomePage');
 
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 

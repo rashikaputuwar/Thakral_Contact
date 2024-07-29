@@ -15,6 +15,12 @@
                         <div class="col-md-10">
                         <table class="table table-bordered">
                     <thead>
+    <div class="row justify-content-center">
+
+            <div class="col-md-8">
+                <h2 class="text-center mb-4">Department View</h2>
+                <table class="table table-bordered">
+                    <thead class="text-center">
                         <tr>
                             <th>Id</th>
                             <td>{{ $department->id}}</td>
