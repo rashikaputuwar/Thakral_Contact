@@ -9,6 +9,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RoleMenuController;
+use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,8 @@ Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
 Route::get('roles/view/{id}',[RoleController::class,'show'])->name('roles.show');
+Route::get('/roles/edit/{id}', [RoleController::class,'edit'])->name('roles.edit');
+Route::put('/roles/update/{id}', [RoleController::class,'update'])->name('roles.update');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
@@ -109,3 +112,6 @@ Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
 Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('roleMenu.show');
+
+//user Role COntroller
+Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');

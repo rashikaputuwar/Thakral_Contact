@@ -32,7 +32,7 @@
                             <td>{{$role->role_name }}</td>
                             <td>{{$role->status}}</td>
                             <td><a href="{{Route('roles.show',$role->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a></td>
+                                <a href="{{Route('roles.edit',$role->id)}}" class="btn btn-primary btn-sm">Update</a></td>
                             @empty
                                 <td rowspan="5">No Data</td>
                         </tr>

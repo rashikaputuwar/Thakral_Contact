@@ -20,6 +20,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 @foreach ($roles as $role)
                                 @php
                                     $menus = $role->menus->unique('id');

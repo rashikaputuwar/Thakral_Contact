@@ -117,7 +117,31 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        
+        $request->validate([
+            'emp_code' => 'required|string|max:255', 
+            'first_name' => 'required|string|max:255',
+            'personal_contact' => 'required|numeric|digits:10',
+            'office_contact' => 'nullable|string|max:255',
+           'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|string|in:Female,Male,Others',
+            'department' => 'required|exists:departments,id',
+            'designation' => 'required|exists:designations,id',
+            // 'dob' => 'required|date',
+            'dob' => ['required', 'date', 'before:'.now()->subYears(19)->toDateString()],
+            'joining_date' => 'required|date',
+            // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $employees = DB::table('employees')
         ->where('id',$id)
         ->update([

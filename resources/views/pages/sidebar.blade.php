@@ -85,7 +85,7 @@
                             <a href="{{Route('rolesMenu.index')}}" class="sidebar-link">Role Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
-                            <a href="" class="sidebar-link">User Role</a>
+                            <a href="{{Route('userRole.index')}}" class="sidebar-link">User Role</a>
                         </li>
                     </ul>
                 </li>
