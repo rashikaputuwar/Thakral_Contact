@@ -31,6 +31,11 @@ body {
     display: flex;
 }
 
+.table {
+    width: 100%;
+    min-width: 700px; /* Ensures the table is always wide enough to fit content */
+}
+
 .main {
     min-height: 100vh;
     width: 100%;
@@ -44,6 +49,7 @@ body {
     z-index: 1000;
     transition: all .25s ease-in-out;
     background-color: rgb(125,125,235);
+    /* background-color: #185f33; */
     display: flex;
     flex-direction: column;
     width: 260px; /* Set to your expanded width */
@@ -97,8 +103,18 @@ a.sidebar-link {
     color: black;
     display: block;
     font-size: 0.9rem;
-    white-space: nowrap;
+    white-space: nowrap;    
     border-left: 3px solid transparent;
+}
+ /* for responsiveness */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th, .table td {
+    white-space: nowrap; /* Prevent text from wrapping */
+    /* text-align: center; */
+    vertical-align: middle;
 }
 
 .sidebar-link i {
@@ -170,20 +186,20 @@ a.sidebar-link:hover {
 
 .main h1 {
     background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 30px;
+    /* margin-bottom: 20px; */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     color: #2c3e50;
-    font-size: 28px;
+    font-size: 38px;
 }
 
-.content {
+/* .content {
     background-color: white;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+} */
 
 /* Add tab-like indentation before dropdown items */
 .sidebar-item.dropdown-item {

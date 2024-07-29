@@ -14,7 +14,7 @@
                         <a href="{{ route('roles.create') }}" class="btn btn-success btn-sm btn-add-user">Add Roles</a>
                      </div>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>SN</th>
                                 <th>ID</th>
@@ -31,7 +31,7 @@
                                     <td>{{ $role['role_name'] }}</td>
                                     <td>{{ $role['status'] }}</td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm">View</a>
+                                        <a href="{{Route('showRoles',$role->id)}}" class="btn btn-primary btn-sm">View</a>
                                         <a href="" class="btn btn-primary btn-sm">Update</a>
                                     </td>
                                 </tr>
@@ -52,7 +52,7 @@
                             @empty
                                 <td rowspan="5">No Data</td>
                         </tr>
-                            @endforelse --}}
+                            @endforelse
                     </tbody>
                         </table>
                     </div>

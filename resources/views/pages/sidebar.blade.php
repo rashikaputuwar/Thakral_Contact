@@ -8,13 +8,13 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/form.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
 </head>
 
 <body>
     <div class="wrapper">
         <aside id="sidebar" class="expand">
-            <div class="d-flex">
+            <div class="d-flex ">
                 <button class="toggle-btn" type="button">
                     <i class="lni lni-grid-alt"></i>
                  
@@ -25,7 +25,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="" class="sidebar-link">
+                    <a href="{{Route('welcomePage')}}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Contact</span>
                     </a>
@@ -82,10 +82,10 @@
                         <a href="{{Route('menu.index')}}" class="sidebar-link">Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
-                            <a href="{{Route('rolesMenu.index')}}" class="sidebar-link">Role_Menu</a>
+                            <a href="{{Route('rolesMenu.index')}}" class="sidebar-link">Role Menu</a>
                         </li>
                         <li class="sidebar-item dropdown-item">
-                            <a href="" class="sidebar-link">User_Role</a>
+                            <a href="" class="sidebar-link">User Role</a>
                         </li>
                     </ul>
                 </li>
@@ -116,15 +116,18 @@
                 </a>
             </div>
         </aside>
-        <div class="main p-3">
-            <div class="text-center">
+        <div class="main">
+            <header class="header text-center">
                 <h1>Contact Management</h1>
+            </header>
+            <div class="content p-3">
+                <section>
+                    @yield('content')
+                </section>  
             </div>
-
-            <section>
-            @yield('content')
-            </section>  
         </div>
+
+      
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

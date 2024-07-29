@@ -15,7 +15,7 @@
                         <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user">Add Users</a>
                      </div>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                             <tr>
                                 <th>ID</th>
                                 {{-- <th>User ID</th> --}}
@@ -52,5 +52,5 @@
 
 {{-- adding title name --}}
 @section('title')
-User   
+-User   
 @endsection

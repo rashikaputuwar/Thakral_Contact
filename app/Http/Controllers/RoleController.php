@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class RoleController extends Controller
@@ -32,17 +33,23 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'roleid' => 'required|unique:roles,role_id',
-            'rolename' => 'required',
-            'status' => 'required'
-        ]);
-
-        Role::create([
+        $roles = DB::table('roles')
+        ->insert([
             'role_id' => $request->roleid,
             'role_name' => $request->rolename,
             'status' => $request->status
         ]);
+        // $request->validate([
+        //     'roleid' => 'required|unique:roles,role_id',
+        //     'rolename' => 'required',
+        //     'status' => 'required'
+        // ]);
+
+        // Role::insert([
+        //     'role_id' => $request->roleid,
+        //     'role_name' => $request->rolename,
+        //     'status' => $request->status
+        // ]);
 
         return redirect()->route('roles.index')->with('success', 'Role added successfully');
     }
@@ -54,6 +61,8 @@ class RoleController extends Controller
     public function show(string $id)
     {
         //
+        $roles = Role::find($id);
+        return view('user_mg.view.roleView',compact('roles'));
     }
 
     /**

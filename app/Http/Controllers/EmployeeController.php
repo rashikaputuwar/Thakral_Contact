@@ -40,7 +40,16 @@ class EmployeeController extends Controller
             'first_name' => 'required|string|max:255',
             'personal_contact' => 'required|numeric|digits:10',
             'office_contact' => 'required|numeric|digits:10',
-            'email' => 'nullable|email|max:255',
+           'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|in:Female,Male,Others',
             'department' => 'required|exists:departments,id',

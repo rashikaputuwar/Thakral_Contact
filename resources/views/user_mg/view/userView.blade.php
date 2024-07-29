@@ -1,37 +1,47 @@
 @extends('pages.sidebar')
 @section('content')
-    <div class="row justify-content-center">
-        
-            <div class="col-md-8">
-                <h2 class="text-center mb-4">User View</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            {{-- <th>User Id</th> --}}
-                            <th>UserName</th>
-                            <th>Pw Expiry Date</th>
-                            <th>Employee ID</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            {{-- <td>{{ $user->user_id}}</td> --}}
-                            <td>{{ $user->user_name }}</td>
-                            <td>{{ $user->expiry_date }}</td>
-                            <td>{{ $user->employee_id}}</td>
-                            <td>{{ $user->status}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="display-6 text-center"> User Information Details</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                        
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Id</th> 
+                                    <td>{{ $user->id }}</td>
+                                    <th>UserName</th>
+                                    <td>{{ $user->user_name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pw Expiry Date</th>
+                                    <td>{{ $user->expiry_date }}</td>
+                                    <th>Employee ID</th>
+                                    <td>{{ $user->employee_id}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th> 
+                                    <td>{{ $user->status}}</td> 
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <a href="/userPage">
+                            <button type="back" class="btn btn-primary">Back</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="/userPage">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
 
@@ -40,3 +50,5 @@
 @section('title')
 -View User Page
 @endsection
+
+

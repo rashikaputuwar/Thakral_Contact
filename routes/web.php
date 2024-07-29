@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcomePage');
 
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
@@ -38,6 +38,7 @@ Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.us
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
+Route::get('/showRoles/{id}',[RoleController::class, 'show'])->name('showRoles');
 
 //client 
 Route::get('/client',[ClientController::class,'index'])->name('client.index');
@@ -104,3 +105,4 @@ Route::get('/rolesmenu', [RoleMenuController::class, 'index'])->name('rolesMenu.
 Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu.create');
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
+Route::get('/role/{id}',[RoleMenuController::class,'show'])->name('showRoleMenu');

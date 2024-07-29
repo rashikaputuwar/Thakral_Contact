@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user">Add</a>
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th>Role</th>
                                     <th>Menu</th>
@@ -45,8 +45,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{Route('showUser',$role->id)}}" class="btn btn-primary btn-sm">View</a>
-                                            <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                            <a href="{{Route('showRoleMenu',$role->id)}}" class="btn btn-primary btn-sm">View</a>
+                                            <a href="" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>
                                 @endforeach

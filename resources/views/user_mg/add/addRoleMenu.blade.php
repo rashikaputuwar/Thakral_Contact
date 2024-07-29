@@ -41,7 +41,8 @@
                                 <label for="menu{{$menu->id}}" class="form-check-label">{{$menu->menu_name}}</label>
                             </div>
                             <div class="permissions ms-4">
-                                @foreach ($permissions as $permission)
+                              {{-- this line decides to show the permissions  --}}
+                                @foreach ($menu->permissions as $permission) 
                                 <div class="form-check form-check-inline">
                                     <input type="checkbox" class="form-check-input" id="permission{{$permission->id}}_{{$menu->id}}" name="permissions[{{$menu->id}}][]" value="{{$permission->id}}">
                                     <label for="permission{{$permission->id}}_{{$menu->id}}" class="form-check-label">{{$permission->button_name}}</label>
