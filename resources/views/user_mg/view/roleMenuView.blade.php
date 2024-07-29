@@ -5,7 +5,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> User Information Details</h2>
+                        <h2 class="display-6 text-center"> Role Menu Details</h2>
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
@@ -14,15 +14,19 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                         <table class="table table-bordered">
-                <tr>
-                    <th>Role</th> 
-                    <td>{{ $role->role_name }}</td>
-                    @foreach ($role->menus as $menu)
-                    
-                        <th>Menu</th>
-                        <td>{{ $menu->menu_name }}</td>
-                </tr>
-                <tr>
+                        <tr>
+                           
+                            <th >Role</th> 
+                            <td>{{ $role->role_name }}</td>
+                        </tr>
+                        
+                        <tr>
+                            <th>Menu</th> 
+                            <td>
+                                @if($role->menus)
+                                {{ $role->menus->first()->menu_name }}
+                                @endif
+                            </td>
                     <th>Permission</th>
                         <td colspan="3">
                         <ul>
@@ -32,10 +36,7 @@
                         </ul>
                     </td>
                 </tr>
-                        
-                
-                    @endforeach
-            </table>
+            </table> 
                         </div>
                     </div>
 
@@ -53,7 +54,7 @@
 @endsection
 
 @section('title')
--View User Page
+-View Role Menu Page
 @endsection
 
 
