@@ -26,23 +26,16 @@
                                     <hr class="my-1">
                                 @endif
                             </div>
-                        @endforeach
-                            </td>
-                        </tr>
-
-                        
-                </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="{{Route('menu.index')}}">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
-
+   
 @endsection
 
+{{-- adding title name --}}
 @section('title')
--View User Page
+- Role  
 @endsection

@@ -49,6 +49,7 @@ body {
     z-index: 1000;
     transition: all .25s ease-in-out;
     background-color: rgb(125,125,235);
+    /* background-color: #185f33; */
     display: flex;
     flex-direction: column;
     width: 260px; /* Set to your expanded width */
@@ -102,7 +103,7 @@ a.sidebar-link {
     color: black;
     display: block;
     font-size: 0.9rem;
-    white-space: nowrap;
+    white-space: nowrap;    
     border-left: 3px solid transparent;
 }
  /* for responsiveness */

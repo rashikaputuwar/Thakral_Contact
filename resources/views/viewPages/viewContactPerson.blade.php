@@ -8,32 +8,38 @@
                     <thead class="text-center">
                         <tr>
                             <th>ID</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Contact Number</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Associated Company</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td>{{ $contactPerson->id }}</td>
-                            <td>{{ $contactPerson->first_name }}</td>
+                            <th>First Name</th>
+                            <td>{{ $contactPerson->first_name }}</td>                           
+                    </tr>
+                    <tr>
+                            <th>Last Name</th>
                             <td>{{ $contactPerson->last_name }}</td>
+                            <th >Contact Number</th>
                             <td>{{ $contactPerson->contact_number}}</td>
+                    </tr>
+                    <tr>
+                            <th>Email</th>
                             <td>{{ $contactPerson->email}}</td>
+                            <th>Address</th>
                             <td>{{ $contactPerson->address}}</td>
-                            <td>{{ $contactPerson->client->client_name }}</td>
-                        </tr>
-                    </tbody>
+                    </tr>
+                    <tr>
+                        <th>Associated Company</th>
+                        <td>{{ $contactPerson->client->client_name }}</td>
+                    </tr>
                 </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <a href="/contact">
+                            <button type="back" class="btn btn-primary">Back</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="/contact">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
 
@@ -42,3 +48,5 @@
 @section('title')
 -Contact Person Details View
 @endsection
+
+

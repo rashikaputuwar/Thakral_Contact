@@ -8,22 +8,28 @@
                     <thead class="text-center">
                         <tr>
                             <th>Id</th>
-                            <th>Department Name</th>
+                            <td>{{ $department->id}}</td>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $department->id}}</td>
+                            <th>Department Name</th>
                             <td>{{ $department->dept_name}}</td>
                         </tr>
                     </tbody>
                 </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <a href="/designation">
+                            <button type="back" class="btn btn-primary">Back</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="/department">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
 
@@ -32,3 +38,5 @@
 @section('title')
 -View Department Page
 @endsection
+
+

@@ -1,3 +1,4 @@
+
 @extends('pages.sidebar')
 @section('content')
     <div class="row justify-content-center">
@@ -59,3 +60,5 @@
 @section('title')
 -Employee Details View
 @endsection
+
+

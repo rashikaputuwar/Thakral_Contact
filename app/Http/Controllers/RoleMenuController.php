@@ -91,14 +91,14 @@ class RoleMenuController extends Controller
        
     }
     
-     
-    
     /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         //
+        $role = Role::with(['menus', 'permissions'])->findOrFail($id);
+        return view('user_mg.view.roleMenuView', compact('role'));
     }
 
     /**
@@ -108,7 +108,6 @@ class RoleMenuController extends Controller
     {
         
     }
-
     /**
      * Update the specified resource in storage.
      */

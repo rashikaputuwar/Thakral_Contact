@@ -8,30 +8,35 @@
                     <thead class="text-center">
                         <tr>
                             <th>ID</th>
-                            <th>Organization Name</th>
-                            <th>Contact Number</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Website</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td>{{ $client->id}}</td>
+                            <th>Organization Name</th>
                             <td>{{ $client->client_name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact Number</th>
                             <td>{{ $client->contact_number}}</td>
+                            <th>Email</th>
                             <td>{{ $client->email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th> 
                             <td>{{ $client->address}}</td>
+                            <th>Website</th>
                             <td>{{ $client->website}}</td>
                         </tr>
-                    </tbody>
                 </table>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <a href="/client">
+                            <button type="back" class="btn btn-primary">Back</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="/client">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
 
@@ -40,3 +45,5 @@
 @section('title')
 -Organization View
 @endsection
+
+

@@ -8,22 +8,27 @@
                     <thead class="text-center">
                         <tr>
                             <th>Id</th>
-                            <th>Designation Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
                             <td>{{ $designation->id}}</td>
+                        </tr>
+                   
+                        
+                        <tr>
+                            <th>Designation Name</th>
                             <td>{{ $designation->desig_name}}</td>
                         </tr>
-                    </tbody>
+                   
                 </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-4">
+                            <a href="/designation">
+                            <button type="back" class="btn btn-primary">Back</button></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-8 offset-sm-4">
-            <a href="/designation">
-            <button type="back" class="btn btn-primary">Back</button></a>
         </div>
     </div>
 
@@ -32,3 +37,5 @@
 @section('title')
 -View Designation Page
 @endsection
+
+
