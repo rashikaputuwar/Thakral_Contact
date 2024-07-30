@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class add_user extends Model
+class add_user extends Authenticatable
 {
+
     use HasFactory;
 
     protected $table = 'add_users';
