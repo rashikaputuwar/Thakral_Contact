@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcomePage');
+})->name('welcomePage')->middleware('auth');;
 
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
@@ -116,3 +117,8 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
+
+//login
+Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::get('/isLoggedIn',[LoginController::class,'isLoggedIn'])->name('login.isLoggedIn');
+Route::post('/check',[LoginController::class,'check'])->name('login.check');

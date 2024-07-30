@@ -30,15 +30,13 @@
                                         @endif
                                         <td>{{ $role->role_name }}</td>
                                         <td>
-                                            <a href="{{ route('roleMenu.show', $user->id) }}" class="btn btn-primary btn-sm">View</a>
-                                            <a href="{{ route('edit.User', $user->id) }}" class="btn btn-primary btn-sm">Update</a>
+                                            <a href="" class="btn btn-primary btn-sm">View</a>
+                                            <a href="" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>
-                                @empty
+                                    @empty
                                     <tr>
-                                        @if ($loop->first)
-                                            <td>{{ $user->employee->full_name }}</td>
-                                        @endif
+                                        <td>{{ $user->employee->full_name }}</td>
                                         <td colspan="2">No roles assigned</td>
                                     </tr>
                                 @endforelse

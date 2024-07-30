@@ -2,7 +2,10 @@
 
 
 @section('content')
-        <p>huahaha this is welcome page</p>
-        {{-- <a href="{{route('usermg')}}">user</a> --}}
+@auth
+<p>Welcome, {{ Auth::add_user()->name }}! You are logged in.</p>
+@else
+<p>You are not logged in.</p>
+@endauth
      
 @endsection

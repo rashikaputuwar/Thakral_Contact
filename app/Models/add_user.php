@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class add_user extends Model
+class add_user extends Authenticatable
 {
+
     use HasFactory;
 
     protected $table = 'add_users';
@@ -24,7 +26,8 @@ class add_user extends Model
     } 
     
     public function employee(){
-        return $this->belongsTo(Employee::class,'employee_id');
+        // return $this->belongsTo(Employee::class,'employee_id');
+        return $this->belongsTo(Employee::class);
     }
 
     
