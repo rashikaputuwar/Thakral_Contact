@@ -26,7 +26,7 @@ class MenuController extends Controller
     public function create()
     {
         $permissions = Permission::all();
-        return view('user_mg.add.addMenu',compact('permissions'));
+        return view('user_mg.add.addMenu', compact('permissions'));
         // return view('user_mg.add.addMenu');
     }
 
@@ -42,35 +42,35 @@ class MenuController extends Controller
             'permissions' => 'required|array'
         ]);
 
-        try{
+        try {
             DB::beginTransaction();
-      
+
             // Menu::create([
             //     'menu_id' => $request->menuid,
             //     'menu_name' => $request->menuname,
             //     'status' => $request->status,
             // ]);
 
-        $menu = Menu::create([
-            // 'menu_id' => $request->menuid,
-            'menu_name' => $request->menuname,
-            'status' => $request->status,
-        ]);
-
-        foreach($request->permissions as $permissionId){
-            MenuPermission::create([
-                'menu_id' => $menu->id,
-                'button_id' => $permissionId,
+            $menu = Menu::create([
+                // 'menu_id' => $request->menuid,
+                'menu_name' => $request->menuname,
+                'status' => $request->status,
             ]);
+
+            foreach ($request->permissions as $permissionId) {
+                MenuPermission::create([
+                    'menu_id' => $menu->id,
+                    'button_id' => $permissionId,
+                ]);
+            }
+
+            DB::commit();
+            return redirect()->route('menu.index')->with('success', 'Role added successfully');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error');
         }
 
-        DB::commit();
-        return redirect()->route('menu.index')->with('success', 'Role added successfully');
-    }catch(\Exception $e){
-        DB::rollBack();
-        return redirect()->back()->with('error');
-    }
-    
     }
 
 
@@ -80,15 +80,21 @@ class MenuController extends Controller
     public function show(string $id)
     {
         $menus = Menu::with('permissions')->findOrFail($id);
-        return view('user_mg.view.viewMenu',compact('menus'));
+        return view('user_mg.view.viewMenu', compact('menus'));
     }
 
+   
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        
+        $menu = Menu::find($id);
+        // dd($user->status);
+    
+    $permissions = Permission::all(); 
+
+    return view('update.updateMenu', compact('menu', 'permissions'));
     }
 
     /**
@@ -96,19 +102,22 @@ class MenuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $menu = DB::table('menus')
-        ->where('id', $id)
-        ->update([
-            'menuname' => $request->menuname,
-            'status' => $request->status,
-            'permissions' => ''
+        
+        $menu = Menu::find($id);
+        $menu->menu_name = $request->menuname;
+        $menu->status = $request->status;
 
-        ]);
-    if ($menu) {
-        return redirect()->route('menu.show', $id);
-    } else {
-        echo "<h2>Data Not Updated.</h2>";
-    }
+        // Save the changes
+        if ($menu->save()) {
+            // Update permissions if provided
+            if ($request->has('permissions')) {
+                $menu->permissions()->sync($request->permissions);
+            }
+
+            return redirect()->route('menu.show', $id)->with('success', 'Menu updated successfully.');
+        } else {
+            return redirect()->back()->with('error', 'Failed to update menu.');
+        }
     }
 
     /**

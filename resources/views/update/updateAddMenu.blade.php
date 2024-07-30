@@ -11,7 +11,7 @@
                    <div class="row mb-3">
                        <label for="menuname" class="col-sm-4 col-form-label text-end required-asterisk">Name</label>
                        <div class="col-sm-8">
-                           <input type="text" class="form-control" id="menuname" name="menuname" value="{{$menu->menu_name}}" required>
+                           <input type="text" class="form-control" id="menuname" name="menuname" value="{{$menu->menu_name}} " required>
                        </div>
                  </div>
 

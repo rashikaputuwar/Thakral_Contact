@@ -31,8 +31,8 @@
                                 <td>{{ $menu->menu_name }}</td>
                                 {{-- <td>{{ $menu->status }}</td> --}}
                                 <td>
-                                    <a href="{{Route('menu.show',$menu->id)}}"><button class="btn btn-primary">View</button></a>
-                                    <a> <button class="btn btn-primary">Update</button></a>
+                                    <a href="{{Route('menu.show',$menu->id)}}"><button class="btn btn-primary btn-sm">View</button></a>
+                                    <a href="{{Route('menu.edit',$menu->id)}}" class="btn btn-primary btn-sm">Update</button></a>
                                 </td>
                                 {{-- <td></td> --}}
                             </tr>
