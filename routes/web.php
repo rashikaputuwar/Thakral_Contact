@@ -15,9 +15,9 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcomePage')->middleware('auth');;
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcomePage')->middleware('auth');
 
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
@@ -119,5 +119,10 @@ Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.inde
 
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
-Route::get('/isLoggedIn',[LoginController::class,'isLoggedIn'])->name('login.isLoggedIn');
-Route::post('/check',[LoginController::class,'check'])->name('login.check');
+// Route::get('/login',[LoginController::class,'index'])->name('login');
+// Route::get('/isLoggedIn',[LoginController::class,'isLoggedIn'])->name('login.isLoggedIn');
+// Route::view('/welcome','welcome')->name('welcomePage');
+Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.match');
+// Route::post('/check',[LoginController::class,'check'])->name('login.check');
+Route::get('/dashboard',[LoginController::class,'dashboardPage'])->name('dashboard');
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');   

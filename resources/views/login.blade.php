@@ -1,6 +1,6 @@
 @extends('pages.sidebar')
 @section('content')
-<form method="POST" action="{{route('login.check')}}">
+<form method="POST" action="{{route('login.match')}}">
     @csrf
     @if ($errors->any())
     <div class="alert alert-danger">
