@@ -20,7 +20,7 @@
                                 <th>ID</th>
                                 {{-- <th>User ID</th> --}}
                                 <th>User Name</th>
-                                <th>Employee Id</th>
+                                <th>Employee Name</th>
                                 <th>PW Expiry Date</th>
                                 <th>Status</th>
                                 <th>Action</th>

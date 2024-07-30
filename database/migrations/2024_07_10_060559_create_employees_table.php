@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('lname');
             $table->string('email')->unique();
             $table->string('personal_contact')->unique();
-            $table->string('office_contact')->unique();
+            $table->string('office_contact')->unique()->nullable();
             // $table->string('extention_contact')->unique();
             $table->enum('gender', ['Female', 'Male','others'])->default('Male');
             $table->unsignedBigInteger('dept_id');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->date('dob');
             $table->date('join_date');
             $table->string('temp_address');
-            $table->string('perm_address');
+            $table->string('perm_address')->nullable();
             $table->binary('photo_blob')->nullable();
             $table->timestamps();
 

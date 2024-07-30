@@ -40,7 +40,7 @@
                             
                             <td>
                                 <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-primary btn-sm">Update</a>
                             </td>
                         </tr>
                              @endforeach

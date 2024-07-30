@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('contact_number')->unique();
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->timestamps();
 
             // Define the foreign key constraint
