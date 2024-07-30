@@ -39,7 +39,7 @@ Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.us
 Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
 Route::post('/roles', [RoleController::class, 'store'])->name('roles.store');
-Route::get('roles/view/{id}',[RoleController::class,'show'])->name('roles.show');
+Route::get('roles/view/{id}',[RoleController::class,'show'])->name('showRoles');
 Route::get('/roles/edit/{id}', [RoleController::class,'edit'])->name('roles.edit');
 Route::put('/roles/update/{id}', [RoleController::class,'update'])->name('roles.update');
 
@@ -112,6 +112,7 @@ Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
 Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('roleMenu.show');
+
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
