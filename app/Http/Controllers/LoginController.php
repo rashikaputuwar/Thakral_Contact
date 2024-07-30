@@ -6,6 +6,8 @@ use App\Models\add_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB; // For DB facade
+use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     /**
@@ -31,11 +33,38 @@ class LoginController extends Controller
     $user = add_user::where('user_name', $request->user_name)->first();
 
     
-
+    
     // Check if user exists and the password is correct
     if ($user && Hash::check($request->password, $user->password)) {
         // Authentication passed
         Auth::login($user);
+        $userWithEmployee = DB::table('add_users as a')
+        ->join('employees as e', 'a.employee_id', '=', 'e.id')
+        ->where('a.id', '=', $user->id)
+        ->select('e.id', 'e.fname', 'e.lname')
+        ->first();
+            
+            if ($userWithEmployee) {
+                $userRoles = DB::table('userroles')
+                ->where('employee_id', '=', $userWithEmployee->id)
+                ->pluck('role_id'); // Fetches all role_ids as a collection
+
+                $roleMenus = DB::table('role_menu_permissions')
+                ->whereIn('role_id', $userRoles) // Use whereIn to handle multiple role_ids
+                ->get(['role_id', 'menu_id', 'permission_id']); // Fetch multiple columns
+
+               
+        
+            // Store data in session
+            session([
+                'employee_id' => $userWithEmployee->id,
+                'employee_fname' => $userWithEmployee->fname,
+                'employee_lname' => $userWithEmployee->lname,
+                'role_ids' => $userRoles,
+                'role_menus' => $roleMenus, // Store the collection of role menus and permissions
+            ]);
+            }
+            
         return redirect()->route('welcomePage');
     } else {
         // Authentication failed
@@ -59,9 +88,16 @@ class LoginController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function logout()
     {
-        //
+         // Log out the user
+        Auth::logout();
+
+        // Clear all session data
+        Session::flush();
+
+        // Redirect to the login page or home page
+        return redirect()->route('login.index');
     }
 
     /**

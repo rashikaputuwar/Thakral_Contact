@@ -15,9 +15,10 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\Route;
 
+Route::middleware('auth')->group(function () {
 Route::get('/', function () {
     return view('welcome');
-})->name('welcomePage')->middleware('auth');;
+})->name('welcomePage');
 
 // ROUTES FOR USERCONTROLLER
 Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
@@ -26,6 +27,7 @@ Route::get('/user/create', [UserController::class,'create'])->name('create.user'
 Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
 Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
 Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.user');
+});
 
 
 //ROUTES FOR FORM PAGES--POST METHOD
@@ -120,5 +122,6 @@ Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.inde
 
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
+Route::get('/logout',[LoginController::class,'logout'])->name('login.logout');
 Route::get('/isLoggedIn',[LoginController::class,'isLoggedIn'])->name('login.isLoggedIn');
 Route::post('/check',[LoginController::class,'check'])->name('login.check');

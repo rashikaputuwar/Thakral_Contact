@@ -13,6 +13,11 @@
 
 <body>
     <div class="wrapper">
+    @if(session('employee_id'))
+    @php
+    // Retrieve role_menus data from the session or default to an empty collection
+    $roleMenus = session('role_menus', collect([]));
+@endphp
         <aside id="sidebar" class="expand">
             <div class="d-flex ">
                 <button class="toggle-btn" type="button">
@@ -30,13 +35,15 @@
                         <span>Contact</span>
                     </a>
                 </li>
+                @if($roleMenus->contains('menu_id', 2))
                 <li class="sidebar-item">
+                    
                     <a href="{{Route('employee.index')}}" class="sidebar-link">
                         <i class="lni lni-smile"></i>
                         <span>Employees</span>
                     </a>
                 </li>
-              
+              @endif
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#person-organization" aria-expanded="false" aria-controls="person-organization">
@@ -110,12 +117,13 @@
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="{{route('login.logout')}}" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
             </div>
         </aside>
+    @endif
         <div class="main">
             <header class="header text-center">
                 <h1>Contact Management</h1>
