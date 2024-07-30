@@ -96,9 +96,8 @@ class RoleMenuController extends Controller
      */
     public function show(string $id)
     {
-        //
-        $role = Role::with(['menus', 'permissions'])->findOrFail($id);
-        return view('user_mg.view.roleMenuView', compact('role'));
+        $roles = Role::find($id);
+        return view('user_mg.view.viewRoleMenu',compact('roles'));
     }
 
     /**

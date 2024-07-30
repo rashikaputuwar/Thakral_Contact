@@ -60,9 +60,8 @@ class RoleController extends Controller
      */
     public function show(string $id)
     {
-        //
         $roles = Role::find($id);
-        return view('user_mg.view.roleView',compact('roles'));
+        return view('user_mg.view.viewRoles',compact('roles'));
     }
 
     /**
@@ -72,7 +71,7 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         // dd($user->status);
-        return view('update.updateRole', compact('role'));
+        return view('user_mg.edit.editRole', compact('role'));
     }
 
     /**
@@ -80,19 +79,15 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $role = DB::table('roles')
-            ->where('id', $id)
-            ->update([
-                'role_id' => $request->role_id,
-                'role_name' => $request->role_name,
-                'status' => $request->status
+        $role = DB::table('roles')->where('id', $id)->update(['role_id' => $request->role_id,'role_name' => $request->role_name,
+        'status' => $request->status,
+        ]);
 
-            ]);
         if ($role) {
             return redirect()->route('roles.index', $id);
         } else {
             echo "<h2>Data Not Updated.</h2>";
-            
+
         }
     }
 

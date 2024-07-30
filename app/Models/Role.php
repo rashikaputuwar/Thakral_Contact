@@ -20,4 +20,9 @@ class Role extends Model
     public function permissions(){
         return $this->belongsToMany(Permission::class, 'role_menu_permissions', 'role_id', 'permission_id')->withPivot('menu_id');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(add_user::class, 'userroles', 'role_id', 'employee_id');
+    }
 }

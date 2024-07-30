@@ -37,6 +37,7 @@ class ClientController extends Controller
     }
     public function createContact()
     {
+
         $clients = Client::all();
         // dd($clients);
         return view('add.addContactPerson', compact('clients'));
@@ -47,7 +48,20 @@ class ClientController extends Controller
      */
     public function storeClient(Request $request)
     {
-
+        $request->validate([
+            'company_name' => 'required|string|max:255', 
+            'contact' => 'required|numeric|digits:10',
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
+        ]);
 
         $client = DB::table('client_tables')
             ->insert([
@@ -66,7 +80,19 @@ class ClientController extends Controller
 
     public function storeContactPerson(Request $request)
     {
-
+        $request->validate([
+            'contact' => 'required|numeric|digits:10',
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
+        ]);
 
         $contactPerson = DB::table('contact_persons')
             ->insert([
@@ -115,12 +141,26 @@ class ClientController extends Controller
         $clients = Client::all(); // Ensure you have the list of clients if it's needed in the view
         return view('update.updateContactPerson', compact('contactPerson', 'clients'));
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function updateClient(Request $request, string $id)
     {
+        $request->validate([
+            'client_name' => 'required|string|max:255', 
+            'contact_number' => 'required|numeric|digits:10',
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
+        ]);
+
         $client = DB::table('client_tables')
             ->where('id', $id)
             ->update([
@@ -140,6 +180,21 @@ class ClientController extends Controller
 
     public function updateContactPerson(Request $request, string $id)
     {
+        $request->validate([
+            
+            'contact_number' => 'required|numeric|digits:10',
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                function ($attribute, $value, $fail) {
+                    if (strpos($value, '@') === false || strpos($value, '.') === false) {
+                        $fail('The ' . $attribute . ' must contain both "@" and "." characters.');
+                    }
+                }
+            ],
+        ]);
+
         $contactPerson = DB::table('contact_persons')
             ->where('id', $id)
             ->update([

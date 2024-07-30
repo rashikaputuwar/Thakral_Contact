@@ -54,7 +54,7 @@
                 <div class="row mb-3">
                     <label for="office_contact" class="col-sm-4 col-form-label text-end">Office Contact Number</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control auto-resize" id="office_contact" name="office_contact" required>
+                        <input type="text" class="form-control auto-resize" id="office_contact" name="office_contact">
                     </div>
                 </div>
 
@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="perm_address" class="col-sm-4 col-form-label text-end required-asterisk">Permanent Address</label>
+                    <label for="perm_address" class="col-sm-4 col-form-label text-end">Permanent Address</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control auto-resize" id="perm_address" name="perm_address" required>
+                        <input type="text" class="form-control auto-resize" id="perm_address" name="perm_address">
                     </div>
                 </div>
         
