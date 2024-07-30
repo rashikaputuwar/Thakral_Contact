@@ -17,16 +17,18 @@
                                 <tr>
                                     <th>Id</th> 
                                     <td>{{ $user->id }}</td>
+                                    <th>Employee Name</th>
+                                    <td>{{ $user->employee->fname}} {{ $user->employee->lname}}</td>
+                                </tr>
+                                <tr> 
+                                    <th>Employee ID</th>
+                                    <td>{{ $user->employee_id}}</td>
                                     <th>UserName</th>
                                     <td>{{ $user->user_name }}</td>
                                 </tr>
                                 <tr>
                                     <th>Pw Expiry Date</th>
                                     <td>{{ $user->expiry_date }}</td>
-                                    <th>Employee ID</th>
-                                    <td>{{ $user->employee_id}}</td>
-                                </tr>
-                                <tr>
                                     <th>Status</th> 
                                     <td>{{ $user->status}}</td> 
                                 </tr>
