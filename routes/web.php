@@ -13,6 +13,7 @@ use App\Http\Controllers\RoleMenuController;
 use App\Http\Controllers\UserRoleController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Middleware\CheckRoles;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -72,7 +73,7 @@ Route::get('/department/show/{id}',[DepartmentController::class,'show'])->name('
 
 
 //employee 
-Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index');
+Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index')->middleware(CheckRoles::class);// can we aafule banako mddleware too or use "auth"
 Route::get('/employee/create', [EmployeeController::class,'create'])->name('employee.create');
 Route::post('/employee/store', [EmployeeController::class,'store'])->name('employee.store');
 Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('employee.show');
@@ -124,5 +125,15 @@ Route::get('/login',[LoginController::class,'index'])->name('login.index');
 // Route::view('/welcome','welcome')->name('welcomePage');
 Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.match');
 // Route::post('/check',[LoginController::class,'check'])->name('login.check');
-Route::get('/dashboard',[LoginController::class,'dashboardPage'])->name('dashboard');
-Route::get('/logout',[LoginController::class,'logout'])->name('logout');   
+
+
+// Route::get('/dashboard',[LoginController::class,'dashboardPage']) {{ this is by using middleware made by own}}
+// ->name('dashboard')
+// ->middleware(CheckRoles::class); 
+
+// by using built-in middles ware.. 
+Route::get('/dashboard',[LoginController::class,'dashboardPage'])
+->name('dashboard')
+->middleware(["auth"]);   
+
+Route::get('/logout',[LoginController::class,'logout'])->name('logout');    

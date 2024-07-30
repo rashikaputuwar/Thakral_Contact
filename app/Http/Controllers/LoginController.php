@@ -56,12 +56,13 @@ class LoginController extends Controller
 
 
     public function dashboardPage(){
-        if(Auth::check()){
-            return view('welcome');
-        }
-        else{
-            return redirect()->route('login.index');
-        }
+        return view('welcome');
+        // if(Auth::check()){
+        //     return view('welcome');
+        // }
+        // else{
+        //     return redirect()->route('login.index');
+        // }
     }
 
     public function logout(){
