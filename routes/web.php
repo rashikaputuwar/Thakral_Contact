@@ -119,6 +119,8 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
+Route::get('/userRole/{id}',[UserRoleController::class,'show'])->name('userRole.show');
+
 
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');

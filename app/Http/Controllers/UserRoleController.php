@@ -39,10 +39,15 @@ class UserRoleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+public function show($id)
+{
+    $user = User::with('employee')->findOrFail($id);
+   
+    $roles = $user->roles; // Assuming a user has many roles
+    
+    
+     return view('user_mg.view.UserRoleView', compact('user', 'roles'));
+}
 
     /**
      * Show the form for editing the specified resource.

@@ -20,7 +20,7 @@ class LoginController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     */
+      */
     public function check(Request $request)
     {
         // Validate the request data
@@ -85,9 +85,9 @@ class LoginController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // /**
+    //  * Display the specified resource.
+    //  */
     public function logout()
     {
          // Log out the user
@@ -121,6 +121,6 @@ class LoginController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+    //     //
     }
-}
+ } 

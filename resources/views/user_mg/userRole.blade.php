@@ -26,11 +26,11 @@
                                 @forelse ($roles as $role)
                                     <tr>
                                         @if ($loop->first)
-                                            <td rowspan="{{ $roles->count() }}">{{ $user->employee->full_name }}</td>
+                                            <td rowspan="{{$roles->count() }}">{{$user->employee->full_name }}</td>
                                         @endif
                                         <td>{{ $role->role_name }}</td>
                                         <td>
-                                            <a href="" class="btn btn-primary btn-sm">View</a>
+                                            <a href="{{Route('userRole.show',$user->id)}}" class="btn btn-primary btn-sm">View</a>
                                             <a href="" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>

@@ -15,7 +15,6 @@
                         <div class="col-md-10">
                         <table class="table table-bordered">
                         <tr>
-                           
                             <th >Role</th> 
                             <td>{{ $role->role_name }}</td>
                         </tr>

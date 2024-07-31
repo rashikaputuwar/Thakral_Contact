@@ -17,10 +17,12 @@
                 <tr>
                     <th>Role</th> 
                     <td>{{ $roles->role_name }}</td>
-                    @foreach ($roles->menus as $menu)
-                    
-                        <th>Menu</th>
-                        <td>{{ $menu->menu_name }}</td>
+                    <th>Menu</th> 
+                        <td>
+                            @if($roles->menus)
+                                {{$roles->menus->first()->menu_name }}
+                            @endif
+                        </td>
                 </tr>
                 <tr>
                     <th>Permission</th>
@@ -32,9 +34,7 @@
                         </ul>
                     </td>
                 </tr>
-                        
-                
-                    @endforeach
+                 
             </table>
                         </div>
                     </div>
