@@ -16,12 +16,10 @@
                         <table class="table table-bordered">   
                         <tr>
                                 <th>User</th>
-                                <td>{{ $user->employee->full_name }}</td>
+                                <td>name</td>
                                 <th>Roles</th>
                                 <td>
-                                    @foreach ($roles as $role)
-                                        {{ $role->role_name }}{{ !$loop->last ? ',' : '' }}
-                                    @endforeach
+                                   hzkx
                                 </td>
                                     </tr> 
                         </table>

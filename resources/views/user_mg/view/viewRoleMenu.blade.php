@@ -13,7 +13,8 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-10">
-                            <h3 class="centre">{{$roles->role_name}}</h3>
+                        <h3 style="text-align: center;">{{ $roles->role_name }}</h3>
+
                         <table class="table table-bordered">
                 <tr>
                 <th>Menu</th> 
