@@ -41,13 +41,15 @@ class LoginController extends Controller
         $userWithEmployee = DB::table('add_users as a')
         ->join('employees as e', 'a.employee_id', '=', 'e.id')
         ->where('a.id', '=', $user->id)
-        ->select('e.id', 'e.fname', 'e.lname')
+        ->select('e.id', 'e.fname', 'e.lname', 'a.id as user_id')
         ->first();
             
             if ($userWithEmployee) {
                 $userRoles = DB::table('userroles')
                 ->where('employee_id', '=', $userWithEmployee->id)
                 ->pluck('role_id'); // Fetches all role_ids as a collection
+
+              
 
                 $roleMenus = DB::table('role_menu_permissions')
                 ->whereIn('role_id', $userRoles) // Use whereIn to handle multiple role_ids
@@ -57,6 +59,7 @@ class LoginController extends Controller
         
             // Store data in session
             session([
+                'user_id' => $userWithEmployee->user_id,
                 'employee_id' => $userWithEmployee->id,
                 'employee_fname' => $userWithEmployee->fname,
                 'employee_lname' => $userWithEmployee->lname,

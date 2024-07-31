@@ -1,18 +1,39 @@
 @extends('pages.sidebar')
 @section('content')
+@php
+    // Retrieve role_menus data from the session or default to an empty collection
+    $roleMenus = session('role_menus', collect([]));
+    
+    $roleMenus = session('role_menus', collect([]));
+    $hasAddPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 1;
+    })->isNotEmpty();
+    $hasEditPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 4;
+    })->isNotEmpty();
+    $hasViewPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 5;
+    })->isNotEmpty();
+  
+@endphp
     <div class="container">
 
         <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> Employees Details</h2>
+                        <h2 class="display-6 text-center"> Employees Details  </h2>
                     </div>
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
+                           
+                            
+                        @if ($hasAddPermission)
+
                         <a href="{{Route('employee.create')}}" class="btn btn-success btn-sm btn-add-user">Add Employee</a>
-                        </div>
+                        @endif    
+                    </div>
                         <table class="table table-bordered">
                             <thead class="text-center">
                             <tr>
@@ -38,8 +59,12 @@
                             <td>{{ $employee->departments->dept_name}}</td>
                             <td>{{ $employee->designations->desig_name}}</td>
                             <td>
+                            @if ($hasViewPermission )
                                 <a href="{{Route('employee.show',$employee->id)}}" class="btn btn-primary btn-sm">View</a>
+                            @endif 
+                            @if ($hasEditPermission )
                                 <a href="{{Route('employee.edit',$employee->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                 @endif 
                             </td>
                         </tr>
                              @endforeach

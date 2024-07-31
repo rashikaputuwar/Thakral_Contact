@@ -99,7 +99,7 @@ class RoleMenuController extends Controller
         $roles = Role::find($id);
         return view('user_mg.view.viewRoleMenu',compact('roles'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */

@@ -32,7 +32,7 @@ class DepartmentController extends Controller
     {
         $departments = DB:: table('departments')
         ->insert([
-            
+            'created_by'=>session('user_id'),
             'dept_name' => $request->dept_name,
         ]);
 

@@ -3,7 +3,9 @@
      <div class="container">
        <div class="row justify-content-center">
          <div class="col-md-8">
+         @if ($menusPermissions->contains('permissions_id',1))
            <h2 class="text-center text-complementary">Add Menu</h2>
+          @endif
            <form action="{{Route('menu.store')}}" method="post">
              @csrf
               {{-- <div class="row mb-3">

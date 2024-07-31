@@ -29,14 +29,14 @@
                 </div>
             </div>
             <ul class="sidebar-nav">
-            @if ($roleMenus->contains('menu_id',1))
+            {{-- @if ($roleMenus->contains('menu_id',1)) --}}
                 <li class="sidebar-item">
                     <a href="{{Route('welcomePage')}}" class="sidebar-link">
                         <i class="lni lni-user"></i>
                         <span>Contact</span>
                     </a>
                 </li>
-            @endif
+            {{-- @endif  --}}
                 @if ($roleMenus->contains('menu_id',2))
                 <li class="sidebar-item">
                     
@@ -45,8 +45,8 @@
                         <span>Employees</span>
                     </a>
                 </li>
-                @endif
-              @if ($roleMenus->contains('menu_id',3))
+                @endif 
+              {{-- @if ($roleMenus->contains('menu_id',3)) --}}
 
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
@@ -63,24 +63,24 @@
                         </li>
                     </ul>
                 </li>
-                @endif
-                @if ($roleMenus->contains('menu_id',4))
+                {{-- @endif --}}
+                {{-- @if ($roleMenus->contains('menu_id',4)) --}}
                 <li class="sidebar-item">
                 <a href="{{Route('visitor.showForm')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>
                 </li>
-                @endif
-                @if ($roleMenus->contains('menu_id',5))
+                {{-- @endif --}}
+                {{-- @if ($roleMenus->contains('menu_id',5)) --}}
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link">
                         <i class="lni lni-network"></i>
                         <span>Department</span>
                     </a>
                 </li>
-                @endif
-                @if ($roleMenus->contains('menu_id',6))
+                {{-- @endif --}}
+                {{-- @if ($roleMenus->contains('menu_id',6)) --}}
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#user-management" aria-expanded="false" aria-controls="user-management">
@@ -105,8 +105,8 @@
                         </li>
                     </ul>
                 </li>
-                @endif
-                @if ($roleMenus->contains('menu_id',7))
+                {{-- @endif --}}
+               {{-- @if ($roleMenus->contains('menu_id',7))--}}
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#configuration" aria-expanded="false" aria-controls="configurationn">
@@ -126,7 +126,7 @@
                         </li>
                     </ul>
                 </li>
-                @endif
+                {{--@endif--}}
             </ul>
             <div class="sidebar-footer">
                 <a href="{{route('login.logout')}}" class="sidebar-link">
