@@ -94,7 +94,7 @@ class MenuController extends Controller
     
     $permissions = Permission::all(); 
 
-    return view('update.updateMenu', compact('menu', 'permissions'));
+    return view('update.updateAddMenu', compact('menu', 'permissions'));
     }
 
     /**
@@ -115,7 +115,8 @@ class MenuController extends Controller
             }
 
             return redirect()->route('menu.show', $id)->with('success', 'Menu updated successfully.');
-        } else {
+        } else
+        {
             return redirect()->back()->with('error', 'Failed to update menu.');
         }
     }

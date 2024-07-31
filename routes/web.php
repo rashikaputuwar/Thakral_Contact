@@ -122,3 +122,5 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
+Route::get('/userRole/edit/{id}', [UserRoleController::class,'edit'])->name('userRole.edit');
+Route::put('/userRole/update/{id}', [UserRoleController::class,'update'])->name('userRole.update');

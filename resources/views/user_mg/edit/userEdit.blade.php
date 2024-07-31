@@ -3,7 +3,7 @@
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h2 class="text-center mb-4">Update User</h2>
+                <h2 class="text-center mb-4">Update User Role</h2>
                 <form action="{{Route('update.user',$data->id)}}" method="POST">
                     @csrf 
                    @method('PUT')

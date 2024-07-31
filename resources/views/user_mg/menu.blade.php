@@ -31,8 +31,8 @@
                                 <td>{{ $menu->menu_name }}</td>
                                 {{-- <td>{{ $menu->status }}</td> --}}
                                 <td>
-                                    <a href="{{Route('menu.show',$menu->id)}}"><button class="btn btn-primary btn-sm">View</button></a>
-                                    <a href="{{Route('menu.edit',$menu->id)}}" class="btn btn-primary btn-sm">Update</button></a>
+                                    <a href="{{Route('menu.show',$menu->id)}}" class="btn btn-primary btn-sm">View</a>
+                                    <a href="{{Route('menu.edit',$menu->id)}}" class="btn btn-primary btn-sm">Update</a>
                                 </td>
                                 {{-- <td></td> --}}
                             </tr>
@@ -49,5 +49,5 @@
 
 {{-- adding title name --}}
 @section('title')
-- Role  
+- Menu  
 @endsection

@@ -31,7 +31,7 @@
                                         <td>{{ $role->role_name }}</td>
                                         <td>
                                             <a href="" class="btn btn-primary btn-sm">View</a>
-                                            <a href="" class="btn btn-primary btn-sm">Update</a>
+                                            <a href="{{Route('userRole.edit',$user->id)}}" class="btn btn-primary btn-sm">Update</a>
                                         </td>
                                     </tr>
                                     @empty

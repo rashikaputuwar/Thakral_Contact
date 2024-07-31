@@ -26,6 +26,7 @@
                                     <hr class="my-1">
                                 @endif
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
