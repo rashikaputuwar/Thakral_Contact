@@ -5,7 +5,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> User Information Details</h2>
+                        <h2 class="display-6 text-center"> Role Menu Details</h2>
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
@@ -13,26 +13,38 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-md-10">
+                            <h3 class="centre">{{$roles->role_name}}</h3>
                         <table class="table table-bordered">
                 <tr>
-                    <th>Role</th> 
-                    <td>{{ $roles->role_name }}</td>
-                    <th>Menu</th> 
-                        <td>
-                            @if($roles->menus)
-                                {{$roles->menus->first()->menu_name }}
-                            @endif
-                        </td>
-                </tr>
-                <tr>
-                    <th>Permission</th>
-                        <td colspan="3">
-                        <ul>
-                        @if ($roles->permissions->isNotEmpty())
-                            {{ $roles->permissions->first()->button_name }}
-                        @endif
+                <th>Menu</th> 
+                <td>
+                    @if($roles->menus)
+                        <ul style="list-style-type: none;">
+                            @foreach($roles->menus as $menu)
+                                <li>
+                                    <span style="color: black; ">&#8226;</span>
+                                    {{ $menu->menu_name }}
+                                </li>
+                            @endforeach
                         </ul>
-                    </td>
+                    @endif
+                </td>
+                
+                <th>Permission</th>
+                <td colspan="3">
+                    <ul style="list-style-type: none;">
+                       @if($roles->permissions->isNotEmpty())
+                            @foreach($roles->permissions as $permission)
+                                <li>
+                                    <span style="color: black; ">&#8226;</span>
+                                   {{ $permission->button_name }}
+                               </li>
+                           @endforeach
+                       @endif
+                   </ul>
+                </td>
+
+
                 </tr>
                  
             </table>
@@ -53,5 +65,5 @@
 @endsection
 
 @section('title')
--View User Page
+-View Role MenuPage
 @endsection
