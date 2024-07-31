@@ -1,8 +1,6 @@
 @extends('pages.sidebar')
-
-
 @section('content')
-<h1>Hahaha</h1>
+
 @auth
 <p>Welcome, @if(session('employee_id')) 
 {{ session('employee_fname') }} {{ session('employee_lname') }}
