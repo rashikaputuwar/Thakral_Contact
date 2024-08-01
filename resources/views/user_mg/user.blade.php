@@ -1,5 +1,21 @@
 @extends('pages.sidebar')
 @section('content')
+@php
+    // Retrieve role_menus data from the session or default to an empty collection
+    $roleMenus = session('role_menus', collect([]));
+    
+    $roleMenus = session('role_menus', collect([]));
+    $hasAddPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 1;
+    })->isNotEmpty();
+    $hasEditPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 4;
+    })->isNotEmpty();
+    $hasViewPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 5;
+    })->isNotEmpty();
+  
+@endphp
 {{-- <a href="/newuser" class="btn btn-success btn-sm btn-add-user">Add Users</a> --}}
     <div class="container">
         
@@ -12,7 +28,9 @@
                     
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
+                        @if ($hasAddPermission)  
                         <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user">Add Users</a>
+                        @endif
                      </div>
                         <table class="table table-bordered">
                             <thead class="text-center">
@@ -36,8 +54,12 @@
                             <td>{{ $user->expiry_date }}</td>
                             <td>{{ $user->status }}</td>
                             <td>
-                                <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="{{Route('edit.User',$user->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                 @if ($hasAddPermission)
+                                 <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>
+                                 @endif
+                                 @if ($hasAddPermission)
+                                 <a href="{{Route('edit.User',$user->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                 @endif
                             </td>
                         </tr>
                              @endforeach

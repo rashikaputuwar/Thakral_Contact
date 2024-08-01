@@ -1,6 +1,21 @@
 @extends('pages.sidebar')
-
 @section('content')
+@php
+    // Retrieve role_menus data from the session or default to an empty collection
+    $roleMenus = session('role_menus', collect([]));
+    
+    $roleMenus = session('role_menus', collect([]));
+    $hasAddPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 1;
+    })->isNotEmpty();
+    $hasEditPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 4;
+    })->isNotEmpty();
+    $hasViewPermission = $roleMenus->filter(function($item) {
+        return $item->menu_id == 2 && $item->permission_id == 5;
+    })->isNotEmpty();
+  
+@endphp
     <div class="container">
         <div class="row">
             <div class="col">
@@ -9,7 +24,9 @@
                         <h2 class="display-6 text-center">Role Menu</h2>
                     </div>
                     <div class="card-body">
+                        @if ($hasAddPermission)
                         <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user">Add</a>
+                        @endif
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
@@ -46,8 +63,13 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if ($hasAddPermission)
                                             <a href="{{Route('roleMenu.show',$role->id)}}" class="btn btn-primary btn-sm">View</a>
+                                            @endif
+                                            
+                                            @if ($hasAddPermission)
                                             <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
