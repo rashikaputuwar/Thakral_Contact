@@ -67,7 +67,7 @@
 
                     <div class="row">
                         <div class="col-sm-8 offset-sm-4">
-                            <button type="Update" class="btn btn-primary">Update</button>
+                            <button type="Update" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Update</button>
                             <!-- <button type="reset" class="btn btn-success">Reset</button> -->
                         </div>
                     </div>

@@ -25,7 +25,8 @@
                                 <input type="text" class="form-control" id="phone" name="phone" required>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Check</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Check</button>
+                            
                         </form>
                     </div>
                 </div>

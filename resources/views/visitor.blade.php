@@ -16,8 +16,12 @@
                             @csrf
                             <div>
                                 <label for="phone">Phone Number:</label>
-                                <input type="tel" id="phone" name="phone">
-                                <button type="submit">Search</button>
+                                {{-- <input type="tel" id="phone" name="phone">
+                                <button type="submit" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Search</button> --}}
+                                <button type="submit" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Search</button>
+
+
+
                             </div>
 
                             <div></div>

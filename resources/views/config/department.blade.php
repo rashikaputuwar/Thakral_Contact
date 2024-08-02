@@ -10,7 +10,7 @@
                     
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{Route('department.create')}}" class="btn btn-success btn-sm btn-add-user">Add Department</a>
+                        <a href="{{Route('department.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Department</a>
                        
                      </div>
                         <table class="table table-bordered">
@@ -27,8 +27,8 @@
                             <td>{{ $department->id }}</td>
                             <td>{{ $department->dept_name }}</td>
                             <td>
-                                <a href="{{Route('department.show',$department->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('department.show',$department->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                <a href="" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
                             </td>
                         </tr>
                              @endforeach

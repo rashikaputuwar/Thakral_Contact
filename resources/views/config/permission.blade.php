@@ -10,7 +10,7 @@
 
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{Route('button.create')}}" class="btn btn-success btn-sm btn-add-user">Add Button</a>
+                        <a href="{{Route('button.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Button</a>
                      </div>
 
                         <table class="table table-bordered">
@@ -18,7 +18,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Button Name</th>
-                                <th>Status</th>
+                                {{-- <th>Status</th> --}}
+                                <th>Action</th>
                             </tr>
                         </thead>
 
@@ -27,12 +28,11 @@
                             <tr>
                                 <td>{{$permission["id"]}}</td>
                                 <td>{{$permission["button_name"]}}</td>
-                                <td>{{$permission["status"]}}</td>
-                                {{-- <td>
-                                    <a><button class="btn btn-primary">View</button></a>
-                                    <a> <button class="btn btn-warning text-white">Update</button></a>
-                                </td> --}}
-                                {{-- <td></td> --}}
+                                {{-- <td>{{$permission["status"]}}</td> --}}
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                    <a href="#" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
+                                </td>
                             </tr>
                            @endforeach
                         </tbody>

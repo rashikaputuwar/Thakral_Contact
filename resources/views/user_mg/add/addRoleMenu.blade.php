@@ -50,8 +50,14 @@
 
                 <div class="row">
                     <div class="col-sm-8 offset-sm-4">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="reset" class="btn btn-success">Reset</button>
+                        <div class="row">
+                            <div class="col-sm-8 offset-sm-4">
+                                <button type="submit" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Submit</button>
+                                <button type="reset" class="btn btn-success" style="background-color: #186c6c; border-color: #186c6c; color: white;">Reset</button>
+                            </div>
+                        </div>
+                        {{-- <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-success">Reset</button> --}}
                     </div>
                 </div>
             </form>

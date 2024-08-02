@@ -11,7 +11,7 @@
                     
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{ route('roles.create') }}" class="btn btn-success btn-sm btn-add-user">Add Roles</a>
+                        <a href="{{ route('roles.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Roles</a>
                      </div>
                         <table class="table table-bordered">
                             <thead class="text-center">
@@ -31,8 +31,8 @@
                             <td>{{$role->role_id}}</td>
                             <td>{{$role->role_name }}</td>
                             <td>{{$role->status}}</td>
-                            <td><a href="{{Route('roles.show',$role->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="{{Route('roles.edit',$role->id)}}" class="btn btn-primary btn-sm">Update</a></td>
+                            <td><a href="{{Route('roles.show',$role->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                <a href="{{Route('roles.edit',$role->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a></td>
                             @empty
                                 <td rowspan="5">No Data</td>
                         </tr>

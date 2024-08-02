@@ -12,7 +12,7 @@
                     
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user">Add Users</a>
+                        <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Users</a>
                      </div>
                         <table class="table table-bordered">
                             <thead class="text-center">
@@ -43,8 +43,8 @@
                             <td>{{ $user->expiry_date }}</td>
                             <td>{{ $user->status }}</td>
                             <td>
-                                <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm">View</a>
-                                <a href="{{Route('edit.User',$user->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('showUser',$user->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                <a href="{{Route('edit.User',$user->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
                             </td>
                         </tr>
                              @endforeach

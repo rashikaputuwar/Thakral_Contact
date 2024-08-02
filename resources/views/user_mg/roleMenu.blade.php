@@ -9,7 +9,7 @@
                         <h2 class="display-6 text-center">Role Menu</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user">Add</a>
+                        <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add</a>
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
@@ -46,8 +46,8 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="{{Route('roleMenu.show',$role->id)}}" class="btn btn-primary btn-sm">View</a>
-                                            <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                            <a href="{{Route('roleMenu.show',$role->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                            <a href="{{Route('edit.User',$role->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
                                         </td>
                                     </tr>
                                 @endforeach

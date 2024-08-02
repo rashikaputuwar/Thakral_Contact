@@ -19,7 +19,8 @@
                     <div class="card-body">
                         @if ($hasAddPermission)
                         <div class="d-flex justify-content-between mb-3">
-                        <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a>
+                        {{-- <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a> --}}
+                        <a href="{{ Route('client.createContact') }}" class="btn btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Contact Person</a>
                         @endif
                         </div>
                         <div class="table-responsive">
@@ -50,10 +51,10 @@
                             
                             <td>
                                 @if($hasViewPermission)
-                                <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
                                 @endif
                                 @if($hasEditPermission)
-                                <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
                                 @endif
                             </td>
                         </tr>

@@ -41,7 +41,7 @@
                 <li class="sidebar-item">
                     <a href="{{Route('dashboard')}}" class="sidebar-link">
                         <i class="lni lni-user"></i>
-                        <span>Contact</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
 

@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
                             @if ($hasAddPermission)
-                        <a href="{{Route('client.createClient')}}" class="btn btn-success btn-sm btn-add-user">Add Client</a>
+                        <a href="{{Route('client.createClient')}}" class="btn btn-success btn-sm btn-add-user"style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Client</a>
                         @endif
                      </div>
                         <table class="table table-bordered">
@@ -45,10 +45,10 @@
                             <td>{{ $client->website}}</td>
                             <td>
                                 @if ($hasViewPermission)
-                                <a href="{{Route('client.show',$client->id)}}" class="btn btn-primary btn-sm">View</a>
+                                <a href="{{Route('client.show',$client->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
                                 @endif
                                 @if($hasEditPermission)
-                                <a href="{{Route('client.edit',$client->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                <a href="{{Route('client.edit',$client->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
                                 @endif
                             </td>
                         </tr>

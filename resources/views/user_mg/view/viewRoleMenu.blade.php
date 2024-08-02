@@ -42,7 +42,7 @@
                     <div class="row">
                         <div class="col-sm-8 offset-sm-4">
                             <a href="/rolesmenu">
-                            <button type="back" class="btn btn-primary">Back</button></a>
+                            <button type="back" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Back</button></a>
                         </div>
                     </div>
                 </div>

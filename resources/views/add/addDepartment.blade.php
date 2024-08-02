@@ -25,8 +25,11 @@
 
                 <div class="row">
                     <div class="col-sm-8 offset-sm-4">
-                        <button type="submit" class="btn btn-primary">Add</button>
-                        <button type="reset" class="btn btn-success">Reset</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add</button>
+                        <button type="reset" class="btn btn-success" style="background-color: #186c6c; border-color: #186c6c; color: white;">Reset</button>
+                        
+                        {{-- <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="reset" class="btn btn-success">Reset</button> --}}
                     </div>
                 </div>
         </form>
