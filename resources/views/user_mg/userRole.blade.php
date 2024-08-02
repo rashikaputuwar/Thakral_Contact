@@ -26,7 +26,14 @@
                                 @forelse ($roles as $role)
                                     <tr>
                                         @if ($loop->first)
-                                            <td rowspan="{{ $roles->count() }}">{{ $user->employee->full_name }}</td>
+                                            <td rowspan="{{ $roles->count() }}">
+                                                {{-- {{ $user->employee->full_name }} --}}
+                                                @if ($user->employee)
+                                                {{ $user->employee->full_name }}
+                                            @else
+                                                No Employee Data
+                                            @endif
+                                            </td>
                                         @endif
                                         <td>{{ $role->role_name }}</td>
                                         <td>

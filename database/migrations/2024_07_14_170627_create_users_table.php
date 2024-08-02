@@ -16,14 +16,18 @@ return new class extends Migration
             $table->string('user_name');
             // $table->string('user_id')->unique();
             $table->string('password');
-            $table->unsignedBigInteger('employee_id')->nullable()->unique();
+            // $table->unsignedBigInteger('employee_id')->nullable()->unique();
+            $table->unsignedBigInteger('employee_id')->nullable();
             $table->date('expiry_date');
             $table->enum('status', ['Active', 'Inactive', 'Locked'])->default('Active');
 
 
-            // $table->timestamps();
+            $table->timestamps();
 
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            // $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+
+            // Optionally, add a foreign key constraint if the employees table exists
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('set null');
         });
     }
 

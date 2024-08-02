@@ -32,7 +32,14 @@
                             <td>{{ $user->id }}</td>
                             {{-- <td>{{ $user->user_id}}</td> --}}
                             <td>{{ $user->user_name }}</td>
-                            <td>{{ $user->employee->fname}} {{ $user->employee->lname}}</td>
+                            {{-- <td>{{ $user->employee->fname}} {{ $user->employee->lname}}</td> --}}
+                            <td>
+                                @if ($user->employee)
+                                    {{ $user->employee->fname }} {{ $user->employee->lname }}
+                                @else
+                                    No Employee Data
+                                @endif
+                            </td>
                             <td>{{ $user->expiry_date }}</td>
                             <td>{{ $user->status }}</td>
                             <td>

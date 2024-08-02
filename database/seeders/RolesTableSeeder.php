@@ -49,12 +49,12 @@ class RolesTableSeeder extends Seeder
         ];
 
         // Insert data into the database using DB facade
-        // DB::table('roles')->insert($roles);
-        foreach ($roles as $role) {
-            Role::updateOrCreate(
-                ['role_id' => $role['role_id']], // Match condition
-                $role // Values to insert/update
-            );
-        }
+        DB::table('roles')->insert($roles);
+        // foreach ($roles as $role) {
+        //     Role::updateOrCreate(
+        //         ['role_id' => $role['role_id']], // Match condition
+        //         $role // Values to insert/update
+        //     );
+        // }
     }
 }
