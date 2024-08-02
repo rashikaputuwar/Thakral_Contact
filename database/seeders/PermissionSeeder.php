@@ -15,34 +15,25 @@ class PermissionSeeder extends Seeder
     {
         $buttons = [
             [
-                
-                'button_name' => 'Add',
-                // 'status' => 'Yes',
+                'button_name' => 'Add', 
             ],
             [
-                
                 'button_name' => 'Save',
-                // 'status' => 'Yes',
             ],
             [
-                
                 'button_name' => 'Update',
-                // 'status' => 'Yes',
             ],
             [
-                
                 'button_name' => 'View',
-                // 'status' => 'Yes',
             ],
             [
-                
                 'button_name' => 'Export to Excel',
-                // 'status' => 'Yes',
             ],
             [
-                
                 'button_name' => 'Export to Pdf',
-                // 'status' => 'Yes',
+            ],
+            [
+                'button_name' => 'Check',
             ],
             
         ];

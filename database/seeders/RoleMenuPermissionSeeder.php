@@ -18,11 +18,18 @@ class RoleMenuPermissionSeeder extends Seeder
         $menusPermissions = [
             // 'Contact' => ['View', 'Add', 'Delete'],
             'Employees' => ['Add','Save','View', 'Update', 'Export to Excel', 'Export to Pdf'],
-            'Person/Organization' => ['Add','Save','View', 'Update', 'Export to Excel', 'Export to Pdf'],
+            'Organization Details'=> ['Add','Save','View', 'Update', 'Export to Excel', 'Export to  Pdf'],
+            'Contact Person Details'=> ['Add','Save','View', 'Update', 'Export to Excel', 'Export to Pdf'],
             'Visitors' => ['Check', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
-            'Departments' => ['View'],
-            'User Management' => ['View', 'Add', 'Save', 'Update'],
-            'Configuration' => ['View', 'Export to Excel', 'Export to Pdf'],
+            'Departments' => ['Add','View','Save', 'Update'],
+            'Designation' => ['Add','View','Save', 'Update'],
+            'Role' => ['Add','View','Save', 'Update'],
+            'Menu' => ['Add','View','Save', 'Update'],
+            'User' => ['View', 'Add', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
+            'User Role' => ['View',  'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
+            'Role Menu' => ['View', 'Add', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
+            'Permission' => ['View', 'Add', 'Save', 'Update'],
+            
         ];
 
         // foreach ($menusPermissions as $menuName => $permissions) {
