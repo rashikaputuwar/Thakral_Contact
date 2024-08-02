@@ -48,4 +48,9 @@ class Employee extends Model
     public function roles(){
         return $this->belongsToMany(Role::class,'userroles','employee_id','role_id');
     }
+
+    public function userRoles()
+    {
+        return $this->hasMany(UserRole::class, 'employee_id');
+    }
 }

@@ -24,6 +24,7 @@
                                 <label for="phone">Phone Number:</label>
                                 <input type="text" class="form-control" id="phone" name="phone" required>
                             </div>
+                            <br>
                             <button type="submit" class="btn btn-primary">Check</button>
                         </form>
                     </div>

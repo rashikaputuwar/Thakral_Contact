@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\add_user;
+use App\Models\Employee;
+use App\Models\RoleMenuPermission;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class LoginController extends Controller
 {
     /**
@@ -48,22 +52,56 @@ class LoginController extends Controller
             'user_name' => 'required|string',
             'password' => 'required|string',
         ]);
-
-        if(Auth::attempt($credentials)){
+    
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $employee = $user->employee;
+    
+            if ($employee) {
+                $userRoles = $employee->roles->pluck('role_name')->toArray(); // Assuming roles have 'role_name'
+                
+                // Store data in session
+                session([
+                    'employee_id' => $employee->id,
+                    'employee_fname' => $employee->fname,
+                    'employee_lname' => $employee->lname,
+                    'userRoles' => $userRoles,
+                ]);
+            }
+    
             return redirect()->route('dashboard');
+        } else {
+            return view('login')->withErrors(['Invalid Username or password']);
         }
     }
 
+    
 
-    public function dashboardPage(){
-        return view('welcome');
-        // if(Auth::check()){
-        //     return view('welcome');
-        // }
-        // else{
-        //     return redirect()->route('login.index');
-        // }
+    public function dashboardPage(Request $request)
+    {
+        if (Auth::check()) {
+            // Retrieve user from Auth
+            // $user = Auth::user();
+
+            // Fetch roles from the request (set by middleware)
+            $userRoles = $request->input('userRoles', []);
+
+            return view('welcome', [
+                'userRoles' => $userRoles,
+            ]);
+        } else {
+            return redirect()->route('login.index');
+        }
     }
+    // public function dashboardPage(){
+    //     return view('welcome');
+    //     // if(Auth::check()){
+    //     //     return view('welcome');
+    //     // }
+    //     // else{
+    //     //     return redirect()->route('login.index');
+    //     // }
+    // }
 
     public function logout(){
 

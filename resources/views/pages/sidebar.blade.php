@@ -13,6 +13,10 @@
 
 <body>
     <div class="wrapper">
+        @if(session('employee_id'))
+        @php
+            $roleMenus = session('role_menus', collect([])); // Retrieve role_menus from session
+        @endphp
         <aside id="sidebar" class="expand">
             <div class="d-flex ">
                 <button class="toggle-btn" type="button">
@@ -30,13 +34,15 @@
                         <span>Contact</span>
                     </a>
                 </li>
+
+                @if($roleMenus->contains('menu_id', 2)) <!-- Employees menu item -->
                 <li class="sidebar-item">
                     <a href="{{Route('employee.index')}}" class="sidebar-link">
                         <i class="lni lni-smile"></i>
                         <span>Employees</span>
                     </a>
                 </li>
-              
+               @endif
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#person-organization" aria-expanded="false" aria-controls="person-organization">
@@ -44,21 +50,27 @@
                         <span>Person/Organization</span>
                     </a>
                     <ul id="person-organization" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        @if($roleMenus->contains('menu_id', 3))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('client.index')}}" class="sidebar-link">Organization Details</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 4)) <!-- Contact Person Details menu item -->
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('contactPerson.index')}}" class="sidebar-link">Contact Person Details</a>
                         </li>
+                        @endif
                     </ul>
                 </li>
 
+                @if($roleMenus->contains('menu_id', 5)) 
                 <li class="sidebar-item">
-                <a href="{{Route('visitor.index')}}" class="sidebar-link">
+                <a href="{{Route('visitor.showForm')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>
                 </li>
+                @endif
                 {{-- <li class="sidebar-item">
                     <a href="" class="sidebar-link">
                         <i class="lni lni-network"></i>
@@ -72,21 +84,31 @@
                         <span>User Mgmt</span>
                     </a>
                     <ul id="user-management" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        @if($roleMenus->contains('menu_id', 6))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{route('show.User')}}" class="sidebar-link">User</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 7))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{route('roles.index')}}" class="sidebar-link">Role</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 8)) 
                         <li class="sidebar-item dropdown-item">
                         <a href="{{Route('menu.index')}}" class="sidebar-link">Menu</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 9))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('rolesMenu.index')}}" class="sidebar-link">Role Menu</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 10)) 
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('userRole.index')}}" class="sidebar-link">User Role</a>
                         </li>
+                        @endif
                     </ul>
                 </li>
                 <li class="sidebar-item">
@@ -96,16 +118,22 @@
                         <span>Configuration</span>
                     </a>
                     <ul id="configuration" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        @if($roleMenus->contains('menu_id', 11))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('designation.index')}}" class="sidebar-link">Designation</a>
                         </li>
+                        @endif
+                        @if($roleMenus->contains('menu_id', 12))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('department.index')}}" class="sidebar-link">Department</a>
                         </li>
+                        @endif
+                            @if($roleMenus->contains('menu_id', 13))
                         <li class="sidebar-item dropdown-item">
                             <a href="{{Route('button.index')}}"
                              class="sidebar-link">Permission</a>
                         </li>
+                        @endif
                     </ul>
                 </li>
             </ul>
@@ -116,6 +144,7 @@
                 </a>
             </div>
         </aside>
+        @endif
         <div class="main">
             <header class="header text-center">
                 <h1>Contact Management</h1>

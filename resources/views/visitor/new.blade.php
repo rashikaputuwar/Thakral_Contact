@@ -9,10 +9,37 @@
                         <h2 class="display-6 text-center">New Visitor</h2>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('visitor.showForm') }}" class="btn btn-primary btn-lg">New Visitor</a>
+                        <form action="{{ route('visitor.create') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="phone" value="{{ $phone }}">
+                            <div class="form-group">
+                                <label for="name" class="required-asterisk">Name:</label>
+                                <input type="text" class="form-control auto-resize" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="required-asterisk">Email:</label>
+                                <input type="email" class="form-control auto-resize" id="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="company" class="required-asterisk">Company:</label>
+                                <input type="text" class="form-control auto-resize" id="company" name="company">
+                            </div>
+                            <div class="form-group">
+                                <label for="visited_at" class="required-asterisk" >Time Visited:</label>
+                                <input type="datetime-local" class="form-control auto-resize" id="visited_at" name="visited_at" required >
+                            </div>
+                            <div class="form-group">
+                                <label for="visiting" class="required-asterisk">Visiting:</label>
+                                <select class="form-control auto-resize" id="visiting" name="visiting" required>
+                                    <option value="">---Select Employee---</option>
+                                    @foreach($employees as $employee)
+                                        <option value="{{ $employee->id }}">{{ $employee->full_name }} </option>
+                                    @endforeach
+                                </select>
 
-                        <a href="{{ route('visitor.update') }}" class="btn btn-primary btn-lg">Existing Visitor</a>
-
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -26,11 +26,6 @@ class PermissionSeeder extends Seeder
             ],
             [
                 
-                'button_name' => 'Delete',
-                // 'status' => 'Yes',
-            ],
-            [
-                
                 'button_name' => 'Update',
                 // 'status' => 'Yes',
             ],

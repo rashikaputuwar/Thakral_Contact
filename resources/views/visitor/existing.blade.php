@@ -31,12 +31,14 @@
                             <div class="form-group">
                                 <label for="visiting"  class="required-asterisk">Visiting</label>
                                 <select class="form-control" id="visiting" name="visiting" required>
+                                    <option value="">---Select Employee---</option>
                                     @foreach($employees as $employee)
                                         <option value="{{ $employee->id }}">{{ $employee->full_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>
                 </div>

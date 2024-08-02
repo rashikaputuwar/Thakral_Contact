@@ -21,12 +21,24 @@ use Illuminate\Support\Facades\Route;
 // })->name('welcomePage')->middleware('auth');
 
 // ROUTES FOR USERCONTROLLER
-Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
-Route::post('/addUser', [UserController::class,'store'])->name('add.User'); 
-Route::get('/user/create', [UserController::class,'create'])->name('create.user');
-Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
-Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
-Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.user');
+
+Route::middleware(['auth'])->group(function () {
+    Route::controller(UserController::class)->group(function () {
+        Route::get('/userPage', 'index')->name('show.User');
+        Route::post('/addUser', 'store')->name('add.User');
+        Route::get('/user/create', 'create')->name('create.user');
+        Route::get('/showUser/{id}', 'show')->name('showUser');
+        Route::get('/editUser/{id}', 'edit')->name('edit.User');
+        Route::put('/updateuser/{id}', 'update')->name('update.user');
+    });
+
+
+// Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
+// Route::post('/addUser', [UserController::class,'store'])->name('add.User'); 
+// Route::get('/user/create', [UserController::class,'create'])->name('create.user');
+// Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
+// Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
+// Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.user');
 
 
 //ROUTES FOR FORM PAGES--POST METHOD
@@ -99,7 +111,7 @@ Route::get('/menu/view/{id}',[MenuController::class,'show'])->name('menu.show');
 
 //visitor
 // Route::get('/visitor',[VisitorController::class,'index'])->name('visitor.index');
-Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.index');
+Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');
 Route::post('/visitor/handle',[VisitorController::class,'handleForm'])->name('visitor.handleForm');
 Route::post('/visitor/update',[VisitorController::class,'update'])->name('visitor.update');
 Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
@@ -121,6 +133,7 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
 
+});
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
 // Route::get('/login',[LoginController::class,'index'])->name('login');
@@ -135,8 +148,13 @@ Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.mat
 // ->middleware(CheckRoles::class); 
 
 // by using built-in middles ware.. 
-Route::get('/',[LoginController::class,'dashboardPage'])
-->name('dashboard')
-->middleware(["auth"]);   
+// Route::get('/',[LoginController::class,'dashboardPage'])
+// ->name('dashboard');
+// // ->middleware(["auth"]);   
 
+Route::middleware([CheckRoles::class.':Administrator'])->group(function () {
+    Route::get('/dashboard', [LoginController::class, 'dashboardPage'])->name('dashboard');
+    // other routes
+});
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');    
+
