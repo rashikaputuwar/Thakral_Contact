@@ -37,9 +37,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
            RoleMenuPermissionSeeder::class
         ]);
-        $this->call([
-         SuperadminSeeder::class
-        ]);
+        // $this->call([
+        //  SuperadminSeeder::class
+        // ]);
         // User::factory(10)->create();
 
         // User::factory()->create([
