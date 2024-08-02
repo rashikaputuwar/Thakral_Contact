@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\add_user;
+use App\Models\Client;
+use App\Models\Department;
 use App\Models\Employee;
 use App\Models\RoleMenuPermission;
 use App\Models\UserRole;
@@ -66,10 +68,17 @@ class LoginController extends Controller
                     'employee_fname' => $employee->fname,
                     'employee_lname' => $employee->lname,
                     'userRoles' => $userRoles,
+                    
                 ]);
             }
     
-            return redirect()->route('dashboard');
+            $clientsCount = Client::count();
+            $departmentsCount = Department::count();
+            $employeesCount = Employee::count();
+            $usersCount = add_user::count();
+    
+            return view('welcome', compact('clientsCount', 'departmentsCount', 'employeesCount', 'usersCount'));
+            // return redirect()->route('dashboard');
         } else {
             return view('login')->withErrors(['Invalid Username or password']);
         }
@@ -84,13 +93,14 @@ class LoginController extends Controller
             // $user = Auth::user();
 
             // Fetch roles from the request (set by middleware)
-            $userRoles = $request->input('userRoles', []);
-
-            return view('welcome', [
-                'userRoles' => $userRoles,
-            ]);
+            // $userRoles = $request->input('userRoles', []);
+            $clientsCount = Client::count();
+            $departmentsCount = Department::count();
+            $employeesCount = Employee::count();
+            $usersCount = add_user::count();
+            return view('welcome', compact('clientsCount', 'departmentsCount', 'employeesCount', 'usersCount'));
         } else {
-            return redirect()->route('login.index');
+            // return redirect()->route('login.index');
         }
     }
     // public function dashboardPage(){

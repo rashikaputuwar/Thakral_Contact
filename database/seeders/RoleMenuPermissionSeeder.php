@@ -22,13 +22,13 @@ class RoleMenuPermissionSeeder extends Seeder
             'Contact Person Details'=> ['Add','Save','View', 'Update', 'Export to Excel', 'Export to Pdf'],
             'Visitors' => ['Check', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
             'Departments' => ['Add','View','Save', 'Update'],
-            'Designation' => ['Add','View','Save', 'Update'],
+            'Designations' => ['Add','View','Save', 'Update'],
             'Role' => ['Add','View','Save', 'Update'],
             'Menu' => ['Add','View','Save', 'Update'],
             'User' => ['View', 'Add', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
             'User Role' => ['View',  'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
             'Role Menu' => ['View', 'Add', 'Save', 'Update', 'Export to Excel', 'Export to Pdf'],
-            'Permission' => ['View', 'Add', 'Save', 'Update'],
+            'Permissions' => ['View', 'Add', 'Save', 'Update'],
             
         ];
 

@@ -1,6 +1,7 @@
 @extends('pages.sidebar')
 @section('content')
-<form method="POST" action="{{route('login.match')}}">
+<div style="display: flex; justify-content: center; align-items: center;  height: 50vh;">
+<form method="POST" action="{{route('login.match')}}" style="max-width: 400px; width: 100%; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.5);">
     @csrf
     @if ($errors->any())
     <div class="alert alert-danger">

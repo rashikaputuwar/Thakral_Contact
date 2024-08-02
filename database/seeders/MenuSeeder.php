@@ -28,9 +28,9 @@ class MenuSeeder extends Seeder
                 [ 'menu_name' => 'Role Menu'],
                 [ 'menu_name' => 'User Role'],
                 [ 'menu_name' => 'Configuration'],
-                [ 'menu_name' => 'Designation'],
-                [ 'menu_name' => 'Department'],
-                [ 'menu_name' => 'Permission'],
+                [ 'menu_name' => 'Designations'],
+                [ 'menu_name' => 'Departments'],
+                [ 'menu_name' => 'Permissions'],
             
         ];
 

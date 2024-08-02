@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\EmployeeController;
@@ -133,6 +134,9 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
 
+//dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 });
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
@@ -143,8 +147,9 @@ Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.mat
 // Route::post('/check',[LoginController::class,'check'])->name('login.check');
 
 
-// Route::get('/dashboard',[LoginController::class,'dashboardPage']) {{ this is by using middleware made by own}}
-// ->name('dashboard')
+Route::get('/dashboard',[LoginController::class,'dashboardPage']) 
+// {{ this is by using middleware made by own}}
+->name('dashboard');
 // ->middleware(CheckRoles::class); 
 
 // by using built-in middles ware.. 

@@ -1,5 +1,13 @@
 @extends('pages.sidebar')
 @section('content')
+@php
+    $roleMenus = session('role_menus', collect([]));
+
+    // Check permissions for add, edit, and view actions
+    $hasAddPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 1);
+    $hasEditPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 4);
+    $hasViewPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 5);
+@endphp
     <div class="container mt-5">
 
         <div class="row justify-content-center">
@@ -9,8 +17,10 @@
                         <h2 class="display text-center"> Contact Person Details</h2>
                     </div>
                     <div class="card-body">
+                        @if ($hasAddPermission)
                         <div class="d-flex justify-content-between mb-3">
                         <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a>
+                        @endif
                         </div>
                         <div class="table-responsive">
                         <table class="table table-bordered">
@@ -39,8 +49,12 @@
 
                             
                             <td>
+                                @if($hasViewPermission)
                                 <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-primary btn-sm">View</a>
+                                @endif
+                                @if($hasEditPermission)
                                 <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-primary btn-sm">Update</a>
+                                @endif
                             </td>
                         </tr>
                              @endforeach
