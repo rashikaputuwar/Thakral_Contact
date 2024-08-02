@@ -183,15 +183,18 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
-.main h1 {
-    background-color: white;
-    padding: 30px;
+/* .main h1 { */
+    /* background-color: white; */
+    /* padding: 30px;
+    margin-bottom: 20px; */
+    /* border-radius: 5px;
+    align-items: center; */
+
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
+    /* color: #2c3e50;
+    font-size: 38px;  */
     /* margin-bottom: 20px; */
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    color: #2c3e50;
-    font-size: 38px;
-}
+/* } */
 
 /* .content {
     background-color: white;
@@ -257,3 +260,70 @@ a.sidebar-link[href="{{Route('roles.index')}}"]:hover {
 a.sidebar-link[href="{{Route('roles.index')}}"] span {
     font-size: 0.9rem; /* or whatever font size you want */
 }
+
+.header {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 1rem;
+    background-color: white; /* Adjust color as needed */
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* font-size: 38px;  */
+    position: relative;
+    /* margin-bottom: 20px;  */
+}
+
+.header h1 {
+    font-size: 38px; /* Adjust font size for a more elegant look */
+    font-weight: 300; /* Lighter font weight for a classier appearance */
+    margin: 0 auto;
+    text-align: center;
+    color: #333; /* Adjust text color for a softer look */
+    flex: 1; /
+    /* margin: 0 auto; Center align the h1 element */
+    /* font-size: 38px;
+    text-align: center;
+    flex: 1; */
+} 
+
+.profile-section {
+    
+    position: absolute;
+    right: 1rem; /* Adjust positioning if needed */
+    /* margin-left: auto; Push the profile section to the right */
+}
+
+.profile-section {
+    background-color: rgb(125,125,235); /* Apply your desired background color */
+    border-radius: 4px; /* Optional: add rounded corners */
+    padding: 0.5rem 1rem; /* Optional: add some padding */
+}
+
+.profile-section .dropdown-toggle {
+    background-color: transparent; /* Make the button's background transparent */
+    color: white; /* Change text color if needed */
+    border: none; /* Remove border if necessary */
+}
+
+/* .profile-section .dropdown-menu {
+    background-color: rgb(125,125,235); /* Match the dropdown menu background color */
+    /* border: none; Optional: remove border */
+/* }   */
+/* .header {
+    background-color: #f8f9fa; Background color for header area
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+} */
+
+/* .main {
+    padding: 2rem;
+}
+
+.profile-section {
+    margin-left: auto;
+}
+
+.dropdown-menu {
+    min-width: 10rem;
+} */

@@ -70,6 +70,7 @@ class LoginController extends Controller
                     'employee_fname' => $employee->fname,
                     'employee_lname' => $employee->lname,
                     'userRole' => $userRoles ? $userRoles[0] : 'No Role Assigned', // Store the first role
+                    'fullName' => $employee->fname . ' ' . $employee->lname,
                     
                 ]);
             }

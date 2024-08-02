@@ -156,10 +156,69 @@
         </aside>
         {{-- @endauth --}}
 
-        <div class="main">
-            <header class="header text-center">
-                <h1>Contact Management</h1>
+        <div class="main ">
+            <header class="header">
+                <h1 class="common-style">Contact Management</h1>
+                @auth
+                @php
+                    $fullName = session('fullName', 'Guest');
+                @endphp
+                <div class="profile-section common-style d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="profileMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="lni lni-user me-2"></i> <!-- Profile Icon -->
+                            {{ $fullName }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="profileMenuButton">
+                            <li>
+                                {{-- <a class="dropdown-item" href="#">Profile</a> --}}
+                                <a href="#" class="sidebar-link">
+                                    {{-- <i class="lni lni-exit"></i> --}}
+                                    <span>Profile</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('logout')}}" class="sidebar-link">
+                                    {{-- <i class="lni lni-exit"></i> --}}
+                                    <span>Logout</span>
+                                </a>
+                                {{-- <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form> --}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @endauth
             </header>
+            {{-- <header class="header d-flex justify-content-between align-items-center p-3"">
+                <h1 class="common-style">Contact Management</h1>
+                @auth
+                @php
+                    $fullName = session('fullName', 'Guest');
+                @endphp
+                <div class="profile-section common-style d-flex align-items-center">
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="profileMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="lni lni-user me-2"></i> <!-- Profile Icon -->
+                            {{ $fullName }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="profileMenuButton">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @endauth
+            </header> --}}
             <div class="content p-3">
                 <section>
                     @yield('content')
