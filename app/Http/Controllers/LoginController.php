@@ -60,6 +60,8 @@ class LoginController extends Controller
             $employee = $user->employee;
     
             if ($employee) {
+                $firstRole = $employee->roles()->first();
+                $roleName = $firstRole ? $firstRole->role_name : 'No Role Assigned';
                 $userRoles = $employee->roles->pluck('role_name')->toArray(); // Assuming roles have 'role_name'
                 
                 // Store data in session
@@ -67,7 +69,7 @@ class LoginController extends Controller
                     'employee_id' => $employee->id,
                     'employee_fname' => $employee->fname,
                     'employee_lname' => $employee->lname,
-                    'userRoles' => $userRoles,
+                    'userRole' => $userRoles ? $userRoles[0] : 'No Role Assigned', // Store the first role
                     
                 ]);
             }

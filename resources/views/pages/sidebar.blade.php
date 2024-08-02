@@ -16,6 +16,7 @@
        {{-- @auth
         @php
             $roleMenus = session('role_menus', collect([])); // Retrieve role_menus from session
+             $userRoles = session('userRoles', []);
         @endphp --}}
         <aside id="sidebar" class="expand">
             <div class="d-flex ">
@@ -26,6 +27,15 @@
                 <div class="sidebar-logo">
                     <a href="#">CMS</a>
                 </div>
+            </div>
+            <div class="p-2">
+                @auth
+                @php
+                $userRoles = session('userRoles', []);
+                $userRole = !empty($userRoles) ? $userRoles[0] : 'No Role Assigned'; // Get the first role from the array
+            @endphp
+            <h5 class="text small">{{ '@' . $userRole }}</h5>
+                @endauth
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
