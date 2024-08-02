@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="login-container">
-    <form method="POST" action="" class="login-form">
+    <form method="POST" action="{{route('login.match')}}" class="login-form">
         @csrf
         @if ($errors->any())
         <div class="alert alert-danger">
