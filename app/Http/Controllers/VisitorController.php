@@ -10,6 +10,9 @@ use DB;
 
 class VisitorController extends Controller
 {
+    // public function index(){
+    //     return view('visitor.mainVisitor');
+    // }
     public function showForm()
     {
         $employees = Employee::all();

@@ -17,12 +17,14 @@
                                     <tr>
                                         <th>ID</th>
                                         <td>{{ $employee->id }}</td>
-                                        <th>Employee Code</th> 
-                                        <td>{{ $employee->emp_code }}</td>
-                                    </tr>
-                                    <tr>
                                         <th>First Name</th>
                                         <td>{{ $employee->fname }}</td>
+                                        {{-- <th>Employee Code</th> 
+                                        <td>{{ $employee->emp_code }}</td> --}}
+                                    </tr>
+                                    <tr>
+                                        <th>Middle Name</th>
+                                        <td>{{ $employee->midname }}</td>
                                         <th>Last Name</th>
                                         <td>{{ $employee->lname }}</td>
                                     </tr>

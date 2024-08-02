@@ -54,17 +54,17 @@
                 </li>
 
                 <li class="sidebar-item">
-                <a href="{{Route('visitor.showForm')}}" class="sidebar-link">
+                <a href="{{Route('visitor.index')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
+                {{-- <li class="sidebar-item">
                     <a href="" class="sidebar-link">
                         <i class="lni lni-network"></i>
                         <span>Department</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="sidebar-item">
                     <a href="" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#user-management" aria-expanded="false" aria-controls="user-management">

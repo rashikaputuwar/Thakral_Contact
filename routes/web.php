@@ -73,7 +73,9 @@ Route::get('/department/show/{id}',[DepartmentController::class,'show'])->name('
 
 
 //employee 
-Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index')->middleware(CheckRoles::class);// can we aafule banako mddleware too or use "auth"
+Route::get('/employee',[EmployeeController::class,'index'])->name('employee.index')
+// ->middleware(CheckRoles::class)
+;// can we aafule banako mddleware too or use "auth"
 Route::get('/employee/create', [EmployeeController::class,'create'])->name('employee.create');
 Route::post('/employee/store', [EmployeeController::class,'store'])->name('employee.store');
 Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('employee.show');
@@ -96,8 +98,9 @@ Route::post('/menu/store',[MenuController::class,'store'])->name('menu.store');
 Route::get('/menu/view/{id}',[MenuController::class,'show'])->name('menu.show');
 
 //visitor
-Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.showForm');
-Route::post('/visitor',[VisitorController::class,'handleForm'])->name('visitor.handleForm');
+// Route::get('/visitor',[VisitorController::class,'index'])->name('visitor.index');
+Route::get('/visitor',[VisitorController::class,'showForm'])->name('visitor.index');
+Route::post('/visitor/handle',[VisitorController::class,'handleForm'])->name('visitor.handleForm');
 Route::post('/visitor/update',[VisitorController::class,'update'])->name('visitor.update');
 Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
 
@@ -132,7 +135,7 @@ Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.mat
 // ->middleware(CheckRoles::class); 
 
 // by using built-in middles ware.. 
-Route::get('/dashboard',[LoginController::class,'dashboardPage'])
+Route::get('/',[LoginController::class,'dashboardPage'])
 ->name('dashboard')
 ->middleware(["auth"]);   
 

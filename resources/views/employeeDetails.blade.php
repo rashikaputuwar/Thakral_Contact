@@ -17,9 +17,8 @@
                             <thead class="text-center">
                             <tr>
                                 <th>ID</th>
-                                <th>Employee Code</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
+                                {{-- <th>Employee Code</th> --}}
+                                <th>Name</th>
                                 <th>Gender</th>
                                 <th>Department</th>
                                 <th>Designation</th>
@@ -31,9 +30,12 @@
                             @foreach($employees as $employee)
                          <tr>
                             <td>{{ $employee->id }}</td>
-                            <td>{{ $employee->emp_code }}</td>
-                            <td>{{ $employee->fname }}</td>
-                            <td>{{ $employee->lname }}</td>
+                            {{-- <td>{{ $employee->emp_code }}</td> --}}
+                            <td>
+                                {{ $employee->fname }}
+                                {{ $employee->midname }}
+                                {{ $employee->lname }}
+                            </td>
                             <td>{{ $employee->gender}}</td>
                             <td>{{ $employee->departments->dept_name}}</td>
                             <td>{{ $employee->designations->desig_name}}</td>

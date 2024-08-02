@@ -36,7 +36,7 @@ class EmployeeController extends Controller
     {
         // Validate the request
         $request->validate([
-            'emp_code' => 'required|string|max:255', 
+            // 'emp_code' => 'required|string|max:255', 
             'first_name' => 'required|string|max:255',
             'personal_contact' => 'required|numeric|digits:10',
             'office_contact' => 'nullable|string|max:255',
@@ -50,6 +50,7 @@ class EmployeeController extends Controller
                     }
                 }
             ],
+            'midname' =>'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|in:Female,Male,Others',
             'department' => 'required|exists:departments,id',
@@ -68,8 +69,9 @@ class EmployeeController extends Controller
 
         // Create the employee record
         $employees = Employee::create([
-            'emp_code' => $request->emp_code,
+            // 'emp_code' => $request->emp_code,
             'fname' => $request->first_name,
+            'midname' => $request->mid_name,
             'lname' => $request->last_name,
             'email'=> $request->email,
             'gender' => $request->gender,
@@ -118,7 +120,7 @@ class EmployeeController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'emp_code' => 'required|string|max:255', 
+            // 'emp_code' => 'required|string|max:255', 
             'first_name' => 'required|string|max:255',
             'personal_contact' => 'required|numeric|digits:10',
             'office_contact' => 'nullable|string|max:255',
@@ -132,6 +134,7 @@ class EmployeeController extends Controller
                     }
                 }
             ],
+            'mid_name' =>'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
             'gender' => 'required|string|in:Female,Male,Others',
             'department' => 'required|exists:departments,id',
@@ -145,8 +148,9 @@ class EmployeeController extends Controller
         $employees = DB::table('employees')
         ->where('id',$id)
         ->update([
-            'emp_code'=>$request->emp_code,
+            // 'emp_code'=>$request->emp_code,
             'fname'=>$request->first_name,
+            'midname' => $request->mid_name,
             'lname'=>$request->last_name,
             'email'=>$request->email,
             'gender'=>$request->gender,

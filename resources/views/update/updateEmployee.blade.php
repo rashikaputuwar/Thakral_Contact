@@ -17,12 +17,12 @@
                     @csrf 
                    @method('PUT')
     
-                   <div class="row mb-3">
+                   {{-- <div class="row mb-3">
                     <label for="emp_code" class="col-sm-4 col-form-label text-end required-asterisk">Employee Code</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control auto-resize" id="emp_code" name="emp_code" value="{{$employee->emp_code}} " required>
                     </div>
-                </div>
+                </div> --}}
 
                     <div class="row mb-3">
                         <label for="first_name" class="col-sm-4 col-form-label text-end required-asterisk">First Name</label>
