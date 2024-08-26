@@ -54,15 +54,15 @@ class LoginController extends Controller
             'user_name' => 'required|string',
             'password' => 'required|string',
         ]);
-    
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $employee = $user->employee;
     
             if ($employee) {
-                $firstRole = $employee->roles()->first();
-                $roleName = $firstRole ? $firstRole->role_name : 'No Role Assigned';
-                $userRoles = $employee->roles->pluck('role_name')->toArray(); // Assuming roles have 'role_name'
+                $userRoles = $employee->roles->pluck('role_name')->toArray(); // Get all role names
+                $roleMenus = $employee->roles->flatMap(function ($role) {
+                    return $role->menus->pluck('menu_name');
+                })->unique()->toArray(); // Get all unique menu names associated with roles
                 
                 // Store data in session
                 session([
@@ -71,9 +71,31 @@ class LoginController extends Controller
                     'employee_lname' => $employee->lname,
                     'userRole' => $userRoles ? $userRoles[0] : 'No Role Assigned', // Store the first role
                     'fullName' => $employee->fname . ' ' . $employee->lname,
-                    
+                    'userRoles' => $userRoles,
+                    'role_menus' => $roleMenus
                 ]);
             }
+    
+        // if (Auth::attempt($credentials)) {
+        //     $user = Auth::user();
+        //     $employee = $user->employee;
+    
+        //     if ($employee) {
+        //         $firstRole = $employee->roles()->first();
+        //         $roleName = $firstRole ? $firstRole->role_name : 'No Role Assigned';
+        //         $userRoles = $employee->roles->pluck('role_name')->toArray(); // Assuming roles have 'role_name'
+                
+        //         // Store data in session
+        //         session([
+        //             'employee_id' => $employee->id,
+        //             'employee_fname' => $employee->fname,
+        //             'employee_lname' => $employee->lname,
+        //             'userRole' => $userRoles ? $userRoles[0] : 'No Role Assigned', // Store the first role
+        //             'fullName' => $employee->fname . ' ' . $employee->lname,
+        //             'userRoles' => $userRoles,
+        //             'role_menus' => $employee->roleMenus->pluck('menu_name')->toArray() // Adjust as needed
+        //         ]);
+        //     }
     
             $clientsCount = Client::count();
             $departmentsCount = Department::count();
