@@ -2,73 +2,72 @@
 
 namespace App\Exports;
 
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
-use App\Models\Employee;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-
-class ExportUser implements FromCollection,WithHeadings, WithStyles
+class ExportUser implements FromCollection, WithHeadings, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Employee::all()->map(function ($employee) {
-            return [
-                'id' => $employee->id,
-                'name' => $employee->fname . ' ' . $employee->midname . ' ' . $employee->lname,
-                'email' => $employee->email,
-                'personal_contact' => $employee->personal_contact,
-                'address' => $employee->temp_address,
-                'department' => $employee->departments->dept_name,
-                'designation' => $employee->designations->desig_name,
-                
-            ];
-        });
+             // Join the 'add_users' table with the 'employees' table to get the employee's name
+        return DB::table('add_users')
+        ->join('employees', 'add_users.employee_id', '=', 'employees.id')
+        ->select(
+            'add_users.id',
+            DB::raw('CONCAT(employees.fname, " ", employees.lname) as employee_name'), // Full name of the employee
+            'add_users.user_name',
+            'add_users.expiry_date',
+            'add_users.status'
+        )
+        ->get();
+      
     }
 
     public function headings(): array
     {
         return [
-            ['Employee Details'], 
-            ['ID', 'Name', 'Email','Phone Number', 'Address','Department', 'Designation'] 
+            ['User Details'],
+            ['ID', 'Employee Name','Username', 'Expiry Date', 'Status'],
         ];
     }
 
-      /**
+    /**
      * @param Worksheet $sheet
      * @return void
      */
     public function styles(Worksheet $sheet)
     {
-       // Make the table name bold and centered
-       $sheet->mergeCells('A1:G1');
-       $sheet->getStyle('A1')->applyFromArray([
-           'font' => [
-               'bold' => true,
-               'size' => 14
-           ],
-           'alignment' => [
-               'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-           ]
-       ]);
+        // Make the title bold and centered
+        $sheet->mergeCells('A1:D1');
+        $sheet->getStyle('A1')->applyFromArray([
+            'font' => [
+                'bold' => true,
+                'size' => 14
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ]
+        ]);
 
-       // Make the headers bold and centered
-       $sheet->getStyle('A2:G2')->applyFromArray([
-           'font' => [
-               'bold' => true,
-           ],
-           'alignment' => [
-               'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-           ]
-       ]);
+        // Make the headers bold and centered
+        $sheet->getStyle('A2:D2')->applyFromArray([
+            'font' => [
+                'bold' => true,
+            ],
+            'alignment' => [
+                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+            ]
+        ]);
 
-       //Make column autoSize
-       foreach (range('A', 'G') as $columnID) {
-        $sheet->getColumnDimension($columnID)->setAutoSize(true);
-    }
+        // Make columns autoSize
+        foreach (range('A', 'D') as $columnID) {
+            $sheet->getColumnDimension($columnID)->setAutoSize(true);
+        }
     }
 }

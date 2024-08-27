@@ -13,6 +13,9 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3">
                         <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Users</a>
+                        
+                        <a href="{{ route('user.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
+                   
                      </div>
                         <table class="table table-bordered">
                             <thead class="text-center">

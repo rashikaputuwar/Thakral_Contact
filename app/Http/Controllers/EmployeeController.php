@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportEmployee;
 use App\Models\{Department, Designation, Employee};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ExportUser;
+
 
 class EmployeeController extends Controller
 {
@@ -192,7 +193,7 @@ class EmployeeController extends Controller
     }
 
     public function export_excel(){
-        return Excel::download(new ExportUser,'user.xlsx');
+        return Excel::download(new ExportEmployee,'Employee.xlsx');
     }
 
 }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportUser;
 use App\Models\Employee;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\add_user;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -86,21 +88,7 @@ class UserController extends Controller
             DB::rollback();
             return redirect()->back()->with('error', 'Error while creating user!');
         }
-
-        
-    
-           
-        // if ($user) {
-        //     // return redirect('user_mg.user');
-        //     return redirect()->route('show.User');
-        //     // return view('user_mg.user');
-        //     //   echo"<h2>Data Added Successfully.</h2>";
-        // } else {
-        //     echo "<h2>Data Not Added.</h2>";
-        // }
     }
-    
-
     /**
      * Display the specified resource.
      */
@@ -152,5 +140,9 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function export_excel(){
+        return Excel::download(new ExportUser,'User.xlsx');
     }
 }

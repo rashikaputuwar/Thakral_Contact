@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/showUser/{id}', 'show')->name('showUser');
         Route::get('/editUser/{id}', 'edit')->name('edit.User');
         Route::put('/updateuser/{id}', 'update')->name('update.user');
+        Route::get('/user/export/excel','export_excel')->name('user.export');
+
     });
 
 
