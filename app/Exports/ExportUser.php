@@ -20,9 +20,11 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
             return [
                 'id' => $employee->id,
                 'name' => $employee->fname . ' ' . $employee->midname . ' ' . $employee->lname,
-                'gender' => $employee->gender,
+                'email' => $employee->email,
+                'personal_contact' => $employee->personal_contact,
                 'department' => $employee->departments->dept_name,
                 'designation' => $employee->designations->desig_name,
+               
             ];
         });
     }
@@ -31,7 +33,7 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
     {
         return [
             ['Employee Details'], 
-            ['ID', 'Name', 'Gender', 'Department', 'Designation'] 
+            ['ID', 'Name', 'Email','Phone Number', 'Department', 'Designation'] 
         ];
     }
 
@@ -42,7 +44,7 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
     public function styles(Worksheet $sheet)
     {
        // Make the table name bold and centered
-       $sheet->mergeCells('A1:E1');
+       $sheet->mergeCells('A1:F1');
        $sheet->getStyle('A1')->applyFromArray([
            'font' => [
                'bold' => true,
@@ -54,7 +56,7 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
        ]);
 
        // Make the headers bold and centered
-       $sheet->getStyle('A2:E2')->applyFromArray([
+       $sheet->getStyle('A2:F2')->applyFromArray([
            'font' => [
                'bold' => true,
            ],
@@ -64,7 +66,7 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
        ]);
 
        //Make column autoSize
-       foreach (range('A', 'E') as $columnID) {
+       foreach (range('A', 'F') as $columnID) {
         $sheet->getColumnDimension($columnID)->setAutoSize(true);
     }
     }
