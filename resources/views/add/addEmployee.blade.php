@@ -31,9 +31,9 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="mid name" class="col-sm-4 col-form-label text-end">Middle Name</label>
+                    <label for="midname" class="col-sm-4 col-form-label text-end">Middle Name</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control auto-resize" id="mid name" name="mid_name">
+                        <input type="text" class="form-control auto-resize" id="midname" name="midname">
                     </div>
                 </div> 
                 <div class="row mb-3">
@@ -165,5 +165,5 @@
 
 {{-- adding title name --}}
 @section('title')
-- Add_ Departmnet
+add_employee
 @endsection

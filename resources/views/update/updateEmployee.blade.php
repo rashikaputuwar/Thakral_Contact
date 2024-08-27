@@ -32,12 +32,18 @@
                     </div>
 
                     <div class="row mb-3">
+                        <label for="midname" class="col-sm-4 col-form-label text-end required-asterisk">Middle Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control auto-resize" id="midname" name="midname" value="{{$employee->midname}} " required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
                         <label for="last_name" class="col-sm-4 col-form-label text-end required-asterisk">Last Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control auto-resize" id="last_name" name="last_name" value="{{$employee->lname}} " required>
                         </div>
                     </div>
-    
                     <div class="row mb-3">
                         <label for="email" class="col-sm-4 col-form-label text-end required-asterisk">Email</label>
                         <div class="col-sm-8">

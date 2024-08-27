@@ -12,6 +12,7 @@ class Employee extends Model
     protected $fillable = [
         'emp_code',
         'fname',
+        'midname',
         'lname',
         'email',
         'gender',
@@ -53,4 +54,16 @@ class Employee extends Model
     {
         return $this->hasMany(UserRole::class, 'employee_id');
     }
+
+      // Relationship to Department
+      public function department()
+      {
+          return $this->belongsTo(Department::class, 'dept_id');
+      }
+  
+      // Relationship to Designation
+      public function designation()
+      {
+          return $this->belongsTo(Designation::class, 'desig_id');
+      }
 }

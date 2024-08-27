@@ -58,13 +58,14 @@ class EmployeeController extends Controller
             // 'dob' => 'required|date',
             'dob' => ['required', 'date', 'before:'.now()->subYears(19)->toDateString()],
             'joining_date' => 'required|date',
-            // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle the file upload and blob creation
+        // Converting the uploaded file to binary data
+        $photoBlob = null;
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $photoBlob = $file->store('employee_photos', 'public'); // Store the file and get the paths
+            $photoBlob = file_get_contents($file->getRealPath()); // Get file content as binary data
         }
 
         // Create the employee record
@@ -142,15 +143,21 @@ class EmployeeController extends Controller
             // 'dob' => 'required|date',
             'dob' => ['required', 'date', 'before:'.now()->subYears(19)->toDateString()],
             'joining_date' => 'required|date',
-            // 'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
+         // Convert the uploaded file to binary data
+            $photoBlob = null;
+            if ($request->hasFile('photo')) {
+                $file = $request->file('photo');
+                $photoBlob = file_get_contents($file->getRealPath()); // Get file content as binary data
+            }
         $employees = DB::table('employees')
         ->where('id',$id)
         ->update([
             // 'emp_code'=>$request->emp_code,
             'fname'=>$request->first_name,
-            'midname' => $request->mid_name,
+            'midname' => $request->midname,
             'lname'=>$request->last_name,
             'email'=>$request->email,
             'gender'=>$request->gender,

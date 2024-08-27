@@ -306,6 +306,17 @@ a.sidebar-link[href="{{Route('roles.index')}}"] span {
     border: none; /* Remove border if necessary */
 }
 
+/* Add these styles to handle the text overflow and ellipsis */
+.text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar-collapsed .text {
+    max-width: 80px; /* Adjust the width as needed for collapsed state */
+}
+
 /* .profile-section .dropdown-menu {
     background-color: rgb(125,125,235); /* Match the dropdown menu background color */
     /* border: none; Optional: remove border */
@@ -314,7 +325,7 @@ a.sidebar-link[href="{{Route('roles.index')}}"] span {
     background-color: #f8f9fa; Background color for header area
     padding: 1rem;
     border-bottom: 1px solid #dee2e6;
-} */
+} *
 
 /* .main {
     padding: 2rem;

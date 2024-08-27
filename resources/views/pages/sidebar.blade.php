@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="p-2">      
+            <div class="p-1">      
                 <h5 class="text small">{{ '@' . $userRole }}</h5>
             </div>
 
@@ -180,7 +180,7 @@
                         <ul class="dropdown-menu" aria-labelledby="profileMenuButton">
                             <li>
                                 {{-- <a class="dropdown-item" href="#">Profile</a> --}}
-                                <a href="#" class="sidebar-link">
+                                <a href="{{Route(('profile.show'))}}" class="sidebar-link">
                                     {{-- <i class="lni lni-exit"></i> --}}
                                     <span>Profile</span>
                                 </a>

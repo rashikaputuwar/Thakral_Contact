@@ -30,5 +30,14 @@ class add_user extends Authenticatable
         // return $this->belongsTo(Employee::class);
     }
 
+    public function designation()
+    {
+        return $this->belongsTo(Designation::class, 'desig_name');
+    }
     
+    public function department()
+{
+    return $this->belongsTo(Department::class, 'dept_name'); // Adjust 'department_id' to your actual foreign key
+}
+
 }

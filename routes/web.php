@@ -137,6 +137,9 @@ Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.inde
 //dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+//profile 
+Route::get('/profile',[DashboardController::class,'showProfile'])->name('profile.show');
+Route::get('employee/photo/{id}', 'EmployeeController@getPhoto')->name('employee.photo');
 });
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
@@ -161,5 +164,6 @@ Route::middleware([CheckRoles::class.':Administrator'])->group(function () {
     Route::get('/dashboard', [LoginController::class, 'dashboardPage'])->name('dashboard');
     // other routes
 });
+
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');    
 
