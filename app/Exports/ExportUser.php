@@ -30,8 +30,8 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
     public function headings(): array
     {
         return [
-            ['Employee Details'], // Table name or header
-            ['ID', 'Name', 'Gender', 'Department', 'Designation'] // Column headers
+            ['Employee Details'], 
+            ['ID', 'Name', 'Gender', 'Department', 'Designation'] 
         ];
     }
 
@@ -63,6 +63,7 @@ class ExportUser implements FromCollection,WithHeadings, WithStyles
            ]
        ]);
 
+       //Make column autoSize
        foreach (range('A', 'E') as $columnID) {
         $sheet->getColumnDimension($columnID)->setAutoSize(true);
     }
