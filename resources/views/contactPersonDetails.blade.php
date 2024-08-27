@@ -19,9 +19,11 @@
                     <div class="card-body">
                         @if ($hasAddPermission)
                         <div class="d-flex justify-content-between mb-3">
-                        {{-- <a href="{{Route('client.createContact')}}" class="btn btn-success btn-sm btn-add-user">Add Contact Person</a> --}}
                         <a href="{{ Route('client.createContact') }}" class="btn btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Contact Person</a>
                         @endif
+                        @if ($hasExportPermission)
+                        <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
+                    @endif
                         </div>
                         <div class="table-responsive">
                         <table class="table table-bordered">

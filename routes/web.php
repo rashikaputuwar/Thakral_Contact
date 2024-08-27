@@ -49,6 +49,7 @@ Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerso
 Route::get('/client/view/{id}',[ClientController::class,'show'])->name('client.show');
 
 Route::get('/client/export/excel',[ClientController::class,'export_excel'])->name('client.export');
+Route::get('/contact/export/excel',[ClientController::class,'person_export_excel'])->name('contact.export');
 
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ExportClient;
+use App\Exports\ExportContactPerson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Client;
@@ -29,8 +30,12 @@ class ClientController extends Controller
          // Load the 'client' relationship
          $contactPersons = ContactPerson::all();
 
+         $roleMenus = session('role_menus', collect([]));
+
+            // Check permissions for export action
+            $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6);
          // Pass the data to the view
-         return view('contactPersonDetails', compact('contactPersons'));
+         return view('contactPersonDetails', compact('contactPersons','hasExportPermission'));
     }
 
 
@@ -227,6 +232,9 @@ class ClientController extends Controller
 
     public function export_excel(){
         return Excel::download(new ExportClient,'client.xlsx');
+    }
+    public function person_export_excel(){
+        return Excel::download(new ExportContactPerson,'contactPerson.xlsx');
     }
     
 }
