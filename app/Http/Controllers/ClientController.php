@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportClient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Client;
 use App\Models\ContactPerson;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientController extends Controller
 {
@@ -15,7 +17,11 @@ class ClientController extends Controller
     public function index()
     {
         $client = Client::all();
-        return view('client',compact('client'));
+        $roleMenus = session('role_menus', collect([]));
+
+            // Check permissions for export action
+            $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6);
+        return view('client',compact('client','hasExportPermission'));
     }
 
     public function indexContactPerson()
@@ -218,4 +224,9 @@ class ClientController extends Controller
     {
         //
     }
+
+    public function export_excel(){
+        return Excel::download(new ExportClient,'client.xlsx');
+    }
+    
 }

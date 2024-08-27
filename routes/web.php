@@ -48,6 +48,8 @@ Route::get('/clients/create/contact', [ClientController::class, 'createContact']
 Route::get('/contactPerson/view/{id}',[ClientController::class,'showContactPerson'])->name('contactPerson.show');
 Route::get('/client/view/{id}',[ClientController::class,'show'])->name('client.show');
 
+Route::get('/client/export/excel',[ClientController::class,'export_excel'])->name('client.export');
+
 //client store
 Route::post('/clients/store', [ClientController::class, 'storeClient'])->name('client.store');
 Route::post('/clients/store/contactPerson', [ClientController::class, 'storeContactPerson'])->name('contactPerson.store');

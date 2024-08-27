@@ -21,6 +21,9 @@
                             @if ($hasAddPermission)
                         <a href="{{Route('client.createClient')}}" class="btn btn-success btn-sm btn-add-user"style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Client</a>
                         @endif
+                        @if ($hasExportPermission)
+                        <a href="{{ route('client.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
+                    @endif
                      </div>
                         <table class="table table-bordered">
                             <thead class="text-center">
