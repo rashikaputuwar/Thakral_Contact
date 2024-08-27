@@ -120,6 +120,8 @@ Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('rol
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');
+Route::get('/userRole/export/excel',[UserRoleController::class,'export_excel'])->name('userRole.export');
+
 
 //dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ExportUserRole;
 use App\Models\add_user;
 use App\Models\User;
 use App\Models\UserRole;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserRoleController extends Controller
 {
@@ -66,5 +68,9 @@ class UserRoleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function export_excel(){
+        return Excel::download(new ExportUserRole,'UserRole.xlsx');
     }
 }

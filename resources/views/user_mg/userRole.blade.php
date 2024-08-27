@@ -10,6 +10,7 @@
                     </div>
                     <div class="card-body">
                         {{-- <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user">Add</a> --}}
+                        <a href="{{ route('userRole.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
