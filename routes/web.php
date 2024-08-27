@@ -17,9 +17,6 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Middleware\CheckRoles;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcomePage')->middleware('auth');
 
 // ROUTES FOR USERCONTROLLER
 
@@ -32,21 +29,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/editUser/{id}', 'edit')->name('edit.User');
         Route::put('/updateuser/{id}', 'update')->name('update.user');
     });
-
-
-// Route::get('/userPage', [UserController::class,'index'])->name('show.User'); 
-// Route::post('/addUser', [UserController::class,'store'])->name('add.User'); 
-// Route::get('/user/create', [UserController::class,'create'])->name('create.user');
-// Route::get('/showUser/{id}', [UserController::class,'show'])->name('showUser');
-// Route::get('/editUser/{id}',[UserController::class,'edit'])->name('edit.User');
-// Route::put('/updateuser/{id}',[UserController::class,'update'])->name('update.user');
-
-
-//ROUTES FOR FORM PAGES--POST METHOD
-// Route::view('newuser','user_mg.add.addUser');
-// Route::get('newuser', function () {
-//     return view('user_mg.add.addUser');
-// })->name('newuser');
 
 
 // routes/web.php
@@ -94,7 +76,7 @@ Route::post('/employee/store', [EmployeeController::class,'store'])->name('emplo
 Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('employee.show');
 Route::get('/employee/edit/{id}', [EmployeeController::class,'edit'])->name('employee.edit');
 Route::put('/employee/update/{id}', [EmployeeController::class,'update'])->name('employee.update');
-
+Route::get('/employee/export/excel',[EmployeeController::class,'export_excel'])->name('employee.export');
 
 
 //Designation
@@ -143,22 +125,12 @@ Route::get('employee/photo/{id}', 'EmployeeController@getPhoto')->name('employee
 });
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
-// Route::get('/login',[LoginController::class,'index'])->name('login');
-// Route::get('/isLoggedIn',[LoginController::class,'isLoggedIn'])->name('login.isLoggedIn');
-// Route::view('/welcome','welcome')->name('welcomePage');
 Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.match');
-// Route::post('/check',[LoginController::class,'check'])->name('login.check');
 
 
-Route::get('/dashboard',[LoginController::class,'dashboardPage']) 
-// {{ this is by using middleware made by own}}
-->name('dashboard');
-// ->middleware(CheckRoles::class); 
 
-// by using built-in middles ware.. 
-// Route::get('/',[LoginController::class,'dashboardPage'])
-// ->name('dashboard');
-// // ->middleware(["auth"]);   
+Route::get('/dashboard',[LoginController::class,'dashboardPage']) ->name('dashboard');
+
 
 Route::middleware([CheckRoles::class.':Administrator'])->group(function () {
     Route::get('/dashboard', [LoginController::class, 'dashboardPage'])->name('dashboard');

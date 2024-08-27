@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
-use App\Models\Designation;
+use App\Models\{Department, Designation, Employee};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Employee;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ExportUser;
 
 class EmployeeController extends Controller
 {
@@ -16,7 +16,11 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
-        return view('employeeDetails', compact('employees'));
+        $roleMenus = session('role_menus', collect([]));
+
+            // Check permissions for export action
+            $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6); // Adjust the permission_id as needed
+        return view('employeeDetails', compact('employees', 'hasExportPermission'));
     }
 
     /**
@@ -186,4 +190,9 @@ class EmployeeController extends Controller
     {
         //
     }
+
+    public function export_excel(){
+        return Excel::download(new ExportUser,'user.xlsx');
+    }
+
 }
