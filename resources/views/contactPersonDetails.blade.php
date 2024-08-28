@@ -13,19 +13,17 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h2 class="display text-center"> Contact Person Details</h2>
-                    </div>
-                    <div class="card-body">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-grow-1 justify-content-center">
+                            <h2 class="display">Contact Person Details</h2>
+                        </div>
                         @if ($hasAddPermission)
-                        <div class="d-flex justify-content-between mb-3">
                         <a href="{{ Route('client.createContact') }}" class="btn btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Contact Person</a>
                         @endif
-                        @if ($hasExportPermission)
-                        <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
-                    @endif
+                    </div>
+                    <div class="card-body">
                         </div>
-                        <div class="table-responsive">
+                        <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                             <thead class="text-center">
                             <tr>
@@ -53,17 +51,30 @@
                             
                             <td>
                                 @if($hasViewPermission)
-                                <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                <a href="{{Route('contactPerson.show',$contactPerson->id)}}" class="btn btn-sm" title="View">
+                                    <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(26, 210, 60); text-align: center; line-height: 30px; border-radius: 5px;">
+                                        <i class="fas fa-eye" style="color: white;"></i>
+                                    </span>
+                                </a>
                                 @endif
                                 @if($hasEditPermission)
-                                <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-primary btn-sm" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
+                                <a href="{{Route('contactPerson.edit',$contactPerson->id)}}" class="btn btn-sm" title="Update">
+                                    <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(56, 25, 213); text-align: center; line-height: 30px; border-radius: 5px;">
+                                        <i class="fas fa-edit" style="color: white;"></i>
+                                    </span>
+                                </a>
                                 @endif
+                               
                             </td>
                         </tr>
                              @endforeach
                         </tbody>
-
                         </table>
+                        </div>
+                        <div class="d-flex justify-content-end  mt-4" tyle="margin-top: 20px;">
+                            @if ($hasExportPermission)
+                                <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white; ">Export to Excel</a>
+                            @endif
                         </div>
                     </div>
                 </div>
