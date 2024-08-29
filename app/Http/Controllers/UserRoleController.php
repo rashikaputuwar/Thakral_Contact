@@ -16,7 +16,7 @@ class UserRoleController extends Controller
      */
     public function index()
     {
-        $users = add_user::with(['employee', 'roles'])->get();
+        $users = add_user::with(['employee', 'roles'])->paginate(2);
             // $users = UserRole::with('roles')->get();
             // dd($users);
         return view('user_mg.userRole',compact('users'));

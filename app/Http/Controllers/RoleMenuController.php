@@ -18,7 +18,7 @@ class RoleMenuController extends Controller
         // $roles = Role::with(['menus.permissions'])->get();
         $roles = Role::with(['menus' => function ($query) {
             $query->with('permissions');
-        }])->get();
+        }])->paginate(2);
         return view('user_mg.roleMenu', compact('roles'));
         // return view('user_mg.roleMenu');
     }

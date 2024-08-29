@@ -15,7 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         // Get dynamic roles from database
-        $roles = Role::all();
+        $roles = Role::paginate(3);
 
         return view('user_mg.role', compact('roles'));
     }

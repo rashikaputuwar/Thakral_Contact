@@ -4,24 +4,21 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header">
-                        <h2 class="display-6 text-center"> Menu Information</h2>
-                    </div>
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-grow-1 justify-content-center">
+                            <h2 class="display text-center"> Menu Information</h2>
+                            </div>
+                            <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Menu</a>
+                        </div>
 
                     <div class="card-body">
-                        <div class="d-flex justify-content-between mb-3">
-                        <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Menu</a>
-                        
-                     </div>
-
+                        <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                             <thead class="text-center">
                             <tr>
                                 <th>Id</th>
                                 <th>Menu</th>
-                                {{-- <th>Status</th> --}}
-                                <th>Action</th>            
-                                {{-- <th>Button</th>             --}}
+                                <th>Action</th>  
                             </tr>
                         </thead>
 
@@ -30,13 +27,18 @@
                             <tr>
                                 <td>{{ $menu->id }}</td>
                                 <td>{{ $menu->menu_name }}</td>
-                                {{-- <td>{{ $menu->status }}</td> --}}
                                 <td>
-                                    {{-- <a href="{{Route('menu.show',$menu->id)}}" style="background-color:#186c6c ; border-color: #186c6c ; color: white;"><button class="btn btn-primary">View</button></a> --}}
-                                    <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-primary" style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">View</a>
+                                    <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-sm" title="View">
+                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(26, 210, 60); text-align: center; line-height: 30px; border-radius: 5px;">
+                                            <i class="fas fa-eye" style="color: white;"></i>
+                                        </span>
+                                    </a>
 
-                                    <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-primary"style="background-color: rgb(125,125,235); border-color: rgb(125,125,235); color: white;">Update</a>
-                                    {{-- <a> <button class="btn btn-primary">Update</button></a> --}}
+                                    <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-sm" title="Update">
+                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(56, 25, 213); text-align: center; line-height: 30px; border-radius: 5px;">
+                                            <i class="fas fa-edit" style="color: white;"></i>
+                                        </span>
+                                    </a>
                                 </td>
                                 {{-- <td></td> --}}
                             </tr>
@@ -45,7 +47,11 @@
 
                         </table>
                     </div>
+                    <div class="d-flex justify-content-end mt-4 mb-3 pr-4">
+                        {{ $menus->links('pagination::bootstrap-5') }}
+                    </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

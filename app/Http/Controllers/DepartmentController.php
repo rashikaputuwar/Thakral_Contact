@@ -13,7 +13,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
+        $departments = Department::paginate(4);
         return view('config.department',compact('departments'));
     }
 

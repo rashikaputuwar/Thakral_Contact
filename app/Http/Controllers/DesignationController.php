@@ -13,7 +13,7 @@ class DesignationController extends Controller
      */
     public function index()
     {
-        $designations = Designation::all(); 
+        $designations = Designation::paginate(4); 
         return view("config.designation", compact("designations"));
     }
 
