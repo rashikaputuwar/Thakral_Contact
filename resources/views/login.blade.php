@@ -71,7 +71,7 @@
         display: block;
         width: 50%;
         padding: 10px;
-        background-color:  rgb(125,125,235);;
+        background-color:  #12245c;
         border: none;
         border-radius: 4px;
         font-size: 18px;
@@ -82,7 +82,7 @@
     }
 
     .login-form .btn-primary:hover {
-        background-color:  rgb(100,100,235);
+        background-color:  #12245c;
     }
 
     .alert {

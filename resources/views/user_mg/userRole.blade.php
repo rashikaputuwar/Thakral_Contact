@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-grow-1 justify-content-center">
-                            <h2 class="display-6 text-center">User Role </h2>
+                            <h3 class="display text-center">User Role </h3>
                             </div>
                     </div>
                     <div class="card-body">

@@ -113,13 +113,13 @@
         }
 
         .fc-header-toolbar {
-            background-color: rgb(125,125,235); /* Header background color */
+            background-color: #12245c; /* Header background color */
             color: white; /* Header text color */
             border-radius: 8px 8px 0 0; /* Rounded top corners */
         }
 
         .fc-day.fc-today {
-            background-color:  rgb(125,125,235) !important; /* Highlight today's date */
+            background-color:  #12245c !important; /* Highlight today's date */
         }
 
         .fc .fc-toolbar>*>:first-child {
@@ -127,7 +127,7 @@
             font-size: 23px;
         }
         .fc-day-top.fc-today .fc-day-number {
-            background-color: rgb(125,125,235);
+            background-color: #12245c;
             color: white;
             border-radius: 50%;
             width: 24px;

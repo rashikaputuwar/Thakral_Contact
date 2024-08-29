@@ -7,9 +7,10 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-grow-1 justify-content-center">
-                            <h2 class="display text-center">Role Menu</h2>
+                            <h3 class="display text-center">Role Menu</h3>
                         </div>
-                        <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add</a>
+                        <a href="{{ route('rolesMenu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
+                            <i class="fas fa-plus"></i> Add</a>
                     </div>
 
                     <div class="card-body">

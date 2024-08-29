@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center">New Visitor</h2>
+                        <h3 class="display text-center">New Visitor</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('visitor.create') }}" method="POST">

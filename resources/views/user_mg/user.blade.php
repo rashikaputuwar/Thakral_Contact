@@ -10,7 +10,8 @@
                         <div class="d-flex flex-grow-1 justify-content-center">
                         <h2 class="display text-center"> Users Information</h2>
                         </div>
-                            <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Users</a>
+                            <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
+                                <i class="fas fa-plus"></i> Add Users</a>
                     </div>
                     
                     <div class="card-body">

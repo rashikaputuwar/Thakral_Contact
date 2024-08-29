@@ -15,7 +15,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center">Visitor Check-In</h2>
+                        <h3 class="display text-center">Visitor Check-In</h3>
                     </div>
                     <div class="card-body">
                         <form action="{{ route('visitor.handleForm') }}" method="POST">

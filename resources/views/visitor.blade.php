@@ -6,7 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="display-6 text-center"> Visitor Information</h2>
+                        <h3 class="display text-center"> Visitor Information</h3>
                     </div>
 
                     <div class="card-body">
