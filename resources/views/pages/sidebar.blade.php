@@ -165,7 +165,7 @@
         </aside>
         @endauth
 
-        <div class="main ">
+        <div class="main-content">
             <header class="header">
                 <h1 class="common-style">Contact Management</h1>
                 @auth
@@ -202,42 +202,27 @@
                 </div>
                 @endauth
             </header>
-            {{-- <header class="header d-flex justify-content-between align-items-center p-3"">
-                <h1 class="common-style">Contact Management</h1>
-                @auth
-                @php
-                    $fullName = session('fullName', 'Guest');
-                @endphp
-                <div class="profile-section common-style d-flex align-items-center">
-                    <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle d-flex align-items-center" type="button" id="profileMenuButton"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="lni lni-user me-2"></i> <!-- Profile Icon -->
-                            {{ $fullName }}
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="profileMenuButton">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item">Logout</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                @endauth
-            </header> --}}
+            
             <div class="content p-3">
                 <section>
                     @yield('content')
                 </section>  
             </div>
-        </div>
-
-      
-
+        
+        <footer class="footer py-3">
+            <div class="container d-flex justify-content-between align-items-center">
+                <span class="text-muted">CMS ©</span>
+                <div>
+                    <a href="#" class="text-muted me-3">Support</a>
+                    <a href="#" class="text-muted me-3">Help Center</a>
+                    <a href="#" class="text-muted me-3">Privacy</a>
+                    <a href="#" class="text-muted">Terms</a>
+                </div>
+            </div>
+        </footer>
     </div>
+</div>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>

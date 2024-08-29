@@ -22,7 +22,7 @@
                         @endif
                     </div>
                     <div class="card-body">
-                        </div>
+                       
                         <div class="table-responsive mt-3">
                         <table class="table table-bordered">
                             <thead class="text-center">
@@ -71,9 +71,12 @@
                         </tbody>
                         </table>
                         </div>
-                        <div class="d-flex justify-content-end  mt-4" tyle="margin-top: 20px;">
+                        <div class="d-flex justify-content-end mt-4 mb-3 pr-4">
+                            {{ $contactPersons->links('pagination::bootstrap-5') }}
+                        </div>
+                        <div class="d-flex justify-content-end  mt-4 mb-3 pr-4" tyle="margin-top: 20px;">
                             @if ($hasExportPermission)
-                                <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white; ">Export to Excel</a>
+                                <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm ml-auto " style="background-color: #4a90e2; border-color: #4a90e2; color: white; ">Export to Excel</a>
                             @endif
                         </div>
                     </div>

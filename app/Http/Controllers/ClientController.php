@@ -28,7 +28,8 @@ class ClientController extends Controller
     public function indexContactPerson()
     {
          // Load the 'client' relationship
-         $contactPersons = ContactPerson::all();
+        //  $contactPersons = ContactPerson::all();
+         $contactPersons = ContactPerson::paginate(1);
 
          $roleMenus = session('role_menus', collect([]));
 

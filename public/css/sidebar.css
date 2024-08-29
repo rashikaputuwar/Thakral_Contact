@@ -29,6 +29,8 @@ body {
 
 .wrapper {
     display: flex;
+    /* flex-direction: column; */
+    min-height: 100vh; 
 }
 
 .table {
@@ -36,17 +38,25 @@ body {
     min-width: 700px; /* Ensures the table is always wide enough to fit content */
 }
 
-.main {
+/* .main {
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
     transition: all 0.35s ease-in-out;
     background-color: #fafbfe;
-    
-}
+    z-index: 200;
+    position: relative;
+} */
 
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: auto; */
+}
 #sidebar {
-    z-index: 1000;
+    z-index: 100; 
+    position: relative;
     transition: all .25s ease-in-out;
     background-color: rgb(125,125,235);
     display: flex;
@@ -77,7 +87,7 @@ body {
 }
 
 .sidebar-logo a {
-    color: black;
+    color: white;
     font-size: 1.15rem;
     font-weight: 600;
 }
@@ -183,6 +193,11 @@ a.sidebar-link:hover {
     transition: all .2s ease-out;
 }
 
+.content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f8f9fa; /* Light grey background */
+}
 /* .main h1 { */
     /* background-color: white; */
     /* padding: 30px;
@@ -248,7 +263,7 @@ a.sidebar-link:hover {
 #sidebar .sidebar-link:hover,
 #sidebar .sidebar-link:focus {
     text-decoration: none !important;
-    color: black !important;
+    color: white !important;
 
 }
 
@@ -263,7 +278,7 @@ a.sidebar-link[href="{{Route('roles.index')}}"] span {
 
 .header {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
     background-color: white; /* Adjust color as needed */
@@ -311,30 +326,16 @@ a.sidebar-link[href="{{Route('roles.index')}}"] span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white;
+    text-align: center
 }
 
 .sidebar-collapsed .text {
     max-width: 80px; /* Adjust the width as needed for collapsed state */
 }
 
-/* .profile-section .dropdown-menu {
-    background-color: rgb(125,125,235); /* Match the dropdown menu background color */
-    /* border: none; Optional: remove border */
-/* }   */
-/* .header {
-    background-color: #f8f9fa; Background color for header area
-    padding: 1rem;
-    border-bottom: 1px solid #dee2e6;
-} *
-
-/* .main {
-    padding: 2rem;
+footer {
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid #dee2e6;
 }
-
-.profile-section {
-    margin-left: auto;
-}
-
-.dropdown-menu {
-    min-width: 10rem;
-} */
