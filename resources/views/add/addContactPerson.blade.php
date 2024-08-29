@@ -16,7 +16,7 @@
             <form action="{{Route('contactPerson.store')}}" method="POST">
                 @csrf
 
-        </div>
+        {{-- </div> --}}
         <div class="row mb-3">
             <label for="client id" class="col-sm-4 col-form-label text-end required-asterisk">Select Company</label>
             <div class="col-sm-8">

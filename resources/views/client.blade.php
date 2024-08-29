@@ -22,12 +22,7 @@
                     </div>
                     
                     <div class="card-body">
-                        {{-- <div class="d-flex justify-content-between mb-3">
-                            @if ($hasAddPermission)
-                        <a href="{{Route('client.createClient')}}" class="btn btn-success btn-sm btn-add-user"style="background-color: #186c6c; border-color: #186c6c; color: white;">Add Client</a>
-                        @endif
                        
-                     </div> --}}
                         <table class="table table-bordered">
                             <thead class="text-center">
                             <tr>

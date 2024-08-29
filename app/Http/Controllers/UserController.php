@@ -18,9 +18,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = add_user::all(['id', 'user_name','expiry_date','employee_id','status']);
-        // return view('role',compact('roles'));
-        return view('user_mg.user', ['users' => $users]);
+        // $users = add_user::all(['id', 'user_name','expiry_date','employee_id','status']);
+        $users = add_user::paginate(2);
+        $roleMenus = session('role_menus', collect([]));
+
+            // Check permissions for export action
+            $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6); // Adjust the permission_id as needed
+        return view('user_mg.user', ['users' => $users,'hasExportPermission' => $hasExportPermission]);
     }
 
     /**

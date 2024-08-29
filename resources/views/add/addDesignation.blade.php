@@ -15,7 +15,7 @@
                 <h2 class="text-center mb-4">Add New Designation</h2>
                 <form action="{{Route('designation.store')}}" method="POST">
                     @csrf
-                    </div>
+                    {{-- </div> --}}
                     <div class="row mb-3">
                         <label for="designationname" class="col-sm-4 col-form-label text-end">Designation Name</label>
                         <div class="col-sm-8">

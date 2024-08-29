@@ -15,7 +15,7 @@
                 <h2 class="text-center mb-4">Add New Organization</h2>
                 <form action="{{Route('client.store')}}" method="POST">
                     @csrf
-                    </div>
+                    {{-- </div> --}}
                     <div class="row mb-3">
                         <label for="company_name" class="col-sm-4 col-form-label text-end required-asterisk">Company Name</label>
                         <div class="col-sm-8">

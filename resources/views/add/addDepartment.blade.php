@@ -15,7 +15,7 @@
             <h2 class="text-center mb-4">Add Department</h2>
             <form action="{{Route('department.store')}}" method="POST">
             @csrf
-                </div>
+                {{-- </div> --}}
                 <div class="row mb-3">
                     <label for="dept name" class="col-sm-4 col-form-label text-end">Department Name</label>
                     <div class="col-sm-8">

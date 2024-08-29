@@ -10,8 +10,8 @@
 @endphp
     <div class="container">
 
-        <div class="row justify-content-center">
-            <div class="col-12">
+        <div class="row ">
+            <div class="col">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-grow-1 justify-content-center">
@@ -74,9 +74,9 @@
                         <div class="d-flex justify-content-end mt-4 mb-3 pr-4">
                             {{ $contactPersons->links('pagination::bootstrap-5') }}
                         </div>
-                        <div class="d-flex justify-content-end  mt-4 mb-3 pr-4" type="margin-top: 20px;">
+                        <div class="d-flex justify-content-end  mt-4 mb-3 pr-4">
                             @if ($hasExportPermission)
-                                <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm ml-auto " style="background-color: #4a90e2; border-color: #4a90e2; color: white; ">Export to Excel</a>
+                                <a href="{{ route('contact.export') }}" class="btn btn-info btn-sm " style="background-color: #4a90e2; border-color: #4a90e2; color: white; ">Export to Excel</a>
                             @endif
                         </div>
                     </div>
