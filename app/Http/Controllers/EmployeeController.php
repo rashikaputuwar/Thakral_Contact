@@ -16,7 +16,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::paginate(2);
         $roleMenus = session('role_menus', collect([]));
 
             // Check permissions for export action

@@ -17,12 +17,12 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $client = Client::all();
+        $clients = Client::paginate(2);
         $roleMenus = session('role_menus', collect([]));
 
             // Check permissions for export action
             $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6);
-        return view('client',compact('client','hasExportPermission'));
+        return view('client',compact('clients','hasExportPermission'));
     }
 
     public function indexContactPerson()
