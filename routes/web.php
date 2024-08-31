@@ -60,6 +60,7 @@ Route::post('/clients/store/contactPerson', [ClientController::class, 'storeCont
 //client update
 Route::get('/client/edit/{id}', [ClientController::class,'edit'])->name('client.edit');
 Route::put('/client/update/{id}', [ClientController::class,'update'])->name('client.update');
+Route::get('/client/search', [ClientController::class, 'searchClient'])->name('client.search');
 
 //contact person update
 Route::get('/contactPerson/edit/{id}', [ClientController::class,'editContactPerson'])->name('contactPerson.edit');
@@ -82,6 +83,8 @@ Route::get('/employee/view/{id}', [EmployeeController::class,'show'])->name('emp
 Route::get('/employee/edit/{id}', [EmployeeController::class,'edit'])->name('employee.edit');
 Route::put('/employee/update/{id}', [EmployeeController::class,'update'])->name('employee.update');
 Route::get('/employee/export/excel',[EmployeeController::class,'export_excel'])->name('employee.export');
+Route::get('/employees/search', [EmployeeController::class, 'search'])->name('employee.search');
+
 
 
 //Designation

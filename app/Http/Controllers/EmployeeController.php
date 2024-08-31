@@ -195,5 +195,30 @@ class EmployeeController extends Controller
     public function export_excel(){
         return Excel::download(new ExportEmployee,'Employee.xlsx');
     }
+    
+    public function search(Request $request)
+{
+    $request->validate([
+        'search' => 'nullable|string|max:255',
+    ]);
+
+    $searchTerm = $request->input('search');
+
+    $employees = Employee::where(function($query) use ($searchTerm) {
+        $query->where('fname', 'LIKE', "%{$searchTerm}%")
+              ->orWhere('midname', 'LIKE', "%{$searchTerm}%")
+              ->orWhere('lname', 'LIKE', "%{$searchTerm}%")
+              ->orWhere('personal_contact', 'LIKE', "%{$searchTerm}%")
+              ->orWhere('email', 'LIKE', "%{$searchTerm}%");
+    })
+    ->with('departments', 'designations') // Eager load related models
+    ->paginate(10); // Adjust pagination as needed
+
+    $roleMenus = session('role_menus', collect([]));
+    $hasExportPermission = $roleMenus->contains(fn($item) => $item->menu_id == 2 && $item->permission_id == 6); // Adjust the permission_id as needed
+
+    return view('employeeDetails', compact('employees', 'hasExportPermission'));
+}
+
 
 }

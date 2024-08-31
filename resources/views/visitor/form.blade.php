@@ -22,7 +22,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="phone">Phone Number:</label>
-                                <input type="text" class="form-control" id="phone" name="phone" required>
+                                <input type="text" class="form-control auto-resize" id="phone" name="phone" required>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary" style="background-color: #186c6c; border-color: #186c6c; color: white;">Check</button>

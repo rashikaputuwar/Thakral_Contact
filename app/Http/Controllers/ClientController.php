@@ -237,5 +237,28 @@ class ClientController extends Controller
     public function person_export_excel(){
         return Excel::download(new ExportContactPerson,'contactPerson.xlsx');
     }
+    public function searchClient(Request $request)
+    {
+        // Create a query builder instance
+        $query = Client::query();
+
+        // Check if there's a search term in the request
+        if ($request->has('search') && $request->input('search') !== '') {
+            $searchTerm = $request->input('search');
+            // Add search conditions to the query
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('client_name', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('contact_number', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('email', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('address', 'LIKE', "%{$searchTerm}%")
+                  ->orWhere('website', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
+        // Paginate the results
+        return $query->paginate(2);
+    }
+    
+
     
 }
