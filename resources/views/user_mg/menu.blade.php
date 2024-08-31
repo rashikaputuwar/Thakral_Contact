@@ -30,14 +30,14 @@
                                 <td>{{ $menu->menu_name }}</td>
                                 <td>
                                     <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-sm" title="View">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(26, 210, 60); text-align: center; line-height: 30px; border-radius: 5px;">
-                                            <i class="fas fa-eye" style="color: white;"></i>
+                                        <span style="display: inline-block; width: 30px; height: 30px; border-color: brown; text-align: center; line-height: 30px; border-radius: 5px;">
+                                            <i class="fas fa-eye" style="color: BROWN;"></i>
                                         </span>
                                     </a>
 
                                     <a href="{{Route('menu.show', $menu->id)}}" class="btn btn-sm" title="Update">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(56, 25, 213); text-align: center; line-height: 30px; border-radius: 5px;">
-                                            <i class="fas fa-edit" style="color: white;"></i>
+                                        <span style="display: inline-block; width: 30px; height: 30px; border-color: brown; text-align: center; line-height: 30px; border-radius: 5px;">
+                                            <i class="fas fa-edit" style="color: brown;"></i>
                                         </span>
                                     </a>
                                 </td>

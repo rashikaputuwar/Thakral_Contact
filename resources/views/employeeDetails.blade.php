@@ -51,15 +51,16 @@
                                 <td>
                                     @if ($hasViewPermission)
                                     <a href="{{Route('employee.show',$employee->id)}}" class="btn btn-sm" title="View">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: #8A716A; text-align: center; line-height: 30px; border-radius: 5px;">
-                                            <i class="fas fa-eye" style="color: white;"></i>
+                                        <span style="display: inline-block; width: 30px; height: 30px; border-color: brown;  text-align: center; line-height: 30px; border-radius: 5px;">
+                                            
+                                            <i class="fas fa-eye" style="color:  brown;"></i>
                                         </span>
                                     </a>
                                     @endif
                                     @if ($hasEditPermission)
                                     <a href="{{Route('employee.edit',$employee->id)}}" class="btn btn-sm" title="Update">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: #8A716A; text-align: center; line-height: 30px; border-radius: 5px;">
-                                            <i class="fas fa-edit" style="color: white;"></i>
+                                        <span style="display: inline-block; width: 30px; height: 30px; border-color: brown; text-align: center; line-height: 30px; border-radius: 5px;">
+                                            <i class="fas fa-edit" style="color:  brown;"></i>
                                         </span>
                                     </a>
                                     @endif
@@ -70,7 +71,7 @@
                             </table>
                         </div>
                    
-                            <div class="d-flex justify-content-end mt-4 mb-3 pr-4 pl-5">
+                            <div class="d-flex justify-content-end mt-4 mb-3 pr-4 pl-5" >
                                 {{ $employees->links('pagination::bootstrap-5') }}
                             </div>
                         <div class="d-flex justify-content-end mt-4 mb-3 pr-4" type="margin-top: 20px;">

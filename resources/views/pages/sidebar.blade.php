@@ -43,7 +43,7 @@
             </div>
 
             <div class="p-1">      
-                <h5 class="text small">{{ '@' . $userRole }}</h5>
+                <h5 class="text small">{{ '' . $userRole }}</h5>
             </div>
 
             <ul class="sidebar-nav">
