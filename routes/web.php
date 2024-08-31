@@ -117,6 +117,8 @@ Route::get('/role/create',[RoleMenuController::class,'create'])->name('rolesMenu
 Route::post('/roles/store',[RoleMenuController::class,'store'])->name('rolesMenu.store');
 Route::get('/role-menus/{role}', [RoleMenuController::class, 'getRoleMenus']);
 Route::get('roles-menu/view/{id}',[RoleMenuController::class,'show'])->name('roleMenu.show');
+Route::get('/role/filter', [RoleMenuController::class, 'filter'])->name('role.filter');
+Route::resource('rolesMenu', RoleMenuController::class);
 
 //user Role COntroller
 Route::get('/userRole',[UserRoleController::class,'index'])->name('userRole.index');

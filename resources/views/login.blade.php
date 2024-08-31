@@ -31,7 +31,7 @@
         justify-content: center;
         align-items: center;
         height: 60vh;
-        background: #fff; /* Set the background to white */
+        /* background: #fff;  */
         font-family:'Poppins', sans-serif;
     }
 

@@ -10,7 +10,7 @@
                             <h3 class="display text-center"> Roles Information</h3>
                          </div>
                         <a href="{{ route('roles.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
-                            <i class="fas fa-plus"></i> Add Roles</a>
+                            <i class="fas fa-plus"></i> Add </a>
                     </div>
                     
                     <div class="card-body">

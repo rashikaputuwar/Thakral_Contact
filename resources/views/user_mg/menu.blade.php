@@ -9,7 +9,7 @@
                             <h3 class="display text-center"> Menu Information</h3>
                             </div>
                             <a href="{{ route('menu.create') }}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
-                                <i class="fas fa-plus"></i> Add Menu</a>
+                                <i class="fas fa-plus"></i> Add </a>
                         </div>
 
                     <div class="card-body">

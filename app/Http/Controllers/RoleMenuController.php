@@ -13,6 +13,35 @@ class RoleMenuController extends Controller
     /**
      * Display a listing of the resource.
      */
+//     public function index(Request $request)
+// {
+//     // Retrieve all roles with associated menus and permissions
+//     $roles = Role::with(['menus' => function ($query) {
+//         $query->distinct(); // Ensure unique menus
+//     }, 'menus.permissions'])->get();
+    
+//     $selectedRole = null;
+//     $assignedMenus = collect();
+//     $unassignedMenus = collect();
+
+//     if ($request->has('role')) {
+//         $selectedRole = Role::with(['menus' => function ($query) {
+//             $query->distinct(); // Ensure unique menus
+//         }, 'menus.permissions'])->find($request->role);
+
+//         if ($selectedRole) {
+//             $assignedMenus = $selectedRole->menus->groupBy('id');
+//             $assignedMenuIds = $assignedMenus->keys();
+//             $unassignedMenus = Menu::whereNotIn('id', $assignedMenuIds)->get();
+//         }
+//     }
+
+//     return view('user_mg.roleMenu', compact('roles', 'selectedRole', 'assignedMenus', 'unassignedMenus'));
+// }
+
+    
+    
+
     public function index()
     {
         // $roles = Role::with(['menus.permissions'])->get();
@@ -124,5 +153,22 @@ class RoleMenuController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function filter(Request $request)
+    {
+        $roles = Role::all();
+        $selectedRole = Role::with('menus.permissions')->find($request->input('role'));
+
+        // Get all menus
+        $allMenus = Menu::all();
+
+        // Get assigned menus (menus that the selected role has permissions for)
+        $assignedMenus = $selectedRole->menus;
+
+        // Get unassigned menus (menus that are not assigned to the selected role)
+        $unassignedMenus = $allMenus->diff($assignedMenus);
+
+        return view('user_mg.roleMenu', compact('roles', 'selectedRole', 'assignedMenus', 'unassignedMenus'));
     }
 }

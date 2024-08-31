@@ -9,7 +9,7 @@
                         <h3 class="display text-center"> Permission Information</h3>
                         </div>
                         <a href="{{Route('button.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
-                            <i class="fas fa-plus"></i> Add Button</a>
+                            <i class="fas fa-plus"></i> Add </a>
                     </div>
 
                     <div class="card-body">

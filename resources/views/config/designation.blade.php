@@ -10,7 +10,7 @@
                         <h3 class="display text-center"> Designation Details</h3>
                         </div>
                         <a href="{{Route('designation.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
-                            <i class="fas fa-plus"></i> Add Designation
+                            <i class="fas fa-plus"></i> Add 
                         </a>
 
                     </div>

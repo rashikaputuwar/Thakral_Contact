@@ -209,9 +209,9 @@
                 </section>  
             </div>
         
-        <footer class="footer py-3">
+        <footer class="footer py-3" style="background-color: #f3f2f0; border-color: #f3f2f0; color: white;">
             <div class="container d-flex justify-content-between align-items-center">
-                <span class="text-muted">CMS ©</span>
+                <span class="text-muted" >CMS ©</span>
                 <div>
                     <a href="#" class="text-muted me-3">Support</a>
                     <a href="#" class="text-muted me-3">Help Center</a>

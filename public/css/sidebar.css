@@ -197,7 +197,7 @@ a.sidebar-link:hover {
 .content {
     flex: 1;
     padding: 1rem;
-    background-color: #f8f9fa; /* Light grey background */
+   
 }
 /* .main h1 { */
     /* background-color: white; */
@@ -285,7 +285,7 @@ a.sidebar-link[href="{{Route('roles.index')}}"] span {
     background-color: white; /* Adjust color as needed */
     border-bottom: 1px solid #dee2e6;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* font-size: 38px;  */
+    height: 90px;
     position: relative;
     /* margin-bottom: 20px;  */
 }
@@ -349,4 +349,22 @@ footer {
     background: #f8f9fa;
     padding: 0.5rem 1rem;
     border-top: 1px solid #dee2e6;
+}
+
+/* In your CSS file, e.g., public/css/app.css */
+
+.pagination .page-item.active .page-link {
+    background-color: #186c6c;
+    border-color: #186c6c;
+    color: white;
+}
+
+.pagination .page-link {
+    color: #186c6c;
+}
+
+.pagination .page-link:hover {
+    background-color: #0f4f4f; /* Darker color on hover */
+    border-color: #0f4f4f;
+    color: white;
 }

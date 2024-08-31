@@ -18,7 +18,7 @@
                         <h3 class="display text-center my-0"> Employees Details</h3>
                     </div>
                     @if ($hasAddPermission)
-                    <a href="{{Route('employee.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #90B494; color: white; border-color: #90B494;"><i class="fas fa-plus"></i> Add Employee</a>
+                    <a href="{{Route('employee.create')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; color: white; border-color: #90B494;"><i class="fas fa-plus"></i> Add </a>
                     @endif
                     </div>
 
@@ -51,14 +51,14 @@
                                 <td>
                                     @if ($hasViewPermission)
                                     <a href="{{Route('employee.show',$employee->id)}}" class="btn btn-sm" title="View">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: #90B494; text-align: center; line-height: 30px; border-radius: 5px;">
+                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: #8A716A; text-align: center; line-height: 30px; border-radius: 5px;">
                                             <i class="fas fa-eye" style="color: white;"></i>
                                         </span>
                                     </a>
                                     @endif
                                     @if ($hasEditPermission)
                                     <a href="{{Route('employee.edit',$employee->id)}}" class="btn btn-sm" title="Update">
-                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: rgb(56, 25, 213); text-align: center; line-height: 30px; border-radius: 5px;">
+                                        <span style="display: inline-block; width: 30px; height: 30px; background-color: #8A716A; text-align: center; line-height: 30px; border-radius: 5px;">
                                             <i class="fas fa-edit" style="color: white;"></i>
                                         </span>
                                     </a>
@@ -70,12 +70,12 @@
                             </table>
                         </div>
                    
-                        <div class="d-flex justify-content-end mt-4 mb-3 pr-4 pl-5">
-                            {{ $employees->links('pagination::bootstrap-5') }}
-                        </div>
+                            <div class="d-flex justify-content-end mt-4 mb-3 pr-4 pl-5">
+                                {{ $employees->links('pagination::bootstrap-5') }}
+                            </div>
                         <div class="d-flex justify-content-end mt-4 mb-3 pr-4" type="margin-top: 20px;">
                             @if ($hasExportPermission)
-                            <a href="{{ route('employee.export') }}" class="btn btn-info btn-sm ml-auto" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
+                            <a href="{{ route('employee.export') }}" class="btn btn-info btn-sm ml-auto" style="background-color: #107c41; border-color: #107c41; color: white;">Export to Excel</a>
                         @endif
                     </div>
                 </div>

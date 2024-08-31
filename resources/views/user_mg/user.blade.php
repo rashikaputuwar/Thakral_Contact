@@ -11,7 +11,7 @@
                         <h2 class="display text-center"> Users Information</h2>
                         </div>
                             <a href="{{Route('create.user')}}" class="btn btn-success btn-sm btn-add-user" style="background-color: #186c6c; border-color: #186c6c; color: white;">
-                                <i class="fas fa-plus"></i> Add Users</a>
+                                <i class="fas fa-plus"></i> Add </a>
                     </div>
                     
                     <div class="card-body">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="d-flex justify-content-end  mt-4 mb-3 pr-4">
                             @if ($hasExportPermission)
-                            <a href="{{ route('user.export') }}" class="btn btn-info btn-sm" style="background-color: #4a90e2; border-color: #4a90e2; color: white;">Export to Excel</a>
+                            <a href="{{ route('user.export') }}" class="btn btn-info btn-sm" style="background-color: #107c41; border-color: #107c41; color: white;">Export to Excel</a>
                              @endif
                         </div>  
                     </div>
