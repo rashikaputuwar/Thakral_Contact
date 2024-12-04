@@ -107,6 +107,8 @@ Route::post('/visitor/handle',[VisitorController::class,'handleForm'])->name('vi
 Route::post('/visitor/update',[VisitorController::class,'update'])->name('visitor.update');
 Route::post('/visitor/create',[VisitorController::class,'create'])->name('visitor.create');
 
+//creating a menu form
+Route::get('/visitor/menu',[VisitorController::class, 'viewMenu'])->name('visitor.viewMenu');
 
 //for permission aka button
 Route::get('/button',[PermissionController::class,'index'])->name('button.index');
