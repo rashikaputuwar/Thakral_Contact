@@ -84,7 +84,7 @@
 
                 @if($roleMenus->contains('menu_id', 6)) 
                 <li class="sidebar-item">
-                <a href="{{Route('visitor.viewMenu')}}" class="sidebar-link">
+                <a href="{{Route('visitor.showForm')}}" class="sidebar-link">
                         <i class="lni lni-customer"></i>
                         <span>Visitors</span>
                     </a>
@@ -154,6 +154,10 @@
                         </li>
                         @endif
                     </ul>
+                </li>
+                <li class="sidebar-item dropdown-item">
+                    <a href="{{Route('visitor.viewMenu')}}"
+                     class="sidebar-link">Visit</a>
                 </li>
             </ul>
             {{-- <div class="sidebar-footer">

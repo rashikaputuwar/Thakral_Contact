@@ -1,6 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Models\add_user;
 use App\Models\Client;
@@ -17,7 +20,14 @@ class LoginController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    use AuthenticatesUsers;
+     public function __construct()
+     {
+         // Apply middleware to specific routes
+         $this->middleware('guest')->except('logout');
+         $this->middleware('auth')->only('logout');
+     }
+     public function index()
     {
         return view('login');
     }
@@ -57,7 +67,10 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $employee = $user->employee;
-    
+        // if (Auth::attempt(['user_name' => $credentials['user_name'], 'password' => $credentials['password']], true)) {
+        //     $user = Auth::user();
+        //     $employee = $user->employee;
+
             if ($employee) {
                 $userRoles = $employee->roles->pluck('role_name')->toArray(); // Get all role names
                 $roleMenus = $employee->roles->flatMap(function ($role) {
@@ -142,6 +155,7 @@ class LoginController extends Controller
 
         // session()->flush();
         Auth::logout();
+        session()->flush();
         return redirect()->route('login.index');
     }
     // public function isLoggedIn()

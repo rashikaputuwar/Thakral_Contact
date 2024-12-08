@@ -16,6 +16,7 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Middleware\CheckRoles;
 use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\Auth;
 
 
 // ROUTES FOR USERCONTROLLER
@@ -140,7 +141,7 @@ Route::get('employee/photo/{id}', 'EmployeeController@getPhoto')->name('employee
 //login
 Route::get('/login',[LoginController::class,'index'])->name('login.index');
 Route::post('/loginMatch',[LoginController::class,'loginUser'])->name('login.match');
-
+Auth::routes(['verify' => true]);
 
 
 Route::get('/dashboard',[LoginController::class,'dashboardPage']) ->name('dashboard');
@@ -153,3 +154,7 @@ Route::middleware([CheckRoles::class.':Administrator'])->group(function () {
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');    
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

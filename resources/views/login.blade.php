@@ -13,6 +13,9 @@
             </ul>
         </div>
         @endif
+        <div class="user_name">
+            <h3>User Login</h3>
+        </div>
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" name="user_name" class="form-control" id="email" placeholder="Enter email" required>
@@ -21,11 +24,20 @@
             <label for="password">Password</label>
             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
         </div>
+        <div class="reset-container">
+            <label class="reset-label">
+            <a href="" class="reset-link">Forget Password?</a>
+        </label>
+        </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
 </div>
 
 <style>
+    .user_name{
+        display: flex;
+        justify-content: center;
+    }
     .login-container {
         display: flex;
         justify-content: center;
@@ -35,6 +47,16 @@
         font-family:'Poppins', sans-serif;
     }
 
+    .reset-link{
+        font-weight: normal;
+        color:   #12245c;
+      
+    }
+    .reset-container{
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: flex-end;
+    }
     .login-form {
         max-width: 500px;
         width: 100%;
